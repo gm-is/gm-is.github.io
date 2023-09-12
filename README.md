@@ -2,7 +2,9 @@
 
 Session Chair: **Ming Gu**, University of California, Irvine
 
-Fri, 22 Sep 2023, 2:00-3:30 pm PDT UTC-7
+**Fri, 22 Sep 2023, 2:00-3:30 pm PDT UTC-7 @ Girard Salons I&II, Hilton Woodland Hills/Los Angeles**
+
+6360 Canoga Ave, Woodland Hills, CA 91367
 
 ## Schedule
 
