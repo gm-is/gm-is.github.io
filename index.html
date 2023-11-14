@@ -35,68 +35,66 @@ $$$%?+;+++****;;**??+;+?%%%*;+*?%%%$
 	`
 
 		var main =
-			"<span style='color: #666666; font-weight: lighter;'>Hint: You can type <strong> b </strong> (bio) | <strong> r </strong> (research) | <strong> o </strong> (other) | <strong> t </strong> (teaching) </font></span>"
+"<span style='color: #666666; font-weight: lighter;'>Hint: You can type <strong> b </strong> (bio) | <strong> r </strong> (research) | <strong> o </strong> (other) | <strong> t </strong> (teaching) </font></span>"
 
 		$('body').terminal({
-				b: function () {
-					var div = $(
-						'<p>Hi, I\'m <a href="https://www.linkedin.com/in/ming-gu-0b6843281/" target="_blank">Ming Gu</a>. I conduct research based on cutting-edge technologies (sometimes), teach courses in technology (sometimes), and mentor students in the information systems domain (sometimes). I\'m most excited to work with <u>business thinkers</u> on models and products that help people understand the world better. Check my <a href="./gmis_files/CV_MingGu.pdf" target="_blank">CV</a> to know more.</p>' +
-						main)
-					this.echo(div)
+		b: function () {
+			var div = $(
+				'<p>Hi, I\'m <a href="https://www.linkedin.com/in/ming-gu-0b6843281/" target="_blank">Ming Gu</a>. I conduct research based on cutting-edge technologies (sometimes), teach courses in technology (sometimes), mentor students in the information systems domain (sometimes), and write randomly to build my digital twin (mostly). I\'m most excited to work with <u>world\'s business thinkers</u> on models and products that help people understand the domain better. Check my <a href="./gmis_files/CV_MingGu.pdf" target="_blank">CV</a> to know me more.</p>' +
+				main)
+			this.echo(div)
+		},
+		r: function () {
+			var div = $('<p>My research lies in the intersection of emerging technologies and economics. For example, I use state-of-the-art methods to analyze dynamic visuals and <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4110191">its relationship with stock returns</a>.</p>' +
+				main)
+			this.echo(div);
+		},
+		t: function () {
+			var div = $(
+				'<p>I believe good teaching can inspire hope, intrigue critical thinking, and instill love of proactive learning. I keep a growth mindset and incorporate various teaching techniques to ensure student-centered and effective learning.</p>' +
+				main)
+			this.echo(div)
+		},
+		cat: function (width, height) {
+			const img = $('<img src="https://placekitten.com/' + width + '/' + height + '">');
+			img.on('load', this.resume);
+			this.pause();
+			this.echo(img);
+		},
+		o: function () {
+			this.push(async function (command) {
+				const prompt =
+					`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
+				const response = await fetch(
+					`https://api.openai.com/v1/engines/davinci-codex/completions`, {
+						body: JSON.stringify({
+							"prompt": prompt,
+							"temperature": 0.3,
+							"max_tokens": 250
+						}),
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer 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",
+						},
+					}
+				);
+				if (response.ok) {
+					const jsonResponse = await response.json();
+					this.echo(jsonResponse.choices[0].text.trim());
+				} else {
+					this.error('Something went wrong with the GPT request.');
+				}
+			}, {
+				prompt: 'mingchat >>> ',
+				name: 'mingchat'
+			});
 				},
-				r: function () {
-					var div = $('<p>My research lies in the intersection of emerging technologies and economics. For example, I use state-of-the-art methods to analyze dynamic visuals content and the relationship bewteen the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4110191">use of it and stock returns</a>.</p>' +
-						main)
-					this.echo(div);
-				},
-				t: function () {
-					var div = $(
-						'<p>I believe good teaching can inspire hope, intrigue critical thinking, and instill love of proactive learning. I keep a growth mindset and incorporate various teaching techniques to ensure student-centered and effective learning.</p>' +
-						main)
-					this.echo(div)
-				},
-				cat: function (width, height) {
-					const img = $('<img src="https://placekitten.com/' + width + '/' + height + '">');
-					img.on('load', this.resume);
-					this.pause();
-					this.echo(img);
-				},
-				o: function () {
-					this.push(async function (command) {
-						const prompt =
-							`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
-						const response = await fetch(
-							`https://api.openai.com/v1/engines/davinci-codex/completions`, {
-								body: JSON.stringify({
-									"prompt": prompt,
-									"temperature": 0.3,
-									"max_tokens": 250
-								}),
-								method: "POST",
-								headers: {
-									"Content-Type": "application/json",
-									"Authorization": "Bearer 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",
-								},
-							}
-						);
-						if (response.ok) {
-							const jsonResponse = await response.json();
-							this.echo(jsonResponse.choices[0].text.trim());
-						} else {
-							this.error('Something went wrong with the GPT request.');
-						}
-					}, {
-						prompt: 'mingchat >>> ',
-						name: 'mingchat'
-					});
-				},
-
-			},
-
-		);
+		},);
+		
 		var term = $('body').terminal(function (command) {});
 
-		var div = $('<p>Whale Hello There! Welcome to the Gu-MING-nal.</p>')
+		var div = $('<p>Whale Hello There! Welcome to the Gu-MING-nal, where I build the digital Ming.</p>')
 		term.echo(div);
 
 		var div = $('<div id="text_ascii" style="white-space:pre">' + text_ascii + '</div>' + main)
