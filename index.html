@@ -151,16 +151,16 @@ S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*
 				const prompt =
 					`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
 				const response = await fetch(
-					`https://api.openai.com/v1/engines/davinci-codex/completions`, {
+					`https://01-ai/yi-34b-chat:914692bbe8a8e2b91a4e44203e70d170c9c5ccc1359b283c84b0ec8d47819a46`, {
 						body: JSON.stringify({
 							"prompt": prompt,
-							"temperature": 0.3,
-							"max_tokens": 250
+							"temperature": 0.5,
+							"max_tokens": 420
 						}),
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
-							"Authorization": "Bearer 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",
+							"Authorization": "Bearer 01ww-test-240125-13TfrYLMWd",
 						},
 					}
 				);
@@ -168,7 +168,7 @@ S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*
 					const jsonResponse = await response.json();
 					this.echo(jsonResponse.choices[0].text.trim());
 				} else {
-					this.error('Something went wrong with the GPT request.');
+					this.error('Something went wrong with the API request.');
 				}
 			}, {
 				prompt: 'mingchat >>> ',
