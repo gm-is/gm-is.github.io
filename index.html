@@ -149,7 +149,7 @@ S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*
 			const prompt =
 				`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
 			const response = await fetch(
-				`https://api.01ww.xyz/v1`, {
+				`https://app.alltius.ai/api/platform/v1/chat`, {
 					body: JSON.stringify({
 						"prompt": prompt,
 						"temperature": 0.5,
@@ -158,7 +158,7 @@ S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						"Authorization": "Bearer 01ww-test-240125-13TfrYLMWd",
+						"Authorization": "mUF69rf9TZiSI-79G7-U_x0KSTBo0w91JHCKmW7R1V00696",
 					},
 				}
 			);
