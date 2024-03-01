@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<link type="text/css" id="dark-mode" rel="stylesheet">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="./gmis_files/alltius.js"></script>
+	<script src="./gmis_files/jquery-3.3.1.min.js"></script>
+	<meta name="viewport" content="initial-scale=1"/>
+	<script src="./gmis_files/jquery.terminal.min.js"></script>
+	<link rel="stylesheet" href="./gmis_files/jquery.terminal-src.css"/>
+</head>
+
+<body class="full-screen-terminal">
+	<script>
+		var text_ascii = `
+
+SSSSSS%%SSSSSSSSSSSSSS%%+;::;;;+++******++;;;;;;;;;;++;;;;;:::::::::::::::::::;;+*??%%%%%%%SSSSSSSSS
+SSSSS%%%SSSSSSSSSSSSSS%?;:::;;;+++******++;;;;;;;;;;+;;;;;;:::::::::::::::::::;;+*???%%%%%%%%SSSSSSS
+SSSS%%%SSSSSSSSSSSSSSSS?;:::;+++++*******+;;;;;;;;;;;;;;;;;::::::::;;;:::::::::;+*????%%%%%%%%%SSSSS
+SSSS%%SSSS%SSSSSSSSSSSS?;:::;+++++*******+;;;;;;;;;;;;;;;;:::::::;;;;;;::::::::;+*?????%%%%%%%%%SSSS
+SSS%%SSSSSSSSSSSSSSSSSS%;:,,:;+++********+;;;;;;;;;;;;;;;;:::::;;;+*+;;::::::::;+**?????%%%%%%%%%%SS
+SSS%%SSSSSSSSSSSSSSS%%%%;,,,,:;+*********+;;;;;;;;;;;;;;;;::::;;++??*;;:::::::;;+**???????%%%%%%%%%S
+SSS%SSSSSSSSSSSSSSS%%%%?;,,.,,:+********++;;;;;;;;;;;;;;;;::;;;+*?%%*;;:::::::;;+**????????%%%%%%%%%
+SSSSSSSSSSSSSSSSSS%%???+:,,.,,:+********++;;;;;;;;;;;;;;;;;;;+*?%%%%*;;:::::::;;+**???????%%%%%%%%SS
+SSSSSSSSSSSSSSSSSS%%?**+;,,,,:;+********++;;;;;;;;;;;;;;;;;++*?%%%%%*;;:::;;;;;+*????%%%%%%%%SSSSSSS
+SSSSSSSS##SSSSSSSSS%??**+;:::;;++*******++;;;;;;;;;;;;;;;;+*?%%%%%%%*;;:;;;;+**??%%%%%%SSSSSSSSSSSS#
+SSSSSS####SSSSSSSSS%%%??*++;++++++******++;;;;+***??++;;;++?%%%%%%%%*;;;;;+*?%S%%%%SSSSSSSSSSSSSSS##
+SSSSSS#####SSSSSSSSS%%%?++++++++++******++;;;*?S%SSSS%+;;++??%%%%%%%*+;;+*?%%%%%%%%SSSSSSSSSSSSSSS##
+SSSSS####SSSSSSSSSSS%%?*+++***+;+++*****++;+?%%SSSSSSS%?+++*???%%%%%?***?%%%%????%%%%%%SSSSSSSSSSSS#
+%%SSS###SSSSSSSSSS%%%?*++++***+;+++*****++*SS#####S####S*++**????%?????%%%????*??%%%%%%%SSSSSSSSSSSS
+%%SSSSSSSSSSSSSSS%%??*++++++*++;+++******%##S###@@#####S%S%**??????????????*****?%%%%%%SSSSSSSSSSSSS
+%SSSSSSSSSSSSSSS%%??*+;;;++++++;+++*****%######@@@@@#######?**?????????*****++**?%%%%%%%SSSSSSSSSSSS
+%SSSSSSSSSSSSS%%%%?*+;;;;;;++*+++++****%S######@@@@@#######%***??????***+++++++*?%%%%%%%%SSSSSSSSSSS
+%%SSSSSSSSSSS%%%%%?*+;;;;;;++*++;+++**?S#######@@@@@######@@?*???????*+++++++++*?%%%%%%%%%%SSSSSSSSS
+%%%SSSSSSSS%%??????*+;;;;;;;+*++;;;++?SS##@#####@##@@##@@@@@S????%%??*+++++++++*?%%%%%%%%%%SSSSSSSSS
+%%%%%%%%%%%????????*++;;;;;++*++;;;;+%S##@##########@@@@#@@@#%%%%%%%?*+++++++++*?%%%%%%%%%%SSSSSSSSS
+S%%%%%%%????????????++;;;;;++*+;;;;;;?##@@####SSS%SS######@@#%%%%%%%?*+++++++++*?%%%%%%%%%%%SSSSSSSS
+S%%%%?????????***??*+;;::;;++*+;;;;;+?##@#SS%???******??%S#@#%%%%%%%?*+++++++++*??%%%%%%%%%%%SSSSSSS
+S%%%????????*****?*+;::::;;;+++;;;;;+?@@##??++++;;;;;+++*?%#@S?%%%%%?*+++++++++*?%%%%%%%%%%%%%SSSSSS
+%%%%??????***+++*?*;::::::;;;++;;;;++%@@#%*;;;;;;;;;;;;;++*%@S?%%%%%?*+++++++++*??%%%%%%%%%%%SSSSSSS
+%%%%%%???****++***+;:::::::;;;;;;;++*%@#%?+::::;:::;;;;;;;+*#S?%%%%%?*+++++++++*??%%%%%%%%%%%SSSSSSS
+%%%%%%????***++***+;;:::::::;;;;+++**%#%?*;:::::::::;;;;;;;*SS?%%%%%?*+++++++++*??%%%%%%%%%%%%SSSSSS
+%%%%%%??????******+;;;:::::::;;+++**?%S?*+;::::::::::::;;;;+%S??%%%?**+++++++++*??%%%%%%%%%%%%%SSSSS
+%%%%%%%?????****?**+;;;;:::::;;++***?%%*+;:::::::::::::;;;++*S??%%%?**+++++++++*??%%%%%%%%%%%%%%SSSS
+%%%%%%%%????****??*++;;;::,,,:;+***??%?+;::::;;+;:::;;;+**+++%%?%%%?**+++++++++*??%%%%%%%%%%%%%%SSSS
+%%%%%%%%%%%????????*++;;::,,,:;+***????+;:::;;*??+;;;+*%?***+%???%%?*++++++++++*??%%%%%%%%%%%%%%SSSS
+SSS%%%%%%%%%%%%%?%??**++;:,,,:;+*?*?*+*+::::;;;;+++;+**+++++;*???%%?*++++++++++*??%%%%%%%%%%%%%%SSSS
+SSSSSSS%%%SSS%%%%%%%??**+::,::;+****+;++::::;*?%*++;;+*?%??+;*???%%?*++++++++++*??%%%%%%%%%%%%%%SSSS
+SSS#SSS%%%%%??????****+++;::::;+****+:;;::::;;++++;:;++++;+;;+*???%?*++++++++++*??%%%%%%%%%%%%%%%SSS
+S####S%%??*******++;;;;;;;::::;+****;:;;:::::;;;;;:::;;;;;;;;;*???%?*++++++++++*??%%%%%%%%%%%%%%%%SS
+#####S%?**++++++;;::::::::::::;+****;;+::::::::::::::;;:::::;;+?????*++++++++++*???%%%%%%%%%%%%%%%SS
+#####%?*+++;;;;;;:::::::::::::;+**++;;;:::::::::;;:::;;;::::;;+?????*++++++++++*????%%%%%%%%%%%%%%%S
+#####S?*++;;;;;;::,,,,,:::::::;++*+++:;;:::::::;;:::;;;+;;:;;;*?????*++++++++++*????%%%%%%%%%%%%%%%S
+#####S?*++;;;;;;::,,,,,,,:::::;+++++*;::::::::;;;;+;+*+;+;;;++??????*++++++++++*?????%%%%%%%%%%%%%%%
+#####S%*++;;;;;;::,,,,,,,,::::;+++++++:::::;;;+;;;;++++;;+;++*??????*++++++++++*????%%%%%%%%%%%%%%%%
+#####S%*++;;;+++;:,,,,,,,,::::;;+++++++;:::;;+;;;;;;;;;;;;;+;*??????*++++++++++*????%%%%%%%%%%%%%%%%
+#####S*+;;;;++**+::,,,,,,,,,::;;++++++++;::;;;;*+++++++?*;;;;*??????*++++++++++*????%%%%%%%%%%%%%%%%
+#####?+;;;;;+*??*;:::,,,,,,,:::;;+++****;:::;;;?+:::::;?*;;;+???????*++++++++++*???%%%%%%%%%%%%%%%%%
+#####?+;;;++*?SS%*;;;::,,,,,,::;;+++****+:::;;;;;;;;;+*+;;;;+???????*++++++++++*???%%%%%%%%%%%%%%%%%
+#####*+;;++*?%SSS%?*++::,,,,,,,:;;++*****:::;;;;;;;;;++;;;;;*???????*++++++++++*????%%%%%%%%%%%%%%%%
+#S###?+;;+**?%%SSS%%?*;:,,,,,,,:;++******::;;;;;;;;;;;;;;;;+????????*++++++++++*?????%%%%%%%%%%%%%%%
+SSS##?****?*??%SSSS%?+;:,,,,,,,:;++*****;::;;:::;;;;;;;;;;+*????????*++++++++++**?????%%%%%%%%%%%%%S
+SSSSS%?**?????%%S%%?*+;::,,,,,:;++******:,:;;::::::;;;;;;++*????????*++++++++++**?????%%%%%%%%%%%%%S
+SSSSS%??%%%???%%%%%?*+;;::,,,:;++*******,.,:;;;::::;;;;;++**????????*++++++++++**??????%%%%%%%%%%%%%
+SSSSSS%%SS%%%%%??????**+++++++++++******,.,,:;;;;;;;+++++**?????????*++++++++++*??????%%%%%%%%%%%%%%
+%%%%%%%SSS%%%????????******++++++++*****+,,,,,:;;;;+++++;**?????????*++++++++++*?????%%%%%%%%%%%%%%%
+%%%%%%%SSS%%??????*******+++++++++++***??;.,,,,:;;;;++++;**?????????*++++++++++*?????%%%%%%%%%%%%%%%
+%%%%%%%SSS%%????*********++++**+++++**????:,,,,,,:;;;;+;;***????????*++++++++++*????????%%%%%%%%%%%%
+%%%%%%%%%%%????******************++*???????:,,,,,,,:;;+:;***????????*++++++++++*?????????%%%%%%%%%%%
+%%%????%??????*********************????%??%*,,,,,,,,:+;,:%**????????*++++++++++*????????%%%%%%%%%%%%
+%%???????????*********************???%%%%??%+,,,,,,,,*?+:%%*????????*++++++++++*????????%%%%%%%%%%%%
+%%?????**************************????%%%%%%%%;,,,,,,;SS%:?S?????????*++++++++++*??????%%%%%%%%%%%%%%
+S%%???*******************+++++**????%%%%%%%%%?;,,,,,?SSS;;%%?%??????*++++++++++*??????%%%%%%%%%%%%%%
+S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*??????%%%%%%%%%%%%%%
+%%???********++++++++++****??????%%%%%%%%%%%%?%;::,+SSS#%::?S%%%%%??*++++++++++*?????%%%%%%%%%%%%%%%
+??*******++++++++++++**?????????%%%%%%%%%%%%%%%?::::*SSSS;:;%%%%%%%?*++++++++++*??????%%%%%%%%%%%%%%
+****++++++++++++++++*???????%%%%%%%%%%%%%%%%%%?%+,::+SSSS?::?S%%%%%%*++++++++++*???????%%%%%%%%%%%%%
+++++++++++++++++++++????????%%%%%%%%%%%%%%%%%%%%?:,,;%SSSS+:*S%%%%%S?++++++++++*???????%%%%%%%%%%%%%
++++++++++++++++++++*?%%%%%%%%%%%%%%%%%%%%%%%%%%%%+,,:?%SSS%:;S%%%%%S%++++++++++*???????%%%%%%%%%%%%%
+*++++++++++++++++++?%%%%%%??%%%%%%%%%%%%%%%%%%%%??;,:*%%%SS+:?S%%%%SS++++++++++*???????%%%%%%%%%%%%%
+***+++++++++++++++*%%%??????%%%%%%%%%%%%%%%%%%%%?%*:,+%%%%S?:*S%%%%SS*+++++++++*??????%%%%%%%%%%%%%%
+*****+++++++++++++*?%%?*???%%%%%%%%%%%%%%%%%%%%%%?%;,;%%%%%%:;S%%%%SS?+++++++++*????%%%%%%%%%%%%%%%%
+******++++++++++++?%S?*??%%%%%%S%SS%%%%%%%%%%%%%%?%?::?%%S%S+:%S%%S%S?++++++++**????%%%%%%%%%%%%%%%%
+********++++++++++%%?*???%%%%%%SSSS%%%%%%%%%%%%%%%%%+,*S%SSS*:*S%%SSS%++++++++**????%%%%%%%%%%%%%%%%
+**********+++++++*%?**???%%%%%%SSSS%%%%%%%%%%%%%%%%%?:;%%SSS%:+S%%SSS%++++++++**????%%%%%%%%%%%%%%%%
+***********++++++*?**???%%%%%%%SSSS%%%%%%%%%%%%S%%%%%*:%%SSS%;;%%%SSS%++++++++**????%%%%%%%%%%%%%%%%
+**********+++++++****???%%%%%%SSSSS%%%%%%%%%%%%%%%%%%%;?SSSSS+:?S%SSSS*;++++++**?????%%%%%%%%%%%%%%%
+**+++++++++++++++***??%%%%%%%%SSSS%%%%%%%%%%%%%%S%%%%%??SSSSS?:*S%SSSS*;;+++++**?????%%%%%%%%%%%%%%%
++++++++++++++++++??%%?%%%%%%%%%SSS%%%%%%%%%%%%%%%%%%%%%?SSSSS%:+S%SSSS*;;;;+++**?????%%%%%%%%%%%%%%%
++++++++++++++++++?%???%%%%%%%SSSSS%%%%%%%%%%%%%%%%%%%%%?SSSSSS;+%SSSSS?:;;;;++**?????%%%%%%%%%%%%%%%
++++++++++;;;;;;;*%???%%%%%%%SSSSSS%%%%%%%%%%%%%%%%SS%%%%SSSSSS+;%SSSSS%;:;;;;++*??????%%%%%%%%%%%%%%
+++++++++;;;;;;;+??????%%%%%%SSSSSS%%%%%%%%%%%%%%%%SSS%%%SSSSSS*;%SSSSS%;:::;;;+****???????????%%%%%%
+++++++++;;;;;;;**????%%%%%%SSSSSSS%%%%%%%%%%%%%%%SSSS%%SSSSSSS?;SSSSSSS;:::::;;++********???????????
+++++++;;;;;;;;+*????%S%%%%SSS%%SSS%%%%%%%%%%%%%%SSSS#S%SSSSSSS?+SSSSSSS+:::::;;+++++++************??
++++++;;;;;;;;;*????%S%%%%SS%%%%SSS%%%%%%%%%%%%%%%SSSS#%SSSSSSS%+SSSSSSS*:::::;;;+++++++++***********
+++++++++;;;;;;*??%%%%%%SSS%%%%SSSS%%%%%%%%%%%%%%%%SSS#S%SSSSSS%?SSSSSSS?:::::;;;++++++++++**********
+++++++++++++++*??%%??%SSS%%%%SS%SSS%%%%%%%%%%%%%%%SSSS#SSSSSSSS%SSSSSSS%;::::;;;++++++++++**********
+++++++++++++++*?%???%SSS%%%SSS%%##S%%%%%%%%%%%%%%%%SSS##SSSSSSSSSSSSSSSS;::::;;;++++++++++**********
++++++++++++++*????%SSS%%%%SSS%%S@#SS%%%%%%%%%%%%%%SSSSS#SSSSSSSSSSSSSSSS+;:::;;;++++++++++**********
++++++++++++++*???%SS%%%%%SSS%%%#@#SS%%%%%%%%%%%%%%SSSSS##SSSSSS#SSSSSSSS*;;::;;;+++++++++++*********
++++++++++++++???%%%%%%%%SSS%%%S@@#SSS%%%%%%%S%%%%SSSSSSS@SSSSS##SSSSSSSS*;;;:;;;++++++++++**********
+++++++++++++*??%%%%%%%%SSS%%%%#@##SSSSS%%%%%%SSSSSSSSSSS#@SSSS##SSSSSS##?;;;;;;+++++++++************
+++++++++++++*??%%%%%%%SS%%%%%S#@##SSS%S%%%%%%%SSSSSSSSSSS@#SSS#SSSSSSS##%;;;;;;++++++++++++*********
+++++++++++++??%%%%%%%SS%%%%%S#@@##SSS%SSS%%%%%%SSSSSSSSSS#@SSS#SSS#SSS#SS+;;;;;++++++++++++++++*****
++++++++++++*??%%%%%%SS%%%%%%S#@@@#SSS%%%%%%%%%%%%%SSSSSSSS##SS#SSSSSS##SS*;;;;;;;;;++++++++++++++***
++++++++++++*??%%%%%%%%%%%%%SS@@@@#SSS%%%%SSSSSS%%%SSSSSSSS#@#S#SSSSSS##SS*;;;;;;;;;;;++++++++++++++*
++++++++;;;+???%%%%%%%%%%%%SS#@@@##SSS%%%%%SSSSSSSSSSSSSSSSS#@##SS##SS##S#?;;;;;;;;;;;+++++++++++++++
+++;;;;;;;;+??%%%%%%%%%%%%SSS#@@###SSS%%%%S%SSSSSSSSSSSSSSSSS###SS##SS##SS%++;;;;;;;;;+++++++++++++++
++;;;;;;;;;*??%%%%%%%%%%%SSS#@@@###SSS%%%%%%%SSSSSSSSSSSSSSSS###SS##S###SSS+++;;;;;;;;+++++++++++++++
++;;;;;;;;;*??%%%%%%%%%SSSSS#@@####SSSS%%%%%%%SSSSSSSSSSSSSSS##SS###S###SSS*++;;;;;;;;+++++++++++++++
++;;;;;;;;+??%%%%%%%%SSSSSS########SSSSSS%%%%SSSSSSSS###SSSSS##SS###S###SSS?+++;;;;;;;+++++++++++++++
+++;;;;;;;+?%%%%%%%SSS#SSSS########SSSSSSSS%%%SSSSSSSSSS####S#@S####S###SSS?++++;;;;;++++++++++++++++
++++;;;;;;*?%%%%%%SSSSS%%%S@#######SSSSSSSSS%%%SSSSSSSSSS######S####S####SS%+++++++++++++++++++++++++
++++;;;;;;*%%?%%%SSSS%%%S#@#S######SSSSSSSSSSSSSSSSSSSSSSSSSSS###########SS%+++++++++++++++++++++++++
++++++;;;+?%?%%%%SS%%%S#@@@SS######SSSSSSSSSSSSSSSSSSSSSSSSSSS#####S#####S#S+++++++++++++++++++++++++
++++++;;;+??%%%%%S%%%#@@@@#*%S#####SSSSSS%%SSSSSSSSSSSSSSSSSSS#SS##########S*++++++++++++++++++++++++
+
+	`
+
+		var main =
+"<span style='color: #666666; font-weight: lighter;'>Hint: You can type <strong> b </strong> (bio) | <strong> r </strong> (research) | <strong> o </strong> (other) | <strong> t </strong> (teaching) </font></span>"
+	$('body').terminal({
+	b: function () {
+		var div = $(
+			'<p>Hi, I\'m <a href="https://www.linkedin.com/in/ming-gu-0b6843281/" target="_blank">Ming Gu</a>. I conduct research based on cutting-edge technologies (sometimes), teach courses in technology (sometimes), mentor students in the information systems domain (sometimes), and write randomly to build my digital twin (mostly). I\'m most excited to work with <u>world\'s business thinkers</u> on models and products that help people understand the domain better. Check my <a href="./gmis_files/CV_MingGu.pdf" target="_blank">CV</a> to know me more.</p>' +
+			main)
+		this.echo(div)
+	},
+	r: function () {
+		var div = $('<p>My research lies in the intersection of emerging technologies and economics. For example, I use state-of-the-art methods to analyze dynamic visuals and <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4110191">its relationship with stock returns</a>.</p>' +
+			main)
+		this.echo(div);
+	},
+	t: function () {
+		var div = $(
+			'<p>I believe good teaching can inspire hope, intrigue critical thinking, and instill love of proactive learning. I keep a growth mindset and incorporate various teaching techniques to ensure student-centered and effective learning.</p>' +
+			main)
+		this.echo(div)
+	},
+	cat: function (width, height) {
+		const img = $('<img src="https://placekitten.com/' + width + '/' + height + '">');
+		img.on('load', this.resume);
+		this.pause();
+		this.echo(img);
+	},
+	o: function () {
+		this.push(async function (command) {
+			const prompt =
+				`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
+			const response = await fetch(
+				`https://api.01ww.xyz/v1`, {
+					body: JSON.stringify({
+						"prompt": prompt,
+						"temperature": 0.5,
+						"max_tokens": 420
+					}),
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Authorization": "Bearer 01ww-test-240125-13TfrYLMWd",
+					},
+				}
+			);
+			if (response.ok) {
+				const jsonResponse = await response.json();
+				this.echo(jsonResponse.choices[0].text.trim());
+			} else {
+				this.error('Something went wrong with the API request.');
+			}
+		}, {
+			prompt: 'mingchat >>> ',
+			name: 'mingchat'
+		});
+			},
+	},);
+	var term = $('body').terminal(function (command) {});
+	var div = $('<p>Whale Hello There! Welcome to the Gu-MING-nal, where I build the digital Ming.</p>')
+	term.echo(div);
+	var div = $('<div id="text_ascii" style="white-space:pre">' + text_ascii + '</div>' + main)
+	term.echo(div);
+	</script>
+
+	<div class="terminal"
+		style="--char-width: 14.40625; --terminal-height: 958; --terminal-x: 10; --terminal-y: 517; --terminal-scroll: 0;">
+		<div class="terminal-wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14"
+				style="display: none;">
+				<title id="title2">rounded</title>
+				<path id="terminal-broken-image"
+					d="m 14,10 h 2 v 1 a 3,3 0 0 1 -3,3 H 3 A 3,3 0 0 1 0,11 H 4.5 A 1.00012,1.00012 0 0 0 5.207,10.707 L 6.5,9.414 7.793,10.707 a 0.99963,0.99963 0 0 0 1.41406,0 l 2.36719,-2.36719 1.80127,1.44092 A 0.99807,0.99807 0 0 0 14,10 Z M 16,3 V 8 H 14.35059 L 12.12451,6.21924 A 0.99846,0.99846 0 0 0 10.793,6.293 L 8.5,8.586 7.207,7.293 a 0.99962,0.99962 0 0 0 -1.41406,0 L 4.08594,9 H 0 V 3 A 3,3 0 0 1 3,0 h 10 a 3,3 0 0 1 3,3 z M 6,4.5 A 1.5,1.5 0 1 0 4.5,6 1.5,1.5 0 0 0 6,4.5 Z">
+				</path>
+			</svg>
+			<div class="terminal-output" role="log">
+				<div data-index="0" class="raw">
+					<div style="width: 100%;">
+						<div id="text_ascii" style="white-space:pre"></div>
+					</div>
+				</div>
+				<style>
+					.terminal {
+						--size: 2;
+					}
+					.terminal .inverted,
+					.cmd .inverted,
+					.cmd .cursor.blink {
+						background-color: #0f0;
+						color: white;
+					}
+					@-webkit-keyframes terminal-blink {
+						animation-duration: 8s;
+						0%,
+						100% {
+							background-color: #000;
+							color: #0f0;
+						}
+						50% {
+							background-color: #0e0;
+							color: #fff;
+						}
+					}
+					@-ms-keyframes terminal-blink {
+						animation-duration: 8s;
+						0%,
+						100% {
+							background-color: #000;
+							color: #0f0;
+						}
+						50% {
+							background-color: #0e0;
+							color: #fff;
+						}
+					}
+					@-moz-keyframes terminal-blink {
+						animation-duration: 10s;
+						0%,
+						100% {
+							background-color: #000;
+							color: #0f0;
+						}
+						50% {
+							background-color: #0e0;
+							color: #fff;
+						}
+					}
+					<blade keyframes|%20terminal-blink%20%7B>animation-duration: 10s;
+					0%,
+					100% {
+						background-color: #000;
+						color: #0f0;
+					}
+					50% {
+						background-color: #0e0;
+						color: #fff;
+					}
+					}
+					a {
+						color: var(--link-color, #0F60FF);
+					}
+					.terminal .terminal-output> :not(.raw) a[href],
+					.cmd a[href] {
+						color: #0ffffc;
+						color: var(--link-color, #0ffffc);
+						cursor: pointer;
+					}
+					<blade media|%20(max-width%3A%20700px)%20%7B>#text_ascii {
+						display: none;
+					}
+					body.full-screen-terminal .terminal {
+						padding-bottom: 250px;
+						height: 100vh;
+						box-sizing: border-box;
+					}
+					}
+					body.full-screen-terminal,
+					html {
+						background: black;
+					}
+				</style>
+			</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
