@@ -152,10 +152,10 @@ S%%%???***********++++++++****????%%%%%SSS%%%%*:,,,+#SSS*:+S%%%%????*++++++++++*
 			const prompt =
 				`You are a helpful, knowledgeable, caring chatbot. I say: ${command}. You reply: `;
 			const response = await fetch(
-				`https://app.alltius.ai/api/platform/v2/chat/async`, {
+				`https://app.alltius.ai/api/platform/v1/chat/async`, {
 					body: JSON.stringify({
 						"post": prompt,
-						"assistant_id": "65de73fe4ffcccbd9c4dad4b",
+						"assistant_id": "65de73fe4ffcccbd9c4dad4b"
 					}),
 					method: "POST",
 					headers: {
