@@ -23,7 +23,7 @@ api.unmap('U');
 api.unmap('\'');
 
 
-settings.blocklistPattern = /((calendar|mail).google|trello|duolingo|youtube|udemy|overleaf).com/i
+settings.blocklistPattern = /((calendar|docs|mail).google|trello|duolingo|youtube|udemy|overleaf).com/i
 
 
 api.map('H','S'); // h b -> go one [H]istory [B]ack
