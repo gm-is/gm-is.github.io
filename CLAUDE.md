@@ -38,9 +38,17 @@ Personal academic website for Ming Gu, deployed via **GitHub Pages** at **gmis.m
 - Open in browser to test locally
 - Push to `master` for deployment
 
+## API Key Setup
+
+The OpenRouter API key is **not stored in the repo**. It is loaded at runtime from:
+1. **URL hash** (one-time setup): visit `gmis.me#key=YOUR_OPENROUTER_API_KEY` — saves to localStorage
+2. **localStorage**: once set, persists across sessions
+3. **Browser console**: `localStorage.setItem('openrouter_key', 'sk-or-v1-...')`
+
+If no key is configured, the site shows a setup banner and falls back to static links.
+
 ## Key Notes
 
-- **OpenRouter API key** is embedded client-side in `index.html` (accepted risk — free tier only)
 - **CNAME** must remain as `gmis.me`
 - **`sk.js`** is unrelated to the website (personal browser extension config)
-- **No `.env` or secrets file** — API key is in source code by design (free tier)
+- **Never commit API keys** to this repository

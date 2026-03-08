@@ -336,6 +336,23 @@
     #chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     #chat::-webkit-scrollbar-thumb:hover { background: #333; }
 
+    /* Setup banner */
+    .setup-banner {
+      background: rgba(255, 200, 0, 0.1);
+      border: 1px solid rgba(255, 200, 0, 0.3);
+      color: #ffc800;
+      padding: 12px 24px;
+      font-size: 12px;
+      text-align: center;
+      display: none;
+    }
+    .setup-banner code {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .setup-banner.visible { display: block; }
+
     /* Mobile */
     @media (max-width: 600px) {
       header {
@@ -353,6 +370,10 @@
   </style>
 </head>
 <body>
+
+<div id="setup-banner" class="setup-banner">
+  API key not configured. Visit <code>gmis.me#key=YOUR_OPENROUTER_API_KEY</code> to set it (saved to localStorage).
+</div>
 
 <header>
   <div class="site-name">MING GU</div>
@@ -400,7 +421,25 @@
 </footer>
 
 <script>
-const OPENROUTER_API_KEY = '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';
+// API key is loaded from URL hash or localStorage to avoid committing secrets.
+// Set your key: visit gmis.me#key=YOUR_OPENROUTER_API_KEY (one-time, saved to localStorage)
+// Or set it in browser console: localStorage.setItem('openrouter_key', 'sk-or-v1-...')
+function loadApiKey() {
+  const hash = window.location.hash;
+  const match = hash.match(/key=([^&]+)/);
+  if (match) {
+    localStorage.setItem('openrouter_key', match[1]);
+    history.replaceState(null, '', window.location.pathname);
+    return match[1];
+  }
+  return localStorage.getItem('openrouter_key') || '';
+}
+let OPENROUTER_API_KEY = loadApiKey();
+if (!OPENROUTER_API_KEY) {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('setup-banner').classList.add('visible');
+  });
+}
 const MODELS = [
   'google/gemini-2.0-flash-exp:free',
   'meta-llama/llama-3.3-70b-instruct:free'
@@ -503,6 +542,11 @@ function removeTyping() {
 }
 
 async function streamResponse(modelIndex = 0) {
+  if (!OPENROUTER_API_KEY) {
+    appendMessage('assistant', 'API key not configured. The site owner needs to set an OpenRouter API key.\n\nIn the meantime, here are direct links:\n- [LinkedIn](https://www.linkedin.com/in/ming-gu-0b6843281/)\n- [Research Paper (SSRN)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4110191)\n- [CV (PDF)](./gmis_files/CV_MingGu.pdf)');
+    return;
+  }
+
   if (modelIndex >= MODELS.length) {
     removeTyping();
     appendMessage('assistant', fallbackMessage());
