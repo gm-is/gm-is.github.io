@@ -448,18 +448,6 @@ function buildRow(row) {
           <canvas id="gc-${row.id}" class="hidden"></canvas>
           <div class="shimmer" id="sh-${row.id}">Loading GIF…</div>
         </div>
-        <div class="gif-controls">
-          <div class="ctrl-row">
-            <button class="btn" id="pb-${row.id}" onclick="togglePause('${row.id}','${row.gifSrc}',${!!row.external})">⏸ Pause</button>
-            <button class="btn" id="ob-${row.id}" onclick="toggleOverlay('${row.id}','${row.staticSrc}')">🔄 Overlay Diff</button>
-          </div>
-          ${!row.external
-            ? `<div class="ctrl-row" id="sw-${row.id}" style="display:none">
-                <input type="range" class="frame-slider" id="fs-${row.id}" min="0" max="10" value="0">
-                <span class="frame-info" id="fi-${row.id}">1 / ?</span>
-               </div>`
-            : `<div class="ext-note">Frame scrubber unavailable for external GIFs</div>`}
-        </div>
       </div>
     </div>
 
