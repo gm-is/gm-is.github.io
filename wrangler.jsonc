@@ -3,5 +3,12 @@
   "main": "worker.js",
   "compatibility_date": "2025-09-27",
   "compatibility_flags": ["nodejs_compat"],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gmis-chat-logs",
+      "database_id": "69e358ec-4cf8-45cf-a878-22855f85ef39"
+    }
+  ]
 }

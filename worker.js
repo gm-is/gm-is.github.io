@@ -1,11 +1,9 @@
 /**
- * Cloudflare Worker: OpenRouter API proxy for gmis.me chat
+ * Cloudflare Worker: OpenRouter API proxy + chat logging for gmis.me
  *
- * Deploy:
- *   wrangler deploy
- *   wrangler secret put OPENROUTER_API_KEY
- *
- * The API key is stored as a Worker secret — it never reaches the browser.
+ * Deploy:  wrangler deploy
+ * Secret:  wrangler secret put OPENROUTER_API_KEY
+ * Logs:    wrangler d1 execute gmis-chat-logs --remote --command "SELECT * FROM chats ORDER BY created_at DESC LIMIT 20"
  */
 
 const ALLOWED_ORIGINS = [
@@ -30,7 +28,6 @@ export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
 
-    // Handle CORS preflight
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
@@ -46,7 +43,6 @@ export default {
       return new Response('Bad Request: invalid JSON', { status: 400 });
     }
 
-    // Forward to OpenRouter with the secret key injected server-side
     const upstream = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -58,16 +54,42 @@ export default {
       body: JSON.stringify(body),
     });
 
-    // Stream the response back to the browser
-    const responseHeaders = {
-      'Content-Type': upstream.headers.get('Content-Type') || 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      ...corsHeaders(origin),
-    };
+    // Buffer the response so we can both log it and stream it
+    const responseText = await upstream.text();
+    const model = body.model || '';
+    const userMessage = body.messages?.findLast(m => m.role === 'user')?.content || '';
+    const country = request.cf?.country || '';
 
-    return new Response(upstream.body, {
+    // Extract assistant reply from SSE stream or JSON
+    let assistantMessage = '';
+    if (body.stream) {
+      for (const line of responseText.split('\n')) {
+        if (!line.startsWith('data: ') || line.includes('[DONE]')) continue;
+        try {
+          const chunk = JSON.parse(line.slice(6));
+          assistantMessage += chunk.choices?.[0]?.delta?.content || '';
+        } catch {}
+      }
+    } else {
+      try {
+        assistantMessage = JSON.parse(responseText).choices?.[0]?.message?.content || '';
+      } catch {}
+    }
+
+    // Log to D1 (non-blocking — don't await so it doesn't slow the response)
+    if (env.DB && userMessage) {
+      env.DB.prepare(
+        'INSERT INTO chats (model, user_message, assistant_message, country) VALUES (?, ?, ?, ?)'
+      ).bind(model, userMessage, assistantMessage, country).run().catch(() => {});
+    }
+
+    return new Response(responseText, {
       status: upstream.status,
-      headers: responseHeaders,
+      headers: {
+        'Content-Type': upstream.headers.get('Content-Type') || 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        ...corsHeaders(origin),
+      },
     });
   },
 };
