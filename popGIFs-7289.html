@@ -137771,3 +137771,35 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
     </tr>
   </tbody>
 </table>
+<style>
+  body { font-family: system-ui, sans-serif; font-size: 13px; padding: 1rem; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { padding: 6px 8px; vertical-align: top; border: 1px solid #ddd; }
+  th { background: #f5f5f5; font-weight: 600; position: sticky; top: 0; z-index: 1; }
+  td div { max-height: 120px; overflow-y: auto; white-space: pre-wrap; font-size: 12px; }
+  img.lazy { background: #f0f2f5; min-width: 150px; min-height: 100px; display: block; }
+  img.lazy::before { content: ''; }
+</style>
+
+<script>
+(function () {
+  // Convert all img src → data-src for lazy loading
+  document.querySelectorAll('img[src]').forEach(img => {
+    img.dataset.src = img.src;
+    img.removeAttribute('src');
+    img.classList.add('lazy');
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.classList.remove('lazy');
+      observer.unobserve(img);
+    });
+  }, { rootMargin: '400px' }); // preload 400px before entering view
+
+  document.querySelectorAll('img.lazy').forEach(img => observer.observe(img));
+})();
+</script>
