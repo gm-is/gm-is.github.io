@@ -629,29 +629,6 @@
     #chat::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     #chat::-webkit-scrollbar-thumb:hover, .main::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 
-    /* Setup banner */
-    .setup-banner {
-      background: rgba(255, 200, 0, 0.08);
-      border: 1px solid rgba(255, 200, 0, 0.2);
-      color: #e3b341;
-      padding: 10px 20px;
-      font-size: 13px;
-      text-align: center;
-      display: none;
-      position: fixed;
-      top: 0;
-      left: var(--sidebar-width);
-      right: 0;
-      z-index: 50;
-    }
-    .setup-banner code {
-      background: rgba(255,255,255,0.08);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-    }
-    .setup-banner.visible { display: block; }
-
     /* ===== MOBILE MENU ===== */
     .mobile-header {
       display: none;
@@ -724,15 +701,10 @@
         right: 16px;
       }
 
-      .setup-banner { left: 0; top: 56px; }
     }
   </style>
 </head>
 <body>
-
-<div id="setup-banner" class="setup-banner">
-  API key not configured. Visit <code>gmis.me#key=YOUR_OPENROUTER_API_KEY</code> to set it.
-</div>
 
 <!-- Mobile Header -->
 <div class="mobile-header">
@@ -922,23 +894,9 @@
 </div>
 
 <script>
-// ===== API KEY =====
-function loadApiKey() {
-  const hash = window.location.hash;
-  const match = hash.match(/key=([^&]+)/);
-  if (match) {
-    localStorage.setItem('openrouter_key', match[1]);
-    history.replaceState(null, '', window.location.pathname);
-    return match[1];
-  }
-  return localStorage.getItem('openrouter_key') || '';
-}
-let OPENROUTER_API_KEY = loadApiKey();
-if (!OPENROUTER_API_KEY) {
-  document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('setup-banner').classList.add('visible');
-  });
-}
+// ===== CHAT PROXY =====
+// Cloudflare Worker proxies requests to OpenRouter (API key is server-side)
+const WORKER_URL = 'https://gmis-chat.minggu.workers.dev';
 
 const MODELS = [
   'google/gemini-2.0-flash-exp:free',
@@ -1083,11 +1041,6 @@ function removeTyping() {
 }
 
 async function streamResponse(modelIndex = 0) {
-  if (!OPENROUTER_API_KEY) {
-    appendMessage('assistant', 'API key not configured. The site owner needs to set an OpenRouter API key.\n\nIn the meantime, here are direct links:\n- [LinkedIn](https://www.linkedin.com/in/ming-gu-0b6843281/)\n- [Research Paper (SSRN)](https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3667061)\n- [CV (PDF)](./gmis_files/CV_MingGu.pdf)');
-    return;
-  }
-
   if (modelIndex >= MODELS.length) {
     removeTyping();
     appendMessage('assistant', fallbackMessage());
@@ -1099,14 +1052,9 @@ async function streamResponse(modelIndex = 0) {
   showTyping();
 
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch(WORKER_URL, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://gmis.me',
-        'X-Title': 'Ming Gu Academic Website'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: MODELS[modelIndex],
         messages: [

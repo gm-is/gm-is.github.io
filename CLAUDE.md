@@ -17,6 +17,8 @@ Personal academic website for Ming Gu, deployed via **GitHub Pages** at **gmis.m
 ├── index.html          # Single-page chat-first website (HTML + CSS + JS all inline)
 ├── CNAME               # Custom domain config (gmis.me) — do not modify
 ├── .gitignore           # Git ignore rules
+├── worker/              # Cloudflare Worker (API proxy)
+│   └── chat-proxy.js   # Proxies chat requests, injects API key server-side
 ├── gmis_files/          # Assets directory (CV PDF)
 │   └── CV_MingGu.pdf   # CV document
 ├── sk.js               # Surfingkeys browser config (NOT part of site)
@@ -26,7 +28,7 @@ Personal academic website for Ming Gu, deployed via **GitHub Pages** at **gmis.m
 ## Architecture
 
 - **Single file**: Everything is in `index.html` — HTML structure, CSS styles, and JavaScript
-- **Chat flow**: User sends message → JS calls OpenRouter API with streaming → tokens rendered in real-time
+- **Chat flow**: User sends message → JS calls Cloudflare Worker proxy → Worker adds API key & forwards to OpenRouter → streaming response rendered in real-time
 - **System prompt**: Contains all of Ming's bio, research, teaching, and contact info (baked into JS)
 - **Fallback**: If primary model (Gemini) fails, falls back to Llama 3.3. If both fail, shows static links
 - **Markdown**: Simple regex-based renderer for bold, links, lists, code blocks
@@ -40,12 +42,17 @@ Personal academic website for Ming Gu, deployed via **GitHub Pages** at **gmis.m
 
 ## API Key Setup
 
-The OpenRouter API key is **not stored in the repo**. It is loaded at runtime from:
-1. **URL hash** (one-time setup): visit `gmis.me#key=YOUR_OPENROUTER_API_KEY` — saves to localStorage
-2. **localStorage**: once set, persists across sessions
-3. **Browser console**: `localStorage.setItem('openrouter_key', 'sk-or-v1-...')`
+The OpenRouter API key is **never exposed to the browser**. It lives server-side in a Cloudflare Worker:
 
-If no key is configured, the site shows a setup banner and falls back to static links.
+1. **Worker**: `worker/chat-proxy.js` — proxies chat requests to OpenRouter, injecting the API key
+2. **Environment variable**: The key is set as `OPENROUTER_API_KEY` in the Cloudflare Worker dashboard
+3. **Frontend**: `index.html` sends requests to the Worker URL (no key needed client-side)
+
+To deploy the worker:
+1. Create a Worker at [dash.cloudflare.com](https://dash.cloudflare.com)
+2. Paste `worker/chat-proxy.js`
+3. Set env var `OPENROUTER_API_KEY` to your OpenRouter key
+4. Update `WORKER_URL` in `index.html` to match your worker URL
 
 ## Key Notes
 
