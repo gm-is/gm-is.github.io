@@ -1,9 +1,14 @@
 /**
- * Cloudflare Worker: OpenRouter API proxy + chat logging for gmis.me
+ * Cloudflare Worker: OpenRouter chat proxy + D1 logging for gmis.me
+ *
+ * Routes:
+ *   POST /       → chat proxy (OpenRouter API, key injected server-side)
+ *   POST /rate   → store GIF viewer rating in D1
  *
  * Deploy:  wrangler deploy
  * Secret:  wrangler secret put OPENROUTER_API_KEY
  * Logs:    wrangler d1 execute gmis-chat-logs --remote --command "SELECT * FROM chats ORDER BY created_at DESC LIMIT 20"
+ * Ratings: wrangler d1 execute gmis-chat-logs --remote --command "SELECT row_id, dimension, value, COUNT(*) as n FROM gif_ratings GROUP BY row_id, dimension, value ORDER BY row_id, dimension"
  */
 
 const ALLOWED_ORIGINS = [
@@ -13,11 +18,10 @@ const ALLOWED_ORIGINS = [
 ];
 
 function corsHeaders(origin) {
-  const allowedOrigin = ALLOWED_ORIGINS.some(o => origin && origin.startsWith(o))
-    ? origin
-    : 'https://gmis.me';
+  const allowed = ALLOWED_ORIGINS.some(o => origin && origin.startsWith(o))
+    ? origin : 'https://gmis.me';
   return {
-    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Origin': allowed,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
@@ -27,15 +31,31 @@ function corsHeaders(origin) {
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
+    const url = new URL(request.url);
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
-
     if (request.method !== 'POST') {
       return new Response('Method Not Allowed', { status: 405 });
     }
 
+    // ── Route: POST /rate ──────────────────────────────────────────────────
+    if (url.pathname === '/rate') {
+      try {
+        const { row_id, dimension, value } = await request.json();
+        if (env.DB && row_id && dimension) {
+          await env.DB.prepare(
+            'INSERT INTO gif_ratings (row_id, dimension, value, country) VALUES (?, ?, ?, ?)'
+          ).bind(row_id, dimension, String(value), request.cf?.country || '').run();
+        }
+        return new Response('ok', { status: 200, headers: corsHeaders(origin) });
+      } catch (e) {
+        return new Response('Error: ' + e.message, { status: 400, headers: corsHeaders(origin) });
+      }
+    }
+
+    // ── Route: POST / (chat proxy) ─────────────────────────────────────────
     let body;
     try {
       body = await request.json();
@@ -54,29 +74,21 @@ export default {
       body: JSON.stringify(body),
     });
 
-    // Buffer the response so we can both log it and stream it
     const responseText = await upstream.text();
     const model = body.model || '';
     const userMessage = body.messages?.findLast(m => m.role === 'user')?.content || '';
     const country = request.cf?.country || '';
 
-    // Extract assistant reply from SSE stream or JSON
     let assistantMessage = '';
     if (body.stream) {
       for (const line of responseText.split('\n')) {
         if (!line.startsWith('data: ') || line.includes('[DONE]')) continue;
-        try {
-          const chunk = JSON.parse(line.slice(6));
-          assistantMessage += chunk.choices?.[0]?.delta?.content || '';
-        } catch {}
+        try { assistantMessage += JSON.parse(line.slice(6)).choices?.[0]?.delta?.content || ''; } catch {}
       }
     } else {
-      try {
-        assistantMessage = JSON.parse(responseText).choices?.[0]?.message?.content || '';
-      } catch {}
+      try { assistantMessage = JSON.parse(responseText).choices?.[0]?.message?.content || ''; } catch {}
     }
 
-    // Log to D1 (non-blocking — don't await so it doesn't slow the response)
     if (env.DB && userMessage) {
       env.DB.prepare(
         'INSERT INTO chats (model, user_message, assistant_message, country) VALUES (?, ?, ?, ?)'

@@ -3,179 +3,659 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Static vs Animated GIFs</title>
+<title>Static vs Animated GIFs — Advanced Visual Analysis</title>
 <meta name="author" content="Ming Gu">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --bg: #f5f7fa;
+    --card: #fff;
+    --border: #e2e6ea;
+    --text: #1a1a2e;
+    --text-sec: #5a6478;
+    --accent: #2563eb;
+    --accent-bg: #eff6ff;
+    --green: #15803d;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
+    --amber: #b45309;
+    --amber-bg: #fffbeb;
+    --red: #dc2626;
+    --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    --radius: 10px;
+  }
+
   body {
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    color: #1a1a1a;
-    background: #fff;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
-    padding: 2rem 1rem;
-    max-width: 960px;
-    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
   }
 
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 600;
+  .page { max-width: 1080px; margin: 0 auto; }
+
+  /* ── HEADER ── */
+  header { margin-bottom: 2rem; }
+  h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+  .subtitle { color: var(--text-sec); font-size: 0.9rem; }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
     margin-bottom: 1.25rem;
-    letter-spacing: -0.01em;
-  }
-
-  .prose {
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #333;
   }
+  .intro p + p { margin-top: 0.7rem; }
+  .intro a { color: var(--accent); }
 
-  .prose a {
-    color: #467886;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s;
+  /* ── LEGEND ── */
+  .legend {
+    background: var(--accent-bg);
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius);
+    padding: 0.9rem 1.25rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    font-size: 0.82rem;
+    color: var(--text-sec);
   }
-  .prose a:hover { border-bottom-color: #467886; }
-  .prose a:visited { color: #96607D; }
+  .legend-title { width: 100%; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
 
-  /* ---- comparison table ---- */
-  .comparison {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    margin-top: 0.5rem;
+  /* ── ROW CARD ── */
+  .row-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
 
-  .comparison th,
-  .comparison td {
-    padding: 0.75rem;
-    vertical-align: middle;
-    text-align: left;
+  .row-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: #fafbfc;
+    border-bottom: 1px solid var(--border);
+  }
+  .row-num {
+    width: 30px; height: 30px;
+    background: var(--accent); color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.82rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+  .row-label { font-size: 1rem; font-weight: 700; }
+  .row-cat {
+    margin-left: auto;
+    font-size: 0.72rem;
+    color: var(--text-sec);
+    background: #eef0f4;
+    padding: 2px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
   }
 
-  .comparison thead th {
+  /* ── COMPARISON COLUMNS ── */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+  .col { padding: 1rem; }
+  .col + .col { border-left: 1px solid var(--border); }
+
+  .col-label {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-sec); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .badge {
+    font-size: 0.68rem; padding: 1px 7px; border-radius: 20px; font-weight: 600;
+  }
+  .badge-static { background: #f1f3f5; color: #495057; }
+  .badge-gif    { background: var(--amber-bg); color: var(--amber); }
+
+  .img-wrap {
+    position: relative;
+    background: #f0f2f5;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .img-wrap img, .img-wrap canvas {
+    width: 100%; height: 100%;
+    object-fit: contain; display: block;
+  }
+  .img-wrap canvas { position: absolute; top: 0; left: 0; background: #f0f2f5; }
+  .img-wrap canvas.hidden { display: none; }
+
+  /* ── GIF CONTROLS ── */
+  .gif-controls { margin-top: 0.6rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .ctrl-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+
+  .btn {
+    padding: 4px 11px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: #fff;
+    font-size: 0.77rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .btn:hover { background: #f3f4f6; border-color: #adb5bd; }
+  .btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .frame-slider { flex: 1; min-width: 60px; accent-color: var(--accent); }
+  .frame-info { font-size: 0.7rem; color: var(--text-sec); font-family: var(--mono); white-space: nowrap; }
+  .ext-note { font-size: 0.7rem; color: #aaa; padding: 2px 0; }
+
+  /* ── METRICS PANEL ── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.25rem;
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: #fafbfc;
+  }
+  .mg-title {
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: #9ca3af; margin-bottom: 0.4rem;
+  }
+  .m-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.2rem; }
+  .m-lbl { color: var(--text-sec); min-width: 88px; flex-shrink: 0; }
+  .m-val { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; }
+  .m-pos { color: var(--green); }
+  .m-neg { color: var(--red); }
+  .m-neu { color: var(--text); }
+
+  .bar-wrap { flex: 1; height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
+  .bar { height: 100%; border-radius: 3px; transition: width 0.6s; }
+  .bar-low  { background: #86efac; }
+  .bar-med  { background: #fbbf24; }
+  .bar-high { background: #f87171; }
+
+  /* ── INFO GAIN ── */
+  .info-gain {
+    padding: 0.75rem 1.25rem;
+    background: var(--green-bg);
+    border-left: 3px solid var(--green);
+    border-bottom: 1px solid var(--border);
     font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #555;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 0.5rem;
+    color: #14532d;
+  }
+  .info-gain-title {
+    font-size: 0.68rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--green); margin-bottom: 0.2rem;
   }
 
-  .comparison tbody tr { border-bottom: 1px solid #eee; }
-  .comparison tbody tr:nth-child(odd) { background: #fafafa; }
-
-  .comparison .label {
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #222;
-    width: 18%;
+  /* ── OVERLAY TIP ── */
+  .overlay-tip {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.78rem;
+    color: var(--text-sec);
+    background: #fafbfc;
+    border-bottom: 1px solid var(--border);
   }
 
-  .comparison td:nth-child(2),
-  .comparison td:nth-child(3) { width: 41%; }
+  /* ── RATING SECTION ── */
+  .rating-sec { padding: 1rem 1.25rem; }
+  .rating-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #9ca3af; margin-bottom: 0.75rem; }
+  .rating-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+  .r-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .r-item-label { font-size: 0.78rem; color: var(--text-sec); }
+  .stars { display: flex; gap: 2px; }
+  .star { font-size: 1.25rem; cursor: pointer; color: #d1d5db; transition: color 0.1s; user-select: none; line-height: 1; }
+  .star:hover, .star.on { color: #f59e0b; }
+  .pref-btns { display: flex; gap: 0.4rem; }
+  .pref-btn { padding: 4px 14px; border: 1px solid var(--border); border-radius: 5px; background: #fff; font-size: 0.78rem; cursor: pointer; color: var(--text); transition: all 0.15s; }
+  .pref-btn:hover { background: #f3f4f6; }
+  .pref-static.sel { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .pref-gif.sel   { background: var(--amber-bg);  border-color: var(--amber);  color: var(--amber);  font-weight: 700; }
+  .r-saved { margin-top: 0.6rem; padding: 0.45rem 0.75rem; background: #f9fafb; border-radius: 6px; font-size: 0.77rem; color: var(--text-sec); display: none; }
+  .r-saved.on { display: block; }
 
-  .comparison img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    border-radius: 4px;
-    background: #f5f5f5;
-  }
+  /* ── PLACEHOLDER ── */
+  .placeholder { padding: 2.5rem 1.5rem; text-align: center; color: #9ca3af; background: #fafbfc; }
+  .placeholder .ph-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .placeholder .ph-title { font-weight: 700; color: #6b7280; margin-bottom: 0.3rem; }
+  .placeholder .ph-note { font-size: 0.82rem; max-width: 480px; margin: 0 auto; }
 
-  /* ---- responsive ---- */
+  /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
-    body { padding: 1rem 0.75rem; }
-    h1 { font-size: 1.35rem; }
-    .prose { font-size: 0.88rem; }
-    .comparison th, .comparison td { padding: 0.5rem 0.35rem; }
-    .comparison .label { font-size: 0.78rem; }
+    h1 { font-size: 1.25rem; }
+    .cols { grid-template-columns: 1fr; }
+    .col + .col { border-left: none; border-top: 1px solid var(--border); }
+    .metrics { grid-template-columns: 1fr 1fr; }
+    .row-cat { display: none; }
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-<h1>Static vs Animated GIFs</h1>
+<header>
+  <h1>Static vs Animated GIFs — Advanced Visual Analysis</h1>
+  <p class="subtitle">Ming Gu · Computational metrics, interactive frame scrubbing, and viewer response collection</p>
+</header>
 
-<p class="prose">
-Compared to its static counterpart (e.g., <a href="https://ibb.co/1q4x4Xj">R1C1</a>),
-an animated GIF image (e.g., <a href="https://giphy.com/gifs/l3q2Lu62MjV4N68bm">R1C2</a>)
-could provide a more vivid and expressive representation of motion, temporal progression,
-and color transitions. Although both formats may convey similar visual concepts,
-animated GIFs are particularly effective at illustrating dynamic processes and
-continuous actions. By presenting a sequence of frames over time, GIFs are able to
-depict narrative progression and causal outcomes, such as the completion of a
-trick shot in <a href="https://giphy.com/gifs/37oQ0QPUQkkqIqvDyC">R4C2</a>
-whereas static images (e.g., <a href="https://ibb.co/qg95BQc">R4C1</a>) capture only a single moment,
-often requiring viewers to infer unresolved or ambiguous outcomes.
-</p>
+<div class="intro">
+  <p>Compared to its static counterpart (e.g., <a href="https://ibb.co/1q4x4Xj">R1C1</a>), an animated GIF image (e.g., <a href="https://giphy.com/gifs/l3q2Lu62MjV4N68bm">R1C2</a>) can provide a more vivid and expressive representation of motion, temporal progression, and color transitions. Although both formats may convey similar visual concepts, animated GIFs are particularly effective at illustrating dynamic processes and continuous actions. By presenting a sequence of frames over time, GIFs depict narrative progression and causal outcomes — such as the completion of a trick shot in <a href="https://giphy.com/gifs/37oQ0QPUQkkqIqvDyC">R4C2</a> — whereas static images capture only a single moment, often requiring viewers to infer unresolved or ambiguous outcomes.</p>
+  <p>Moreover, animated GIFs consistently convey richer information and evoke stronger emotional responses than their static counterparts. This page provides computational metrics (file size, color entropy, per-frame motion intensity) alongside interactive controls for frame-by-frame inspection and cross-format overlay comparison. Viewer response data is collected to study affective and informational preferences across media types.</p>
+</div>
 
-<p class="prose">
-Moreover, animated GIFs consistently convey richer information and evoke stronger
-emotional responses than their static counterparts. For instance, the aesthetic and
-dynamic appeal of <a href="https://giphy.com/gifs/xUySTFIYMxnIA8qUTu">R3C2</a>
-surpasses that of <a href="https://ibb.co/pvTLFty">R3C1</a>,
-while the humorous interaction in
-<a href="https://giphy.com/gifs/waving-bears-wildlife-13XarhksGkhCZG">R5C2</a>
-(two teddy bears waving) is much more engaging than their static snapshot
-<a href="https://ibb.co/Mcnw5jj">R5C1</a>. This illustrates the unique
-communicative power of animated GIFs in evoking resonance and enhancing visual
-storytelling. In the case of emotional expression, the static image
-(e.g., <a href="Animated_GIF_Examples_and_their_Static_Counterparts_files/image005.png">R2C1</a>)
-captures a single facial expression and verbal cue, which limits emotional
-interpretation to an isolated moment. By contrast, the animated GIF
-(e.g., <a href="Animated_GIF_Examples_and_their_Static_Counterparts_files/image006.gif">R2C2</a>)
-conveys subtle temporal variations in gesture, timing, facial expression and body
-language, which collectively amplify emotional nuance. This temporal layering allows
-viewers to perceive tone, intention, and affect more clearly, thereby fostering a
-stronger emotional connection than is possible through a single static frame.
-</p>
+<div class="legend">
+  <div class="legend-title">Interactive Controls &amp; Metrics Guide</div>
+  <span>⏸ <b>Pause/Play</b> — freeze animation at current frame</span>
+  <span>🎞 <b>Frame Scrubber</b> — drag slider to step through frames (local GIFs only)</span>
+  <span>🔄 <b>Overlay Diff</b> — alternates static ↔ GIF to highlight motion</span>
+  <span>📊 <b>Motion Score</b> — mean absolute pixel diff across consecutive frames</span>
+  <span>🔡 <b>Color Entropy</b> — Shannon entropy of RGB histogram (higher = more color diversity)</span>
+  <span>⭐ <b>Ratings</b> — your responses are saved locally and aggregated</span>
+</div>
 
-<table class="comparison">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Static Images</th>
-      <th>Animated GIFs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="label">Vivid / Colorful</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image002.png" alt="Colorful static image"></td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image003.gif" alt="How Are You Pixel GIF by Jacqueline Jing Lin"></td>
-    </tr>
-    <tr>
-      <td class="label">Emotional Response</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image005.png" alt="Emotional static image"></td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image006.gif" alt="Elon Musk SNL GIF by Saturday Night Live"></td>
-    </tr>
-    <tr>
-      <td class="label">Storytelling / Dancing</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image008.png" alt="Dancing static image"></td>
-      <td><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzFmNTd1dDA5aXNsZTI4YW54bWg3Mm9nenJ2bHphYjQ5NjM0cTdlYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUySTFIYMxnIA8qUTu/giphy.gif" alt="Dancing animated GIF"></td>
-    </tr>
-    <tr>
-      <td class="label">Storytelling / Sports</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image012.png" alt="A person in a black jacket"></td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image013.gif" alt="Trick shot fun GIF by NBA"></td>
-    </tr>
-    <tr>
-      <td class="label">Humor</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image015.png" alt="Two bears sitting on their hind legs"></td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image016.gif" alt="Waving Teddy Bear GIF"></td>
-    </tr>
-    <tr>
-      <td class="label">Cause &amp; Effect</td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image018.png" alt="Squeeze static image"></td>
-      <td><img src="Animated_GIF_Examples_and_their_Static_Counterparts_files/image019.gif" alt="Saturday Night Live NBC GIF by HULU"></td>
-    </tr>
-  </tbody>
-</table>
+<div id="container"></div>
 
+</div><!-- /.page -->
+
+<script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.js"></script>
+<script>
+
+// ── DATA (pre-computed from actual files) ──────────────────────────────────
+const ROWS = [
+  {
+    id: 'vivid', num: 1,
+    label: 'Vivid / Colorful', category: 'Visual Richness',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image002.png',
+    gifSrc:    'Animated_GIF_Examples_and_their_Static_Counterparts_files/image003.gif',
+    staticSize: 186, gifSize: 1393, gifFrames: 36, gifDuration: 1.4,
+    staticEntropy: 7.46, gifEntropy: 7.41, motionScore: 31.6, motionLevel: 'High',
+    infoGain: 'Color cycling and animated light play create vivid chromatic transitions impossible to convey in any single frame. The GIF encodes 36 frames of shifting hue, yielding 7.5× more data than the static for a nearly identical first-frame entropy (7.41 vs 7.46) — demonstrating that temporal diversity, not spatial complexity, drives richness.',
+  },
+  {
+    id: 'emotion', num: 2,
+    label: 'Emotional Response', category: 'Affective Impact',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image005.png',
+    gifSrc:    'Animated_GIF_Examples_and_their_Static_Counterparts_files/image006.gif',
+    staticSize: 169, gifSize: 4015, gifFrames: 85, gifDuration: 2.5,
+    staticEntropy: 8.44, gifEntropy: 8.41, motionScore: 1.5, motionLevel: 'Low',
+    infoGain: 'Despite extremely low pixel-level motion (score 1.5 — the lowest in this dataset), the 85-frame GIF encodes 24× more data than the static. Subtle micro-expression shifts and body language timing are temporally distributed and imperceptible in any single frame — illustrating that emotional nuance is a temporal, not spatial, phenomenon.',
+  },
+  {
+    id: 'dancing', num: 3,
+    label: 'Storytelling / Dancing', category: 'Kinesthetic Narrative',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image008.png',
+    gifSrc: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzFmNTd1dDA5aXNsZTI4YW54bWg3Mm9nenJ2bHphYjQ5NjM0cTdlYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUySTFIYMxnIA8qUTu/giphy.gif',
+    staticSize: 289, gifSize: null, gifFrames: null, gifDuration: null,
+    staticEntropy: 8.92, gifEntropy: null, motionScore: null, motionLevel: 'High',
+    infoGain: 'Rhythm, sequential movement, and kinesthetic energy are inherently temporal. No single frame can encode choreography — motion IS the meaning. The static image offers the highest entropy in this dataset (8.92), yet conveys the least information about what is actually happening.',
+    external: true,
+  },
+  {
+    id: 'sports', num: 4,
+    label: 'Storytelling / Sports', category: 'Action Sequence',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image012.png',
+    gifSrc:    'Animated_GIF_Examples_and_their_Static_Counterparts_files/image013.gif',
+    staticSize: 307, gifSize: 1459, gifFrames: 61, gifDuration: 4.3,
+    staticEntropy: 8.36, gifEntropy: 8.41, motionScore: 22.3, motionLevel: 'High',
+    infoGain: 'The trick shot\'s causal chain — setup, trajectory, outcome — is encoded across 61 frames at 22.3 motion units/frame. The entropy of the GIF\'s first frame (+0.05 vs static) is nearly identical, confirming that the information gap is entirely temporal. The static captures an ambiguous mid-action moment from which the outcome is unresolvable.',
+  },
+  {
+    id: 'humor', num: 5,
+    label: 'Humor', category: 'Comic Timing',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image015.png',
+    gifSrc:    'Animated_GIF_Examples_and_their_Static_Counterparts_files/image016.gif',
+    staticSize: 256, gifSize: 920, gifFrames: 37, gifDuration: 2.2,
+    staticEntropy: 8.84, gifEntropy: 8.83, motionScore: 13.8, motionLevel: 'Medium',
+    infoGain: 'Comic timing is fundamentally temporal: the setup-to-punchline rhythm requires 37 frames to execute. Color entropy is nearly identical (8.84 vs 8.83), confirming the spatial content is equivalent — the joke exists entirely in the temporal domain. The static image provides no cue to the humor.',
+  },
+  {
+    id: 'cause', num: 6,
+    label: 'Cause & Effect', category: 'Causal Chain',
+    staticSrc: 'Animated_GIF_Examples_and_their_Static_Counterparts_files/image018.png',
+    gifSrc:    'Animated_GIF_Examples_and_their_Static_Counterparts_files/image019.gif',
+    staticSize: 196, gifSize: 615, gifFrames: 17, gifDuration: 3.4,
+    staticEntropy: 8.19, gifEntropy: 8.0, motionScore: 6.4, motionLevel: 'Low',
+    infoGain: 'Despite modest motion (6.4) and fewer frames (17) than any other GIF in this dataset, the causal chain is unambiguous. The GIF entropy is slightly lower (8.0 vs 8.19), suggesting the static has more spatial complexity — yet the GIF carries more actionable information. Cause-and-effect requires temporal sequencing: the "effect" is semantically undefined without the "cause".',
+  },
+  // ── Level 4: New dimensions ───────────────────────────────────────────────
+  {
+    id: 'surprise', num: 7,
+    label: 'Surprise / Unexpected', category: 'Temporal Revelation',
+    placeholder: true,
+    infoGain: 'Surprise requires a before-state to violate expectations. The static captures only the aftermath; the GIF encodes the full anticipation → violation → reaction arc. The "surprise" is entirely in the transition.',
+    note: 'Add a GIF and static counterpart here. Ideal: an unexpected reveal, jump scare, or reaction GIF where the outcome is meaningless without the build-up.',
+  },
+  {
+    id: 'social', num: 8,
+    label: 'Social Interaction', category: 'Relational Dynamics',
+    placeholder: true,
+    infoGain: 'Social dynamics — turn-taking, reciprocal reactions, gaze direction shifts — are inherently temporal. A static image captures a power asymmetry or proximity but cannot encode who initiated, who responded, or how the interaction evolved.',
+    note: 'Add a GIF showing two+ agents interacting (conversation, handshake, reaction chain) and its static counterpart.',
+  },
+  {
+    id: 'loop', num: 9,
+    label: 'Loop / Repetition', category: 'Cyclic Meaning',
+    placeholder: true,
+    infoGain: 'Perfect loops create semantic meaning through repetition that accumulates with each cycle — a form of emphasis unavailable to static images. The loop count becomes part of the message. Repetition itself signals: "this keeps happening."',
+    note: 'Add a perfectly-looping GIF where the loop carries semantic weight (spinning, breathing, bouncing, waves) and its first-frame static.',
+  },
+];
+
+// ── GIF FRAME DECODER ────────────────────────────────────────────────────────
+const gifData = {}; // id → { frames, w, h } (gifuct-js decoded)
+
+async function loadFrames(id, src) {
+  if (gifData[id]) return gifData[id];
+  try {
+    const resp = await fetch(src);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const buf = await resp.arrayBuffer();
+    const parsed = parseGIF(buf);
+    const frames = decompressFrames(parsed, true);
+    gifData[id] = { frames, w: parsed.lsd.width, h: parsed.lsd.height };
+    return gifData[id];
+  } catch (e) {
+    console.warn('GIF decode failed for', id, e.message);
+    return null;
+  }
+}
+
+function drawFrame(canvas, data, idx) {
+  const { frames, w, h } = data;
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, w, h);
+  // Composite from 0 to idx for correct rendering
+  for (let i = 0; i <= idx; i++) {
+    const f = frames[i];
+    const id4 = new ImageData(new Uint8ClampedArray(f.patch), f.dims.width, f.dims.height);
+    ctx.putImageData(id4, f.dims.left, f.dims.top);
+  }
+}
+
+// ── PAUSE / PLAY ─────────────────────────────────────────────────────────────
+const paused = {};
+
+async function togglePause(id, src, external) {
+  const btn    = document.getElementById('pb-' + id);
+  const img    = document.getElementById('gi-' + id);
+  const canvas = document.getElementById('gc-' + id);
+  const sw     = document.getElementById('sw-' + id);
+
+  if (paused[id]) {
+    // Resume
+    img.src = img.dataset.src;
+    img.style.visibility = '';
+    canvas.classList.add('hidden');
+    if (sw) sw.style.display = 'none';
+    btn.textContent = '⏸ Pause'; btn.classList.remove('active');
+    paused[id] = false;
+    return;
+  }
+
+  btn.textContent = '⏳ Loading…'; btn.disabled = true;
+
+  if (!external) {
+    const data = await loadFrames(id, src);
+    if (data) {
+      drawFrame(canvas, data, 0);
+      canvas.classList.remove('hidden');
+      img.src = ''; // stop animation
+      if (sw) {
+        const slider = document.getElementById('fs-' + id);
+        const info   = document.getElementById('fi-' + id);
+        slider.max = data.frames.length - 1;
+        slider.value = 0;
+        info.textContent = `1 / ${data.frames.length}`;
+        slider.oninput = () => {
+          const n = parseInt(slider.value);
+          drawFrame(canvas, data, n);
+          info.textContent = `${n + 1} / ${data.frames.length}`;
+        };
+        sw.style.display = 'flex';
+      }
+    }
+  } else {
+    // External: snapshot current rendered frame via canvas
+    canvas.width  = img.naturalWidth  || 320;
+    canvas.height = img.naturalHeight || 240;
+    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvas.classList.remove('hidden');
+    img.style.visibility = 'hidden';
+  }
+
+  btn.textContent = '▶ Play'; btn.classList.add('active'); btn.disabled = false;
+  paused[id] = true;
+}
+
+// ── OVERLAY DIFF ──────────────────────────────────────────────────────────────
+const overlayTimers = {};
+
+function toggleOverlay(id, staticSrc) {
+  const btn = document.getElementById('ob-' + id);
+  const img = document.getElementById('gi-' + id);
+
+  if (overlayTimers[id]) {
+    clearInterval(overlayTimers[id]); delete overlayTimers[id];
+    img.src = img.dataset.src;
+    btn.textContent = '🔄 Overlay Diff'; btn.classList.remove('active');
+    return;
+  }
+  btn.classList.add('active'); btn.textContent = '⏹ Stop Overlay';
+  let showGIF = true;
+  overlayTimers[id] = setInterval(() => {
+    showGIF = !showGIF;
+    img.src = showGIF ? img.dataset.src : staticSrc;
+  }, 850);
+}
+
+// ── RATINGS ──────────────────────────────────────────────────────────────────
+const WORKER = 'https://gmis-chat.ai4biz-af5701.workers.dev';
+
+function getRatings(id) {
+  try { return JSON.parse(localStorage.getItem('gr-' + id)) || {}; } catch { return {}; }
+}
+function saveRating(id, key, val) {
+  const r = getRatings(id); r[key] = val;
+  localStorage.setItem('gr-' + id, JSON.stringify(r));
+  fetch(WORKER + '/rate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ row_id: id, dimension: key, value: String(val) }),
+  }).catch(() => {});
+  showSaved(id);
+}
+
+function rateStar(el) {
+  const { id, dim, val } = el.dataset;
+  saveRating(id, dim, parseInt(val));
+  document.querySelectorAll(`#stars-${dim}-${id} .star`)
+    .forEach((s, i) => s.classList.toggle('on', i < val));
+}
+function ratePref(id, choice, btn) {
+  saveRating(id, 'pref', choice);
+  btn.closest('.pref-btns').querySelectorAll('.pref-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+function showSaved(id) {
+  const r = getRatings(id);
+  const el = document.getElementById('rs-' + id);
+  const parts = [];
+  if (r.emotion) parts.push(`Impact: ${'★'.repeat(r.emotion)}${'☆'.repeat(5-r.emotion)}`);
+  if (r.info)    parts.push(`Info gain: ${'★'.repeat(r.info)}${'☆'.repeat(5-r.info)}`);
+  if (r.pref)    parts.push(`Prefer: ${r.pref === 'gif' ? 'Animated GIF' : 'Static image'}`);
+  if (parts.length) { el.textContent = '✓ Saved — ' + parts.join(' · '); el.classList.add('on'); }
+}
+
+// ── METRICS HTML ──────────────────────────────────────────────────────────────
+function metricsHTML(row) {
+  if (row.placeholder) return '';
+  const delta = row.gifEntropy !== null ? (row.gifEntropy - row.staticEntropy).toFixed(2) : null;
+  const deltaStr = delta !== null ? (parseFloat(delta) >= 0 ? '+' : '') + delta : null;
+  const dcls = delta !== null ? (parseFloat(delta) >= 0 ? 'm-pos' : 'm-neg') : 'm-neu';
+  const mult = row.gifSize ? (row.gifSize / row.staticSize).toFixed(1) + '×' : 'N/A';
+  const motW = row.motionScore !== null ? Math.min(100, (row.motionScore / 35) * 100) + '%' : '50%';
+  const motCls = { High: 'bar-high', Medium: 'bar-med', Low: 'bar-low' }[row.motionLevel] || 'bar-low';
+
+  return `<div class="metrics">
+    <div>
+      <div class="mg-title">File Size</div>
+      <div class="m-row"><span class="m-lbl">Static PNG</span><span class="m-val m-neu">${row.staticSize} KB</span></div>
+      <div class="m-row"><span class="m-lbl">Animated GIF</span><span class="m-val m-neu">${row.gifSize ? row.gifSize + ' KB' : 'External'}</span></div>
+      <div class="m-row"><span class="m-lbl">Size ratio</span><span class="m-val m-neu">${mult} larger</span></div>
+    </div>
+    <div>
+      <div class="mg-title">Animation</div>
+      <div class="m-row"><span class="m-lbl">Frames</span><span class="m-val m-neu">${row.gifFrames ?? 'N/A'}</span></div>
+      <div class="m-row"><span class="m-lbl">Duration</span><span class="m-val m-neu">${row.gifDuration ? row.gifDuration + 's' : 'N/A'}</span></div>
+      <div class="m-row"><span class="m-lbl">Frame rate</span><span class="m-val m-neu">${row.gifFrames && row.gifDuration ? (row.gifFrames/row.gifDuration).toFixed(1) + ' fps' : 'N/A'}</span></div>
+    </div>
+    <div>
+      <div class="mg-title">Color Entropy (bits)</div>
+      <div class="m-row"><span class="m-lbl">Static</span><span class="m-val m-neu">${row.staticEntropy}</span></div>
+      <div class="m-row"><span class="m-lbl">GIF frame 0</span><span class="m-val m-neu">${row.gifEntropy ?? 'N/A'}</span></div>
+      <div class="m-row"><span class="m-lbl">Δ Entropy</span><span class="m-val ${dcls}">${deltaStr ?? 'N/A'}</span></div>
+    </div>
+    <div>
+      <div class="mg-title">Motion Intensity</div>
+      <div class="m-row"><span class="m-lbl">Level</span><span class="m-val m-neu">${row.motionLevel}</span></div>
+      <div class="m-row">
+        <span class="m-lbl">${row.motionScore !== null ? row.motionScore + ' px/fr' : 'N/A'}</span>
+        <div class="bar-wrap"><div class="bar ${motCls}" style="width:${motW}"></div></div>
+      </div>
+      <div class="m-row"><span class="m-lbl">Spatial info</span><span class="m-val m-neu">≈ ${row.staticSize * 8 / 1000 | 0} kbits</span></div>
+    </div>
+  </div>`;
+}
+
+// ── RATING HTML ───────────────────────────────────────────────────────────────
+function ratingHTML(id) {
+  const r = getRatings(id);
+  const stars = (dim) => [1,2,3,4,5].map(n =>
+    `<span class="star ${(r[dim]||0) >= n ? 'on' : ''}" data-id="${id}" data-dim="${dim}" data-val="${n}" onclick="rateStar(this)">★</span>`
+  ).join('');
+  return `<div class="rating-sec">
+    <div class="rating-title">📊 Viewer Response — Rate this pair</div>
+    <div class="rating-grid">
+      <div class="r-item">
+        <div class="r-item-label">Emotional Impact</div>
+        <div class="stars" id="stars-emotion-${id}">${stars('emotion')}</div>
+      </div>
+      <div class="r-item">
+        <div class="r-item-label">Information Gain</div>
+        <div class="stars" id="stars-info-${id}">${stars('info')}</div>
+      </div>
+      <div class="r-item">
+        <div class="r-item-label">Format Preference</div>
+        <div class="pref-btns">
+          <button class="pref-btn pref-static ${r.pref==='static'?'sel':''}" onclick="ratePref('${id}','static',this)">Static</button>
+          <button class="pref-btn pref-gif ${r.pref==='gif'?'sel':''}" onclick="ratePref('${id}','gif',this)">GIF</button>
+        </div>
+      </div>
+    </div>
+    <div class="r-saved" id="rs-${id}"></div>
+  </div>`;
+}
+
+// ── BUILD ROW HTML ────────────────────────────────────────────────────────────
+function buildRow(row) {
+  if (row.placeholder) {
+    return `<div class="row-card" id="row-${row.id}">
+      <div class="row-head">
+        <div class="row-num">${row.num}</div>
+        <div class="row-label">${row.label}</div>
+        <div class="row-cat">${row.category}</div>
+      </div>
+      <div class="placeholder">
+        <div class="ph-icon">📁</div>
+        <div class="ph-title">Images not yet added</div>
+        <div class="ph-note">${row.note}</div>
+      </div>
+      <div class="info-gain"><div class="info-gain-title">Information Gain Hypothesis</div>${row.infoGain}</div>
+      <div style="border-top:1px solid var(--border)">${ratingHTML(row.id)}</div>
+    </div>`;
+  }
+
+  const gifBadge = row.gifFrames
+    ? `${row.gifFrames}fr · ${row.gifDuration}s · ${row.gifSize}KB`
+    : 'External';
+
+  return `<div class="row-card" id="row-${row.id}">
+    <div class="row-head">
+      <div class="row-num">${row.num}</div>
+      <div class="row-label">${row.label}</div>
+      <div class="row-cat">${row.category}</div>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <div class="col-label">
+          Static Image <span class="badge badge-static">PNG · ${row.staticSize}KB</span>
+        </div>
+        <div class="img-wrap">
+          <img src="${row.staticSrc}" alt="Static — ${row.label}" loading="lazy">
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-label">
+          Animated GIF <span class="badge badge-gif">${gifBadge}</span>
+        </div>
+        <div class="img-wrap">
+          <img id="gi-${row.id}" src="${row.gifSrc}" data-src="${row.gifSrc}" alt="Animated — ${row.label}" loading="lazy">
+          <canvas id="gc-${row.id}" class="hidden"></canvas>
+        </div>
+        <div class="gif-controls">
+          <div class="ctrl-row">
+            <button class="btn" id="pb-${row.id}" onclick="togglePause('${row.id}','${row.gifSrc}',${!!row.external})">⏸ Pause</button>
+            <button class="btn" id="ob-${row.id}" onclick="toggleOverlay('${row.id}','${row.staticSrc}')">🔄 Overlay Diff</button>
+          </div>
+          ${!row.external
+            ? `<div class="ctrl-row" id="sw-${row.id}" style="display:none">
+                <input type="range" class="frame-slider" id="fs-${row.id}" min="0" max="10" value="0">
+                <span class="frame-info" id="fi-${row.id}">1 / ?</span>
+               </div>`
+            : `<div class="ext-note">Frame scrubber unavailable for external GIFs</div>`}
+        </div>
+      </div>
+    </div>
+
+    ${metricsHTML(row)}
+
+    <div class="info-gain">
+      <div class="info-gain-title">Information Gain Analysis</div>
+      ${row.infoGain}
+    </div>
+
+    <div class="overlay-tip">
+      💡 <b>Overlay Diff</b> alternates between static and animated at 0.85s intervals — watch the edges to see exactly what motion contributes.
+    </div>
+
+    <div style="border-top:1px solid var(--border)">${ratingHTML(row.id)}</div>
+  </div>`;
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('container').innerHTML = ROWS.map(buildRow).join('');
+  ROWS.forEach(row => {
+    if (Object.keys(getRatings(row.id)).length) showSaved(row.id);
+  });
+});
+</script>
 </body>
 </html>
