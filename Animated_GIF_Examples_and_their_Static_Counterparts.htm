@@ -281,28 +281,6 @@ const ROWS = [
     staticEntropy: 8.19, gifEntropy: 8.0, motionScore: 6.4, motionLevel: 'Low',
     infoGain: 'Despite modest motion (6.4) and fewer frames (17) than any other GIF in this dataset, the causal chain is unambiguous. The GIF entropy is slightly lower (8.0 vs 8.19), suggesting the static has more spatial complexity — yet the GIF carries more actionable information. Cause-and-effect requires temporal sequencing: the "effect" is semantically undefined without the "cause".',
   },
-  // ── Level 4: New dimensions ───────────────────────────────────────────────
-  {
-    id: 'surprise', num: 7,
-    label: 'Surprise / Unexpected', category: 'Temporal Revelation',
-    placeholder: true,
-    infoGain: 'Surprise requires a before-state to violate expectations. The static captures only the aftermath; the GIF encodes the full anticipation → violation → reaction arc. The "surprise" is entirely in the transition.',
-    note: 'Add a GIF and static counterpart here. Ideal: an unexpected reveal, jump scare, or reaction GIF where the outcome is meaningless without the build-up.',
-  },
-  {
-    id: 'social', num: 8,
-    label: 'Social Interaction', category: 'Relational Dynamics',
-    placeholder: true,
-    infoGain: 'Social dynamics — turn-taking, reciprocal reactions, gaze direction shifts — are inherently temporal. A static image captures a power asymmetry or proximity but cannot encode who initiated, who responded, or how the interaction evolved.',
-    note: 'Add a GIF showing two+ agents interacting (conversation, handshake, reaction chain) and its static counterpart.',
-  },
-  {
-    id: 'loop', num: 9,
-    label: 'Loop / Repetition', category: 'Cyclic Meaning',
-    placeholder: true,
-    infoGain: 'Perfect loops create semantic meaning through repetition that accumulates with each cycle — a form of emphasis unavailable to static images. The loop count becomes part of the message. Repetition itself signals: "this keeps happening."',
-    note: 'Add a perfectly-looping GIF where the loop carries semantic weight (spinning, breathing, bouncing, waves) and its first-frame static.',
-  },
 ];
 
 // ── GIFUCT-JS ON-DEMAND LOADER ────────────────────────────────────────────────
