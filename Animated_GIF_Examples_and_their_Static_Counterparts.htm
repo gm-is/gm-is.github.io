@@ -138,6 +138,18 @@
   .img-wrap canvas { position: absolute; top: 0; left: 0; background: #f0f2f5; }
   .img-wrap canvas.hidden { display: none; }
 
+  /* lazy-load shimmer */
+  .shimmer {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, #e8eaed 25%, #f3f4f6 50%, #e8eaed 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    display: flex; align-items: center; justify-content: center;
+    color: #aaa; font-size: 0.78rem;
+  }
+  .shimmer.hidden { display: none; }
+  @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
   /* ── GIF CONTROLS ── */
   .gif-controls { margin-top: 0.6rem; display: flex; flex-direction: column; gap: 0.4rem; }
   .ctrl-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
@@ -272,7 +284,7 @@
 
 </div><!-- /.page -->
 
-<script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.js"></script>
+<!-- gifuct-js loaded on demand (only when Pause is first clicked) -->
 <script>
 
 // ── DATA (pre-computed from actual files) ──────────────────────────────────
@@ -356,11 +368,29 @@ const ROWS = [
   },
 ];
 
+// ── GIFUCT-JS ON-DEMAND LOADER ────────────────────────────────────────────────
+let gifuctReady = false;
+let gifuctLoading = null;
+
+function ensureGifuct() {
+  if (gifuctReady) return Promise.resolve();
+  if (gifuctLoading) return gifuctLoading;
+  gifuctLoading = new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.js';
+    s.onload = () => { gifuctReady = true; resolve(); };
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  return gifuctLoading;
+}
+
 // ── GIF FRAME DECODER ────────────────────────────────────────────────────────
 const gifData = {}; // id → { frames, w, h } (gifuct-js decoded)
 
 async function loadFrames(id, src) {
   if (gifData[id]) return gifData[id];
+  await ensureGifuct();
   try {
     const resp = await fetch(src);
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
@@ -616,8 +646,9 @@ function buildRow(row) {
           Animated GIF <span class="badge badge-gif">${gifBadge}</span>
         </div>
         <div class="img-wrap">
-          <img id="gi-${row.id}" src="${row.gifSrc}" data-src="${row.gifSrc}" alt="Animated — ${row.label}" loading="lazy">
+          <img id="gi-${row.id}" src="" data-src="${row.gifSrc}" alt="Animated — ${row.label}">
           <canvas id="gc-${row.id}" class="hidden"></canvas>
+          <div class="shimmer" id="sh-${row.id}">Loading GIF…</div>
         </div>
         <div class="gif-controls">
           <div class="ctrl-row">
@@ -652,9 +683,27 @@ function buildRow(row) {
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('container').innerHTML = ROWS.map(buildRow).join('');
+
+  // Restore saved ratings
   ROWS.forEach(row => {
     if (Object.keys(getRatings(row.id)).length) showSaved(row.id);
   });
+
+  // Lazy-load GIFs via IntersectionObserver — only fetch when row enters viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target.querySelector('img[data-src]');
+      if (!img || img.src) return; // already loaded
+      const shimmer = entry.target.querySelector('.shimmer');
+      img.onload = () => shimmer && shimmer.classList.add('hidden');
+      img.onerror = () => shimmer && (shimmer.textContent = 'Failed to load');
+      img.src = img.dataset.src;
+      observer.unobserve(entry.target); // load once
+    });
+  }, { rootMargin: '200px' }); // start loading 200px before entering view
+
+  document.querySelectorAll('.row-card').forEach(card => observer.observe(card));
 });
 </script>
 </body>
