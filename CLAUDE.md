@@ -18,7 +18,7 @@ Personal academic website for Ming Gu, deployed via **GitHub Pages** at **gmis.m
 ├── CNAME               # Custom domain config (gmis.me) — do not modify
 ├── .gitignore           # Git ignore rules
 ├── gmis_files/          # Assets directory (CV PDF)
-│   └── CV_MingGu.pdf   # CV document (if uploaded)
+│   └── CV_MingGu.pdf   # CV document
 ├── sk.js               # Surfingkeys browser config (NOT part of site)
 └── README.md           # Project description
 ```
