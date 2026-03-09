@@ -137771,35 +137771,241 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
     </tr>
   </tbody>
 </table>
+
 <style>
-  body { font-family: system-ui, sans-serif; font-size: 13px; padding: 1rem; }
-  table { border-collapse: collapse; width: 100%; }
-  td, th { padding: 6px 8px; vertical-align: top; border: 1px solid #ddd; }
-  th { background: #f5f5f5; font-weight: 600; position: sticky; top: 0; z-index: 1; }
-  td div { max-height: 120px; overflow-y: auto; white-space: pre-wrap; font-size: 12px; }
-  img.lazy { background: #f0f2f5; min-width: 150px; min-height: 100px; display: block; }
-  img.lazy::before { content: ''; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e2e8f0;
+    --text-sec: #94a3b8;
+    --accent: #6366f1;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --font: system-ui, -apple-system, sans-serif;
+  }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+  table.dataframe { display: none; }
+
+  /* ── HEADER ── */
+  #app-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 1.5rem;
+    display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+  }
+  #app-header h1 { font-size: 1rem; font-weight: 700; white-space: nowrap; }
+  #app-header .count { font-size: 0.78rem; color: var(--text-sec); white-space: nowrap; }
+  #search {
+    flex: 1; min-width: 160px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 12px;
+    color: var(--text); font-size: 0.82rem; outline: none;
+  }
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--text-sec); }
+  .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .filter-btn {
+    padding: 5px 12px; border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--card); color: var(--text-sec);
+    font-size: 0.75rem; font-weight: 600; cursor: pointer;
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+  .filter-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .filter-btn.face-on  { background: var(--green); border-color: var(--green); color: #fff; }
+  .filter-btn.text-on  { background: var(--amber); border-color: var(--amber); color: #000; }
+  .filter-btn.motion-on { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* ── GRID ── */
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .card-img {
+    width: 100%; aspect-ratio: 1;
+    background: #111318;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .card-img .shimmer {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg,#1a1d27 25%,#22263a 50%,#1a1d27 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+  @keyframes shimmer { from{background-position:200% 0} to{background-position:-200% 0} }
+  .card-img img.loaded + .shimmer { display: none; }
+
+  .card-body { padding: 0.6rem 0.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+  .card-id { font-size: 0.65rem; color: var(--text-sec); font-family: monospace; }
+  .card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.65rem; font-weight: 700;
+    padding: 1px 6px; border-radius: 10px;
+  }
+  .tag-face   { background: rgba(34,197,94,0.15);  color: var(--green); }
+  .tag-text   { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .tag-motion { background: rgba(239,68,68,0.15);  color: var(--red); }
+
+  .card-desc {
+    font-size: 0.72rem; color: var(--text-sec); line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden; cursor: pointer;
+  }
+  .card-desc.expanded { -webkit-line-clamp: unset; }
+
+  /* ── EMPTY ── */
+  #empty { display: none; text-align: center; padding: 4rem; color: var(--text-sec); }
+  #empty.on { display: block; }
 </style>
+
+<div id="app-header">
+  <h1>Popular GIFs Dataset</h1>
+  <span class="count" id="count-label"></span>
+  <input id="search" type="search" placeholder="Search descriptions…">
+  <div class="filters">
+    <button class="filter-btn" data-filter="face"   onclick="toggleFilter('face',this)">👤 Face</button>
+    <button class="filter-btn" data-filter="text"   onclick="toggleFilter('text',this)">🔤 Text</button>
+    <button class="filter-btn" data-filter="motion" onclick="toggleFilter('motion',this)">🎞 Motion</button>
+  </div>
+</div>
+<div id="grid"></div>
+<div id="empty">No GIFs match your filters.</div>
 
 <script>
 (function () {
-  // Convert all img src → data-src for lazy loading
-  document.querySelectorAll('img[src]').forEach(img => {
-    img.dataset.src = img.src;
-    img.removeAttribute('src');
-    img.classList.add('lazy');
+  // ── Parse table ──────────────────────────────────────────────────────────
+  const rows = document.querySelectorAll('table.dataframe tbody tr');
+  const data = [];
+  rows.forEach(tr => {
+    const cells = tr.querySelectorAll('td');
+    if (cells.length < 6) return;
+    const img = cells[1].querySelector('img');
+    if (!img) return;
+    data.push({
+      id:     cells[0].textContent.trim(),
+      src:    img.getAttribute('src') || img.getAttribute('data-src') || '',
+      desc:   cells[2].textContent.trim(),
+      face:   cells[4].textContent.trim() === '1',
+      text:   cells[5].textContent.trim() === '1',
+      motion: cells[6].textContent.trim() === '1',
+    });
   });
+
+  // ── State ────────────────────────────────────────────────────────────────
+  const active = { face: false, text: false, motion: false };
+  let query = '';
+  let visible = [...data];
+
+  // ── Render ───────────────────────────────────────────────────────────────
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const countLabel = document.getElementById('count-label');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const img = entry.target;
-      img.src = img.dataset.src;
-      img.classList.remove('lazy');
+      if (!img.dataset.lazySrc) return;
+      img.src = img.dataset.lazySrc;
+      img.onload = () => img.classList.add('loaded');
+      delete img.dataset.lazySrc;
       observer.unobserve(img);
     });
-  }, { rootMargin: '400px' }); // preload 400px before entering view
+  }, { rootMargin: '400px' });
 
-  document.querySelectorAll('img.lazy').forEach(img => observer.observe(img));
+  function render() {
+    grid.innerHTML = '';
+    countLabel.textContent = `${visible.length.toLocaleString()} of ${data.length.toLocaleString()} GIFs`;
+
+    visible.forEach(d => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const tags = [
+        d.face   ? '<span class="tag tag-face">Face</span>'   : '',
+        d.text   ? '<span class="tag tag-text">Text</span>'   : '',
+        d.motion ? '<span class="tag tag-motion">Motion</span>' : '',
+      ].join('');
+
+      card.innerHTML = `
+        <div class="card-img">
+          <img data-lazy-src="${d.src}" alt="${d.id}">
+          <div class="shimmer"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-id">${d.id}</div>
+          <div class="card-tags">${tags}</div>
+          <div class="card-desc">${d.desc.slice(0, 300)}</div>
+        </div>`;
+
+      // Expand description on click
+      card.querySelector('.card-desc').addEventListener('click', function() {
+        this.classList.toggle('expanded');
+        if (this.classList.contains('expanded')) this.textContent = d.desc;
+        else this.textContent = d.desc.slice(0, 300);
+      });
+
+      grid.appendChild(card);
+
+      // Lazy load image
+      const img = card.querySelector('img');
+      img.dataset.lazySrc = img.getAttribute('data-lazy-src');
+      img.removeAttribute('data-lazy-src');
+      observer.observe(img);
+    });
+
+    empty.classList.toggle('on', visible.length === 0);
+  }
+
+  function applyFilters() {
+    visible = data.filter(d => {
+      if (active.face   && !d.face)   return false;
+      if (active.text   && !d.text)   return false;
+      if (active.motion && !d.motion) return false;
+      if (query && !d.desc.toLowerCase().includes(query) && !d.id.toLowerCase().includes(query)) return false;
+      return true;
+    });
+    render();
+  }
+
+  window.toggleFilter = function(key, btn) {
+    active[key] = !active[key];
+    btn.classList.toggle('on', active[key]);
+    btn.classList.toggle(`${key}-on`, active[key]);
+    applyFilters();
+  };
+
+  let searchTimer;
+  document.getElementById('search').addEventListener('input', e => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { query = e.target.value.toLowerCase().trim(); applyFilters(); }, 300);
+  });
+
+  applyFilters();
 })();
 </script>
