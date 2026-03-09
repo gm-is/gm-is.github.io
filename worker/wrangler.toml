@@ -1,3 +1,0 @@
-name = "gmis-chat"
-main = "chat-proxy.js"
-compatibility_date = "2024-01-01"
