@@ -1,0 +1,16 @@
+name = "gmis-chat"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# After deploying, set the secret:
+#   wrangler secret put OPENROUTER_API_KEY
+#
+# Your Worker URL will be:
+#   https://gmis-chat.<your-account>.workers.dev
+#
+# Optional: add a custom route under your Cloudflare-proxied domain, e.g.:
+#   https://chat.gmis.me/*
+# by adding:
+# [[routes]]
+# pattern = "chat.gmis.me/*"
+# zone_name = "gmis.me"
