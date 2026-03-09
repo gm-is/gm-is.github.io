@@ -427,10 +427,6 @@ function buildRow(row) {
     </div>`;
   }
 
-  const gifBadge = row.gifFrames
-    ? `${row.gifFrames}fr · ${row.gifDuration}s · ${row.gifSize}KB`
-    : 'External';
-
   return `<div class="row-card" id="row-${row.id}">
     <div class="row-head">
       <div class="row-num">${row.num}</div>
@@ -440,17 +436,13 @@ function buildRow(row) {
 
     <div class="cols">
       <div class="col">
-        <div class="col-label">
-          Static Image <span class="badge badge-static">PNG · ${row.staticSize}KB</span>
-        </div>
+        <div class="col-label">Static Image</div>
         <div class="img-wrap">
           <img src="${row.staticSrc}" alt="Static — ${row.label}" loading="lazy">
         </div>
       </div>
       <div class="col">
-        <div class="col-label">
-          Animated GIF <span class="badge badge-gif">${gifBadge}</span>
-        </div>
+        <div class="col-label">Animated GIF</div>
         <div class="img-wrap">
           <img id="gi-${row.id}" src="" data-src="${row.gifSrc}" alt="Animated — ${row.label}">
           <canvas id="gc-${row.id}" class="hidden"></canvas>
@@ -487,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const img = entry.target.querySelector('img[data-src]');
-      if (!img || img.src) return; // already loaded
+      if (!img || img.getAttribute('src')) return; // already loaded
       const shimmer = entry.target.querySelector('.shimmer');
       img.onload = () => shimmer && shimmer.classList.add('hidden');
       img.onerror = () => shimmer && (shimmer.textContent = 'Failed to load');
