@@ -173,33 +173,6 @@
   .frame-info { font-size: 0.7rem; color: var(--text-sec); font-family: var(--mono); white-space: nowrap; }
   .ext-note { font-size: 0.7rem; color: #aaa; padding: 2px 0; }
 
-  /* ── METRICS PANEL ── */
-  .metrics {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.25rem;
-    padding: 1.1rem 1.25rem;
-    border-bottom: 1px solid var(--border);
-    background: #fafbfc;
-  }
-  .mg-title {
-    font-size: 0.68rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    color: #9ca3af; margin-bottom: 0.4rem;
-  }
-  .m-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.2rem; }
-  .m-lbl { color: var(--text-sec); min-width: 88px; flex-shrink: 0; }
-  .m-val { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; }
-  .m-pos { color: var(--green); }
-  .m-neg { color: var(--red); }
-  .m-neu { color: var(--text); }
-
-  .bar-wrap { flex: 1; height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
-  .bar { height: 100%; border-radius: 3px; transition: width 0.6s; }
-  .bar-low  { background: #86efac; }
-  .bar-med  { background: #fbbf24; }
-  .bar-high { background: #f87171; }
-
   /* ── INFO GAIN ── */
   .info-gain {
     padding: 0.75rem 1.25rem;
@@ -214,32 +187,6 @@
     text-transform: uppercase; letter-spacing: 0.06em;
     color: var(--green); margin-bottom: 0.2rem;
   }
-
-  /* ── OVERLAY TIP ── */
-  .overlay-tip {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.78rem;
-    color: var(--text-sec);
-    background: #fafbfc;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* ── RATING SECTION ── */
-  .rating-sec { padding: 1rem 1.25rem; }
-  .rating-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #9ca3af; margin-bottom: 0.75rem; }
-  .rating-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
-  .r-item { display: flex; flex-direction: column; gap: 0.25rem; }
-  .r-item-label { font-size: 0.78rem; color: var(--text-sec); }
-  .stars { display: flex; gap: 2px; }
-  .star { font-size: 1.25rem; cursor: pointer; color: #d1d5db; transition: color 0.1s; user-select: none; line-height: 1; }
-  .star:hover, .star.on { color: #f59e0b; }
-  .pref-btns { display: flex; gap: 0.4rem; }
-  .pref-btn { padding: 4px 14px; border: 1px solid var(--border); border-radius: 5px; background: #fff; font-size: 0.78rem; cursor: pointer; color: var(--text); transition: all 0.15s; }
-  .pref-btn:hover { background: #f3f4f6; }
-  .pref-static.sel { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); font-weight: 700; }
-  .pref-gif.sel   { background: var(--amber-bg);  border-color: var(--amber);  color: var(--amber);  font-weight: 700; }
-  .r-saved { margin-top: 0.6rem; padding: 0.45rem 0.75rem; background: #f9fafb; border-radius: 6px; font-size: 0.77rem; color: var(--text-sec); display: none; }
-  .r-saved.on { display: block; }
 
   /* ── PLACEHOLDER ── */
   .placeholder { padding: 2.5rem 1.5rem; text-align: center; color: #9ca3af; background: #fafbfc; }
@@ -271,13 +218,10 @@
 </div>
 
 <div class="legend">
-  <div class="legend-title">Interactive Controls &amp; Metrics Guide</div>
+  <div class="legend-title">Interactive Controls</div>
   <span>⏸ <b>Pause/Play</b> — freeze animation at current frame</span>
-  <span>🎞 <b>Frame Scrubber</b> — drag slider to step through frames (local GIFs only)</span>
+  <span>🎞 <b>Frame Scrubber</b> — drag to step through individual frames</span>
   <span>🔄 <b>Overlay Diff</b> — alternates static ↔ GIF to highlight motion</span>
-  <span>📊 <b>Motion Score</b> — mean absolute pixel diff across consecutive frames</span>
-  <span>🔡 <b>Color Entropy</b> — Shannon entropy of RGB histogram (higher = more color diversity)</span>
-  <span>⭐ <b>Ratings</b> — your responses are saved locally and aggregated</span>
 </div>
 
 <div id="container"></div>
@@ -494,114 +438,6 @@ function toggleOverlay(id, staticSrc) {
   }, 850);
 }
 
-// ── RATINGS ──────────────────────────────────────────────────────────────────
-const WORKER = 'https://gmis-chat.ai4biz-af5701.workers.dev';
-
-function getRatings(id) {
-  try { return JSON.parse(localStorage.getItem('gr-' + id)) || {}; } catch { return {}; }
-}
-function saveRating(id, key, val) {
-  const r = getRatings(id); r[key] = val;
-  localStorage.setItem('gr-' + id, JSON.stringify(r));
-  fetch(WORKER + '/rate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ row_id: id, dimension: key, value: String(val) }),
-  }).catch(() => {});
-  showSaved(id);
-}
-
-function rateStar(el) {
-  const { id, dim, val } = el.dataset;
-  saveRating(id, dim, parseInt(val));
-  document.querySelectorAll(`#stars-${dim}-${id} .star`)
-    .forEach((s, i) => s.classList.toggle('on', i < val));
-}
-function ratePref(id, choice, btn) {
-  saveRating(id, 'pref', choice);
-  btn.closest('.pref-btns').querySelectorAll('.pref-btn').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-}
-function showSaved(id) {
-  const r = getRatings(id);
-  const el = document.getElementById('rs-' + id);
-  const parts = [];
-  if (r.emotion) parts.push(`Impact: ${'★'.repeat(r.emotion)}${'☆'.repeat(5-r.emotion)}`);
-  if (r.info)    parts.push(`Info gain: ${'★'.repeat(r.info)}${'☆'.repeat(5-r.info)}`);
-  if (r.pref)    parts.push(`Prefer: ${r.pref === 'gif' ? 'Animated GIF' : 'Static image'}`);
-  if (parts.length) { el.textContent = '✓ Saved — ' + parts.join(' · '); el.classList.add('on'); }
-}
-
-// ── METRICS HTML ──────────────────────────────────────────────────────────────
-function metricsHTML(row) {
-  if (row.placeholder) return '';
-  const delta = row.gifEntropy !== null ? (row.gifEntropy - row.staticEntropy).toFixed(2) : null;
-  const deltaStr = delta !== null ? (parseFloat(delta) >= 0 ? '+' : '') + delta : null;
-  const dcls = delta !== null ? (parseFloat(delta) >= 0 ? 'm-pos' : 'm-neg') : 'm-neu';
-  const mult = row.gifSize ? (row.gifSize / row.staticSize).toFixed(1) + '×' : 'N/A';
-  const motW = row.motionScore !== null ? Math.min(100, (row.motionScore / 35) * 100) + '%' : '50%';
-  const motCls = { High: 'bar-high', Medium: 'bar-med', Low: 'bar-low' }[row.motionLevel] || 'bar-low';
-
-  return `<div class="metrics">
-    <div>
-      <div class="mg-title">File Size</div>
-      <div class="m-row"><span class="m-lbl">Static PNG</span><span class="m-val m-neu">${row.staticSize} KB</span></div>
-      <div class="m-row"><span class="m-lbl">Animated GIF</span><span class="m-val m-neu">${row.gifSize ? row.gifSize + ' KB' : 'External'}</span></div>
-      <div class="m-row"><span class="m-lbl">Size ratio</span><span class="m-val m-neu">${mult} larger</span></div>
-    </div>
-    <div>
-      <div class="mg-title">Animation</div>
-      <div class="m-row"><span class="m-lbl">Frames</span><span class="m-val m-neu">${row.gifFrames ?? 'N/A'}</span></div>
-      <div class="m-row"><span class="m-lbl">Duration</span><span class="m-val m-neu">${row.gifDuration ? row.gifDuration + 's' : 'N/A'}</span></div>
-      <div class="m-row"><span class="m-lbl">Frame rate</span><span class="m-val m-neu">${row.gifFrames && row.gifDuration ? (row.gifFrames/row.gifDuration).toFixed(1) + ' fps' : 'N/A'}</span></div>
-    </div>
-    <div>
-      <div class="mg-title">Color Entropy (bits)</div>
-      <div class="m-row"><span class="m-lbl">Static</span><span class="m-val m-neu">${row.staticEntropy}</span></div>
-      <div class="m-row"><span class="m-lbl">GIF frame 0</span><span class="m-val m-neu">${row.gifEntropy ?? 'N/A'}</span></div>
-      <div class="m-row"><span class="m-lbl">Δ Entropy</span><span class="m-val ${dcls}">${deltaStr ?? 'N/A'}</span></div>
-    </div>
-    <div>
-      <div class="mg-title">Motion Intensity</div>
-      <div class="m-row"><span class="m-lbl">Level</span><span class="m-val m-neu">${row.motionLevel}</span></div>
-      <div class="m-row">
-        <span class="m-lbl">${row.motionScore !== null ? row.motionScore + ' px/fr' : 'N/A'}</span>
-        <div class="bar-wrap"><div class="bar ${motCls}" style="width:${motW}"></div></div>
-      </div>
-      <div class="m-row"><span class="m-lbl">Spatial info</span><span class="m-val m-neu">≈ ${row.staticSize * 8 / 1000 | 0} kbits</span></div>
-    </div>
-  </div>`;
-}
-
-// ── RATING HTML ───────────────────────────────────────────────────────────────
-function ratingHTML(id) {
-  const r = getRatings(id);
-  const stars = (dim) => [1,2,3,4,5].map(n =>
-    `<span class="star ${(r[dim]||0) >= n ? 'on' : ''}" data-id="${id}" data-dim="${dim}" data-val="${n}" onclick="rateStar(this)">★</span>`
-  ).join('');
-  return `<div class="rating-sec">
-    <div class="rating-title">📊 Viewer Response — Rate this pair</div>
-    <div class="rating-grid">
-      <div class="r-item">
-        <div class="r-item-label">Emotional Impact</div>
-        <div class="stars" id="stars-emotion-${id}">${stars('emotion')}</div>
-      </div>
-      <div class="r-item">
-        <div class="r-item-label">Information Gain</div>
-        <div class="stars" id="stars-info-${id}">${stars('info')}</div>
-      </div>
-      <div class="r-item">
-        <div class="r-item-label">Format Preference</div>
-        <div class="pref-btns">
-          <button class="pref-btn pref-static ${r.pref==='static'?'sel':''}" onclick="ratePref('${id}','static',this)">Static</button>
-          <button class="pref-btn pref-gif ${r.pref==='gif'?'sel':''}" onclick="ratePref('${id}','gif',this)">GIF</button>
-        </div>
-      </div>
-    </div>
-    <div class="r-saved" id="rs-${id}"></div>
-  </div>`;
-}
-
 // ── BUILD ROW HTML ────────────────────────────────────────────────────────────
 function buildRow(row) {
   if (row.placeholder) {
@@ -616,8 +452,7 @@ function buildRow(row) {
         <div class="ph-title">Images not yet added</div>
         <div class="ph-note">${row.note}</div>
       </div>
-      <div class="info-gain"><div class="info-gain-title">Information Gain Hypothesis</div>${row.infoGain}</div>
-      <div style="border-top:1px solid var(--border)">${ratingHTML(row.id)}</div>
+      <div class="info-gain"><div class="info-gain-title">Analysis</div>${row.infoGain}</div>
     </div>`;
   }
 
@@ -665,29 +500,16 @@ function buildRow(row) {
       </div>
     </div>
 
-    ${metricsHTML(row)}
-
     <div class="info-gain">
-      <div class="info-gain-title">Information Gain Analysis</div>
+      <div class="info-gain-title">Analysis</div>
       ${row.infoGain}
     </div>
-
-    <div class="overlay-tip">
-      💡 <b>Overlay Diff</b> alternates between static and animated at 0.85s intervals — watch the edges to see exactly what motion contributes.
-    </div>
-
-    <div style="border-top:1px solid var(--border)">${ratingHTML(row.id)}</div>
   </div>`;
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('container').innerHTML = ROWS.map(buildRow).join('');
-
-  // Restore saved ratings
-  ROWS.forEach(row => {
-    if (Object.keys(getRatings(row.id)).length) showSaved(row.id);
-  });
 
   // Lazy-load GIFs via IntersectionObserver — only fetch when row enters viewport
   const observer = new IntersectionObserver((entries) => {
