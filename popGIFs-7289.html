@@ -187,7 +187,9 @@
       this.classList.toggle('expanded');
       this.textContent=this.classList.contains('expanded')?desc:desc.slice(0,300);
     });
-    imgObs.observe(c.querySelector('img'));
+    const img=c.querySelector('img');
+    img.onerror=()=>c.remove();
+    imgObs.observe(img);
     return c;
   }
 
