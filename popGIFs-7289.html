@@ -240,7 +240,7 @@
   });
 
   const xhr=new XMLHttpRequest();
-  xhr.open('GET','popGIFs-data.json');
+  xhr.open('GET','popGIFs-data.json?v=2');
   xhr.onprogress=e=>{
     if(e.lengthComputable){
       prog.style.width=(e.loaded/e.total*85)+'%';
