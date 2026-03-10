@@ -137776,41 +137776,26 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0f1117;
-    --card: #1a1d27;
-    --border: #2a2d3a;
-    --text: #e2e8f0;
-    --text-sec: #94a3b8;
-    --accent: #6366f1;
-    --green: #22c55e;
-    --amber: #f59e0b;
-    --red: #ef4444;
-    --blue: #3b82f6;
-    --purple: #a855f7;
-    --cyan: #06b6d4;
-    --pink: #ec4899;
-    --orange: #f97316;
-    --lime: #84cc16;
-    --rose: #fb7185;
+    --bg: #0f1117; --card: #1a1d27; --border: #2a2d3a;
+    --text: #e2e8f0; --text-sec: #94a3b8; --accent: #6366f1;
+    --green: #22c55e; --amber: #f59e0b; --red: #ef4444;
+    --blue: #3b82f6; --purple: #a855f7; --cyan: #06b6d4;
+    --pink: #ec4899; --orange: #f97316; --lime: #84cc16; --rose: #fb7185;
     --font: system-ui, -apple-system, sans-serif;
   }
   body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
   table.dataframe { display: none; }
 
-  /* ── HEADER ── */
   #app-header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(15,17,23,0.95);
-    backdrop-filter: blur(8px);
+    background: rgba(15,17,23,0.95); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     padding: 0.9rem 1.5rem;
     display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap;
   }
-  .header-top {
-    width: 100%; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-  }
+  .header-top { width: 100%; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
   #app-header h1 { font-size: 1rem; font-weight: 700; white-space: nowrap; }
-  #app-header .count { font-size: 0.78rem; color: var(--text-sec); white-space: nowrap; }
+  .count { font-size: 0.78rem; color: var(--text-sec); white-space: nowrap; }
   #search {
     flex: 1; min-width: 160px;
     background: var(--card); border: 1px solid var(--border);
@@ -137819,18 +137804,18 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
   }
   #search:focus { border-color: var(--accent); }
   #search::placeholder { color: var(--text-sec); }
+  #search:disabled { opacity: 0.4; cursor: not-allowed; }
   .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; width: 100%; }
   .filter-label { font-size: 0.68rem; color: var(--text-sec); font-weight: 600; white-space: nowrap; }
   .filter-btn {
-    padding: 4px 11px; border-radius: 20px;
-    border: 1px solid var(--border);
+    padding: 4px 11px; border-radius: 20px; border: 1px solid var(--border);
     background: var(--card); color: var(--text-sec);
     font-size: 0.72rem; font-weight: 600; cursor: pointer;
     transition: all 0.15s; white-space: nowrap;
   }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+  .filter-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .filter-btn:not(:disabled):hover { border-color: var(--accent); color: var(--text); }
   .filter-btn.on { color: #fff; }
-  /* per-filter active colours */
   .filter-btn[data-filter="face"].on      { background: var(--green);  border-color: var(--green); }
   .filter-btn[data-filter="text"].on      { background: var(--amber);  border-color: var(--amber); color:#000; }
   .filter-btn[data-filter="motion"].on    { background: var(--red);    border-color: var(--red); }
@@ -137839,32 +137824,25 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
   .filter-btn[data-filter="finance"].on   { background: var(--cyan);   border-color: var(--cyan); }
   .filter-btn[data-filter="entertain"].on { background: var(--pink);   border-color: var(--pink); }
   .filter-btn[data-filter="animals"].on   { background: var(--orange); border-color: var(--orange); }
-  .filter-btn[data-filter="positive"].on  { background: var(--lime);   border-color: var(--lime);  color:#000; }
+  .filter-btn[data-filter="positive"].on  { background: var(--lime);   border-color: var(--lime); color:#000; }
   .filter-btn[data-filter="negative"].on  { background: var(--rose);   border-color: var(--rose); }
   .filter-btn[data-filter="humor"].on     { background: var(--accent); border-color: var(--accent); }
   .filter-btn[data-filter="cartoon"].on   { background: #8b5cf6;       border-color: #8b5cf6; }
 
-  /* ── GRID ── */
   #grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
+    gap: 1rem; padding: 1.25rem 1.5rem;
   }
-
-  /* ── CARD ── */
   .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
     display: flex; flex-direction: column;
     transition: border-color 0.2s, transform 0.15s;
   }
   .card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .card-img {
-    width: 100%; aspect-ratio: 1;
-    background: #111318;
+    width: 100%; aspect-ratio: 1; background: #111318;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden; position: relative;
   }
@@ -137872,18 +137850,14 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
   .card-img .shimmer {
     position: absolute; inset: 0;
     background: linear-gradient(90deg,#1a1d27 25%,#22263a 50%,#1a1d27 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.4s infinite;
+    background-size: 200% 100%; animation: shimmer 1.4s infinite;
   }
   @keyframes shimmer { from{background-position:200% 0} to{background-position:-200% 0} }
   .card-img img.loaded + .shimmer { display: none; }
   .card-body { padding: 0.6rem 0.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
   .card-id { font-size: 0.65rem; color: var(--text-sec); font-family: monospace; }
   .card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
-  .tag {
-    font-size: 0.62rem; font-weight: 700;
-    padding: 1px 5px; border-radius: 10px;
-  }
+  .tag { font-size: 0.62rem; font-weight: 700; padding: 1px 5px; border-radius: 10px; }
   .tag-face     { background: rgba(34,197,94,0.15);   color: var(--green); }
   .tag-text     { background: rgba(245,158,11,0.15);  color: var(--amber); }
   .tag-motion   { background: rgba(239,68,68,0.15);   color: var(--red); }
@@ -137903,104 +137877,63 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
   }
   .card-desc.expanded { -webkit-line-clamp: unset; }
 
-  /* ── EMPTY ── */
+  #loading-bar-wrap {
+    width: 100%; height: 3px; background: var(--border);
+    position: fixed; top: 0; left: 0; z-index: 200;
+  }
+  #loading-bar { height: 100%; background: var(--accent); width: 0; transition: width 0.3s; }
+
+  #sentinel { height: 1px; }
   #empty { display: none; text-align: center; padding: 4rem; color: var(--text-sec); }
   #empty.on { display: block; }
 </style>
 
+<div id="loading-bar-wrap"><div id="loading-bar"></div></div>
+
 <div id="app-header">
   <div class="header-top">
     <h1>Popular GIFs Dataset</h1>
-    <span class="count" id="count-label"></span>
-    <input id="search" type="search" placeholder="Search descriptions…">
+    <span class="count" id="count-label">Loading…</span>
+    <input id="search" type="search" placeholder="Search descriptions…" disabled>
   </div>
   <div class="filter-row">
     <span class="filter-label">VISUAL</span>
-    <button class="filter-btn" data-filter="face"     onclick="toggleFilter('face',this)">👤 Face</button>
-    <button class="filter-btn" data-filter="text"     onclick="toggleFilter('text',this)">🔤 Text</button>
-    <button class="filter-btn" data-filter="motion"   onclick="toggleFilter('motion',this)">🎞 Motion</button>
+    <button class="filter-btn" data-filter="face"      onclick="toggleFilter('face',this)"      disabled>👤 Face</button>
+    <button class="filter-btn" data-filter="text"      onclick="toggleFilter('text',this)"      disabled>🔤 Text</button>
+    <button class="filter-btn" data-filter="motion"    onclick="toggleFilter('motion',this)"    disabled>🎞 Motion</button>
     <span class="filter-label" style="margin-left:0.5rem">TOPIC</span>
-    <button class="filter-btn" data-filter="sports"   onclick="toggleFilter('sports',this)">🏆 Sports</button>
-    <button class="filter-btn" data-filter="politics" onclick="toggleFilter('politics',this)">🗳 Politics</button>
-    <button class="filter-btn" data-filter="finance"  onclick="toggleFilter('finance',this)">📈 Finance</button>
-    <button class="filter-btn" data-filter="entertain" onclick="toggleFilter('entertain',this)">🎬 Entertainment</button>
-    <button class="filter-btn" data-filter="animals"  onclick="toggleFilter('animals',this)">🐾 Animals</button>
+    <button class="filter-btn" data-filter="sports"    onclick="toggleFilter('sports',this)"    disabled>🏆 Sports</button>
+    <button class="filter-btn" data-filter="politics"  onclick="toggleFilter('politics',this)"  disabled>🗳 Politics</button>
+    <button class="filter-btn" data-filter="finance"   onclick="toggleFilter('finance',this)"   disabled>📈 Finance</button>
+    <button class="filter-btn" data-filter="entertain" onclick="toggleFilter('entertain',this)" disabled>🎬 Entertainment</button>
+    <button class="filter-btn" data-filter="animals"   onclick="toggleFilter('animals',this)"   disabled>🐾 Animals</button>
     <span class="filter-label" style="margin-left:0.5rem">TONE</span>
-    <button class="filter-btn" data-filter="positive" onclick="toggleFilter('positive',this)">😄 Positive</button>
-    <button class="filter-btn" data-filter="negative" onclick="toggleFilter('negative',this)">😤 Negative</button>
-    <button class="filter-btn" data-filter="humor"    onclick="toggleFilter('humor',this)">😂 Humor</button>
-    <button class="filter-btn" data-filter="cartoon"  onclick="toggleFilter('cartoon',this)">🎨 Cartoon</button>
+    <button class="filter-btn" data-filter="positive"  onclick="toggleFilter('positive',this)"  disabled>😄 Positive</button>
+    <button class="filter-btn" data-filter="negative"  onclick="toggleFilter('negative',this)"  disabled>😤 Negative</button>
+    <button class="filter-btn" data-filter="humor"     onclick="toggleFilter('humor',this)"     disabled>😂 Humor</button>
+    <button class="filter-btn" data-filter="cartoon"   onclick="toggleFilter('cartoon',this)"   disabled>🎨 Cartoon</button>
   </div>
 </div>
 <div id="grid"></div>
+<div id="sentinel"></div>
 <div id="empty">No GIFs match your filters.</div>
 
 <script>
 (function () {
-  // ── Keyword classifiers ───────────────────────────────────────────────────
+  const BATCH      = 60;   // cards rendered per scroll trigger
+  const PARSE_SIZE = 300;  // table rows processed per idle chunk
+
   const KW = {
-    sports:   /\b(sport|basketball|football|soccer|baseball|hockey|tennis|golf|athlete|team|player|coach|stadium|court|jersey|race|olympic|paralympic|championship|tournament|game\s+show|nba|nfl|mlb|nhl|fifa)\b/i,
-    politics: /\b(politic|vote|election|president|congress|government|democrat|republican|senate|campaign|ballot|legislat|white house|parliament|candidate|party|biden|trump|administration)\b/i,
+    sports:   /\b(sport|basketball|football|soccer|baseball|hockey|tennis|golf|athlete|team|player|coach|stadium|court|jersey|race|olympic|paralympic|championship|tournament|nba|nfl|mlb|nhl|fifa)\b/i,
+    politics: /\b(politic|vote|election|president|congress|government|democrat|republican|senate|campaign|ballot|legislat|white house|parliament|candidate|biden|trump|administration)\b/i,
     finance:  /\b(stock|market|invest|trad|crypto|bitcoin|bull|bear|wall\s*st|hedge|nasdaq|s&p|profit|loss|gain|portfolio|dividend|option|futures|ticker|stocktwit|fintech|dollar|coin|etf|ipo|broker|capital)\b/i,
     entertain:/\b(movie|film|tv\s+show|television|series|actor|actress|singer|music|cartoon|character|celebrity|meme|netflix|disney|marvel|dc\s+comics|simpsons|show|episode|scene|trailer|album|concert|streaming)\b/i,
     animals:  /\b(animal|dog|cat|bird|parrot|bison|lion|tiger|bear|fox|deer|rabbit|wolf|elephant|horse|fish|wildlife|pet|puppy|kitten|creature|reptile|monkey|panda|penguin|nat\s*geo)\b/i,
-    positive: /\b(celebrat|excit|joy|joyful|happy|laugh|danc|cheer|triumph|winning|success|positive|upbeat|fun|delight|thrill|amaz|awesome|fantastic|wonderful|congrat|relief|enthusias|festiv|confident|victori)\b/i,
-    negative: /\b(frustrat|disappoint|sad|sadness|loss|losing|crash|fear|cry|crying|stress|anger|angry|panic|bearish|disbelief|negative|downturn|despair|depress|upset|anxious|worried|unfortunate|fail|regret|horror|shock)\b/i,
-    humor:    /\b(humor|humorous|funny|joke|meme|parody|satire|sarcas|comedic|absurd|playful|lighthearted|tongue-in-cheek|whimsical|silly|ridiculous|goofy|hilarious|ironic|witty|satirical|prank|comedic)\b/i,
-    cartoon:  /\b(cartoon|animated|animation|simpsons|anime|illustrated|comic\s*book|hand.drawn|pixar|character|looney|fictional|animated\s+character|clipart|drawing|digital\s+art|pop\s*art)\b/i,
+    positive: /\b(celebrat|excit|joy|joyful|happy|laugh|danc|cheer|triumph|winning|success|positive|upbeat|fun|delight|thrill|amaz|awesome|fantastic|wonderful|congrat|enthusias|festiv|confident|victori)\b/i,
+    negative: /\b(frustrat|disappoint|sad|sadness|loss|losing|crash|fear|cry|crying|stress|anger|angry|panic|bearish|disbelief|negative|downturn|despair|depress|upset|anxious|worried|fail|regret|horror|shock)\b/i,
+    humor:    /\b(humor|humorous|funny|joke|meme|parody|satire|sarcas|comedic|absurd|playful|lighthearted|tongue-in-cheek|whimsical|silly|ridiculous|goofy|hilarious|ironic|witty|prank)\b/i,
+    cartoon:  /\b(cartoon|animated|animation|simpsons|anime|illustrated|comic\s*book|hand.drawn|pixar|looney|fictional|animated\s+character|clipart|drawing|digital\s+art|pop\s*art)\b/i,
   };
-
-  function classify(desc) {
-    const tags = {};
-    for (const [k, rx] of Object.entries(KW)) {
-      tags[k] = rx.test(desc);
-    }
-    return tags;
-  }
-
-  // ── Parse table ──────────────────────────────────────────────────────────
-  const rows = document.querySelectorAll('table.dataframe tbody tr');
-  const data = [];
-  rows.forEach(tr => {
-    const cells = tr.querySelectorAll('td');
-    if (cells.length < 6) return;
-    const img = cells[1].querySelector('img');
-    if (!img) return;
-    const desc = cells[2].textContent.trim();
-    const derived = classify(desc);
-    data.push({
-      id:     cells[0].textContent.trim(),
-      src:    img.getAttribute('src') || img.getAttribute('data-src') || '',
-      desc,
-      face:   cells[4].textContent.trim() === '1',
-      text:   cells[5].textContent.trim() === '1',
-      motion: cells[6].textContent.trim() === '1',
-      ...derived,
-    });
-  });
-
-  // ── State ────────────────────────────────────────────────────────────────
-  const FILTERS = ['face','text','motion','sports','politics','finance','entertain','animals','positive','negative','humor','cartoon'];
-  const active = Object.fromEntries(FILTERS.map(k => [k, false]));
-  let query = '';
-  let visible = [...data];
-
-  // ── Render ───────────────────────────────────────────────────────────────
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('empty');
-  const countLabel = document.getElementById('count-label');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const img = entry.target;
-      if (!img.dataset.lazySrc) return;
-      img.src = img.dataset.lazySrc;
-      img.onload = () => img.classList.add('loaded');
-      delete img.dataset.lazySrc;
-      observer.unobserve(img);
-    });
-  }, { rootMargin: '400px' });
 
   const TAG_LABELS = {
     face:'Face', text:'Text', motion:'Motion',
@@ -138008,70 +137941,158 @@ This GIF is a humorous yet cautionary visual used in the context of financial tr
     entertain:'Entertainment', animals:'Animals',
     positive:'Positive', negative:'Negative', humor:'Humor', cartoon:'Cartoon',
   };
+  const FILTERS = Object.keys(TAG_LABELS);
 
+  // ── Elements ──────────────────────────────────────────────────────────────
+  const grid       = document.getElementById('grid');
+  const sentinel   = document.getElementById('sentinel');
+  const emptyEl    = document.getElementById('empty');
+  const countLabel = document.getElementById('count-label');
+  const searchEl   = document.getElementById('search');
+  const loadingBar = document.getElementById('loading-bar');
+  const allRows    = Array.from(document.querySelectorAll('table.dataframe tbody tr'));
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  const data   = [];
+  const active = Object.fromEntries(FILTERS.map(k => [k, false]));
+  let query    = '';
+  let visible  = [];
+  let rendered = 0;
+  let ready    = false;
+
+  // ── Lazy image observer ───────────────────────────────────────────────────
+  const imgObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const img = e.target;
+      if (!img.dataset.lazySrc) return;
+      img.src = img.dataset.lazySrc;
+      img.onload = () => img.classList.add('loaded');
+      delete img.dataset.lazySrc;
+      imgObserver.unobserve(img);
+    });
+  }, { rootMargin: '400px' });
+
+  // ── Sentinel observer (infinite scroll) ───────────────────────────────────
+  const sentinelObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && ready) appendBatch();
+  }, { rootMargin: '200px' });
+  sentinelObserver.observe(sentinel);
+
+  // ── Card factory ──────────────────────────────────────────────────────────
+  function makeCard(d) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const tags = FILTERS.filter(k => d[k])
+      .map(k => `<span class="tag tag-${k}">${TAG_LABELS[k]}</span>`).join('');
+    card.innerHTML = `
+      <div class="card-img">
+        <img data-lazy-src="${d.src}" alt="${d.id}">
+        <div class="shimmer"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-id">${d.id}</div>
+        <div class="card-tags">${tags}</div>
+        <div class="card-desc">${d.desc.slice(0, 300)}</div>
+      </div>`;
+    card.querySelector('.card-desc').addEventListener('click', function () {
+      this.classList.toggle('expanded');
+      this.textContent = this.classList.contains('expanded') ? d.desc : d.desc.slice(0, 300);
+    });
+    const img = card.querySelector('img');
+    img.dataset.lazySrc = img.getAttribute('data-lazy-src');
+    img.removeAttribute('data-lazy-src');
+    imgObserver.observe(img);
+    return card;
+  }
+
+  // ── Append next batch of cards ────────────────────────────────────────────
+  function appendBatch() {
+    if (rendered >= visible.length) return;
+    const frag = document.createDocumentFragment();
+    const end  = Math.min(rendered + BATCH, visible.length);
+    for (let i = rendered; i < end; i++) frag.appendChild(makeCard(visible[i]));
+    grid.appendChild(frag);
+    rendered = end;
+  }
+
+  // ── Full re-render (filter/search changed) ────────────────────────────────
   function render() {
     grid.innerHTML = '';
+    rendered = 0;
     countLabel.textContent = `${visible.length.toLocaleString()} of ${data.length.toLocaleString()} GIFs`;
-
-    visible.forEach(d => {
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      const tags = FILTERS
-        .filter(k => d[k])
-        .map(k => `<span class="tag tag-${k}">${TAG_LABELS[k]}</span>`)
-        .join('');
-
-      card.innerHTML = `
-        <div class="card-img">
-          <img data-lazy-src="${d.src}" alt="${d.id}">
-          <div class="shimmer"></div>
-        </div>
-        <div class="card-body">
-          <div class="card-id">${d.id}</div>
-          <div class="card-tags">${tags}</div>
-          <div class="card-desc">${d.desc.slice(0, 300)}</div>
-        </div>`;
-
-      card.querySelector('.card-desc').addEventListener('click', function() {
-        this.classList.toggle('expanded');
-        this.textContent = this.classList.contains('expanded') ? d.desc : d.desc.slice(0, 300);
-      });
-
-      grid.appendChild(card);
-
-      const img = card.querySelector('img');
-      img.dataset.lazySrc = img.getAttribute('data-lazy-src');
-      img.removeAttribute('data-lazy-src');
-      observer.observe(img);
-    });
-
-    empty.classList.toggle('on', visible.length === 0);
+    emptyEl.classList.toggle('on', visible.length === 0);
+    appendBatch();
   }
 
   function applyFilters() {
     visible = data.filter(d => {
-      for (const k of FILTERS) {
-        if (active[k] && !d[k]) return false;
-      }
+      for (const k of FILTERS) { if (active[k] && !d[k]) return false; }
       if (query && !d.desc.toLowerCase().includes(query) && !d.id.toLowerCase().includes(query)) return false;
       return true;
     });
     render();
   }
 
-  window.toggleFilter = function(key, btn) {
+  window.toggleFilter = function (key, btn) {
     active[key] = !active[key];
     btn.classList.toggle('on', active[key]);
     applyFilters();
   };
 
   let searchTimer;
-  document.getElementById('search').addEventListener('input', e => {
+  searchEl.addEventListener('input', e => {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => { query = e.target.value.toLowerCase().trim(); applyFilters(); }, 300);
   });
 
-  applyFilters();
+  // ── Async table parsing (non-blocking, requestIdleCallback chunks) ─────────
+  const rIC = window.requestIdleCallback
+    ? window.requestIdleCallback
+    : cb => setTimeout(() => cb({ timeRemaining: () => 50, didTimeout: false }), 4);
+
+  let parseIdx = 0;
+
+  function parseChunk(deadline) {
+    const end = Math.min(parseIdx + PARSE_SIZE, allRows.length);
+    while (parseIdx < end) {
+      const tr    = allRows[parseIdx++];
+      const cells = tr.querySelectorAll('td');
+      if (cells.length < 6) continue;
+      const img = cells[1].querySelector('img');
+      if (!img) continue;
+      const desc = cells[2].textContent.trim();
+      const tags = {};
+      for (const [k, rx] of Object.entries(KW)) tags[k] = rx.test(desc);
+      data.push({
+        id:   cells[0].textContent.trim(),
+        src:  img.getAttribute('src') || '',
+        desc,
+        face:   cells[4].textContent.trim() === '1',
+        text:   cells[5].textContent.trim() === '1',
+        motion: cells[6].textContent.trim() === '1',
+        ...tags,
+      });
+    }
+
+    // Progress bar
+    const pct = Math.round((parseIdx / allRows.length) * 100);
+    loadingBar.style.width = pct + '%';
+    countLabel.textContent = `Parsing… ${pct}%`;
+
+    if (parseIdx < allRows.length) {
+      rIC(parseChunk, { timeout: 500 });
+    } else {
+      // Done — enable UI
+      loadingBar.style.width = '100%';
+      setTimeout(() => { document.getElementById('loading-bar-wrap').style.display = 'none'; }, 400);
+      ready = true;
+      document.querySelectorAll('.filter-btn, #search').forEach(el => el.removeAttribute('disabled'));
+      visible = [...data];
+      render();
+    }
+  }
+
+  rIC(parseChunk, { timeout: 500 });
 })();
 </script>
