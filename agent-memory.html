@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Memory: Building Memory-Aware Agents — DeepLearning.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --dl-blue: #0056D2;
+    --dl-dark: #0D1117;
+    --dl-accent: #38BDF8;
+    --dl-purple: #A78BFA;
+    --dl-green: #34D399;
+    --dl-orange: #FB923C;
+    --dl-rose: #FB7185;
+    --dl-slate: #94A3B8;
+    --dl-card: rgba(255,255,255,0.06);
+    --dl-border: rgba(255,255,255,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--dl-dark);
+    color: #E2E8F0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* ── Slide Container ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 60px 80px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(40px);
+    background: var(--dl-dark);
+    overflow: hidden;
+  }
+  .slide.active {
+    opacity: 1; visibility: visible;
+    transform: translateX(0);
+  }
+
+  /* ── Animated Background Mesh ── */
+  .slide::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 800px 600px at 15% 20%, rgba(0,86,210,0.12), transparent),
+      radial-gradient(ellipse 600px 500px at 85% 80%, rgba(167,139,250,0.10), transparent);
+    pointer-events: none;
+  }
+
+  /* ── Typography ── */
+  h1 { font-size: 3.4rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; }
+  h2 { font-size: 2.4rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+  h3 { font-size: 1.5rem; font-weight: 600; color: var(--dl-accent); margin-bottom: 10px; }
+  p, li { font-size: 1.15rem; line-height: 1.7; color: #CBD5E1; font-weight: 400; }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--dl-accent), var(--dl-purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .blue-text { color: var(--dl-accent); }
+  .purple-text { color: var(--dl-purple); }
+  .green-text { color: var(--dl-green); }
+  .orange-text { color: var(--dl-orange); }
+  .rose-text { color: var(--dl-rose); }
+  .small { font-size: 0.95rem; color: var(--dl-slate); }
+
+  /* ── Layout Helpers ── */
+  .content { position: relative; z-index: 1; max-width: 1100px; width: 100%; }
+  .row { display: flex; gap: 36px; }
+  .col { flex: 1; }
+  .center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .gap-sm { gap: 12px; } .gap-md { gap: 24px; } .gap-lg { gap: 40px; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--dl-card);
+    border: 1px solid var(--dl-border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.18); }
+
+  .card-accent-blue   { border-left: 3px solid var(--dl-accent); }
+  .card-accent-purple { border-left: 3px solid var(--dl-purple); }
+  .card-accent-green  { border-left: 3px solid var(--dl-green); }
+  .card-accent-orange { border-left: 3px solid var(--dl-orange); }
+  .card-accent-rose   { border-left: 3px solid var(--dl-rose); }
+
+  /* ── Tags / Badges ── */
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 5px 14px; border-radius: 100px;
+    background: rgba(56,189,248,0.15); color: var(--dl-accent);
+    text-transform: uppercase;
+  }
+  .badge-purple { background: rgba(167,139,250,0.15); color: var(--dl-purple); }
+  .badge-green  { background: rgba(52,211,153,0.15); color: var(--dl-green); }
+  .badge-orange { background: rgba(251,146,60,0.15); color: var(--dl-orange); }
+
+  /* ── Icon Circles ── */
+  .icon-circle {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 14px; flex-shrink: 0;
+  }
+  .icon-blue   { background: rgba(56,189,248,0.15); }
+  .icon-purple { background: rgba(167,139,250,0.15); }
+  .icon-green  { background: rgba(52,211,153,0.15); }
+  .icon-orange { background: rgba(251,146,60,0.15); }
+  .icon-rose   { background: rgba(251,113,133,0.15); }
+
+  /* ── Code Block ── */
+  .code-block {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid var(--dl-border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #A5F3FC;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code-block .kw { color: var(--dl-purple); }
+  .code-block .fn { color: var(--dl-accent); }
+  .code-block .st { color: var(--dl-green); }
+  .code-block .cm { color: #64748B; font-style: italic; }
+  .code-block .op { color: var(--dl-orange); }
+
+  /* ── Diagram / Flow ── */
+  .flow-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .flow-box {
+    padding: 14px 24px; border-radius: 12px;
+    font-weight: 600; font-size: 0.95rem;
+    border: 1px solid var(--dl-border);
+    background: var(--dl-card);
+    text-align: center; min-width: 130px;
+  }
+  .flow-arrow { font-size: 1.4rem; color: var(--dl-slate); }
+
+  /* ── Progress & Navigation ── */
+  .slide-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 40px;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--dl-border);
+    z-index: 100;
+  }
+  .slide-nav button {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--dl-border);
+    color: #E2E8F0;
+    padding: 10px 22px; border-radius: 10px;
+    font-size: 0.9rem; font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.14); }
+  .slide-counter { font-size: 0.85rem; color: var(--dl-slate); font-weight: 500; }
+
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--dl-accent), var(--dl-purple));
+    transition: width 0.4s ease; z-index: 101;
+  }
+
+  /* ── Lists ── */
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li { padding: 8px 0; padding-left: 28px; position: relative; }
+  ul.clean li::before {
+    content: '▸'; position: absolute; left: 0; color: var(--dl-accent); font-weight: 700;
+  }
+  ul.clean.purple li::before { color: var(--dl-purple); }
+  ul.clean.green  li::before { color: var(--dl-green); }
+
+  /* ── Table ── */
+  table.clean-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--dl-border);
+  }
+  table.clean-table th {
+    background: rgba(56,189,248,0.1);
+    padding: 14px 20px; text-align: left;
+    font-weight: 600; font-size: 0.9rem;
+    color: var(--dl-accent);
+    border-bottom: 1px solid var(--dl-border);
+  }
+  table.clean-table td {
+    padding: 13px 20px; font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  table.clean-table tr:last-child td { border-bottom: none; }
+
+  /* ── Animations ── */
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .float { animation: float 5s ease-in-out infinite; }
+
+  @keyframes pulse-glow {
+    0%,100% { box-shadow: 0 0 20px rgba(56,189,248,0.15); }
+    50% { box-shadow: 0 0 40px rgba(56,189,248,0.3); }
+  }
+  .pulse { animation: pulse-glow 3s ease-in-out infinite; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .slide { padding: 40px 32px; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.7rem; }
+    .row { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="deck" id="deck">
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+     ════════════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="content center gap-md">
+    <div style="display:flex; gap:14px; margin-bottom:8px;">
+      <span class="badge">DeepLearning.AI</span>
+      <span class="badge-purple badge">× Oracle</span>
+    </div>
+    <h1>Agent Memory:<br><span class="gradient-text">Building Memory-Aware Agents</span></h1>
+    <p style="max-width:700px; font-size:1.2rem; margin-top:8px;">
+      Go beyond stateless sessions. Learn to engineer persistent, structured memory infrastructure
+      that lets AI agents <em>remember, retrieve, and improve</em> across interactions.
+    </p>
+    <div style="display:flex; gap:24px; margin-top:28px; flex-wrap:wrap; justify-content:center;">
+      <div class="card" style="padding:16px 24px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:800; color:var(--dl-accent);">1h 39m</div>
+        <div class="small">Duration</div>
+      </div>
+      <div class="card" style="padding:16px 24px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:800; color:var(--dl-purple);">7</div>
+        <div class="small">Video Lessons</div>
+      </div>
+      <div class="card" style="padding:16px 24px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:800; color:var(--dl-green);">5</div>
+        <div class="small">Code Examples</div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:24px;">Instructors: <strong style="color:#E2E8F0;">Richmond Alake</strong> & <strong style="color:#E2E8F0;">Nacho Martínez</strong></p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM: WHY AGENTS NEED MEMORY
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge">Lesson 1</span>
+    <h2>Why AI Agents Need Memory</h2>
+    <div class="row" style="margin-top:12px;">
+      <div class="card card-accent-rose col">
+        <h3 style="color:var(--dl-rose);">The Stateless Problem</h3>
+        <ul class="clean">
+          <li>Most agents work well within a <strong>single session</strong> but lose everything the moment it ends</li>
+          <li>No user preferences, no task history, no learned behavior persists</li>
+          <li>Every new session starts from scratch — a <em>cognitive reset</em></li>
+          <li>Long-horizon tasks become impossible without continuity</li>
+        </ul>
+      </div>
+      <div class="card card-accent-green col">
+        <h3 style="color:var(--dl-green);">The Memory-First Solution</h3>
+        <ul class="clean green">
+          <li>Treat long-term memory as <strong>first-class infrastructure</strong></li>
+          <li>Memory is <em>external</em> to the model, <em>persistent</em>, and <em>structured</em></li>
+          <li>Agents that remember can personalize, adapt, and improve</li>
+          <li>Transforms stateless chatbots into intelligent assistants</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="text-align:center; margin-top:8px; padding:18px;">
+      <p style="font-size:1.05rem;">"Memory engineering is to agents what database design is to applications — <span class="blue-text">foundational infrastructure, not an afterthought.</span>"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 3 — THE AGENT STACK & MEMORY CORE
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge badge-purple">Lesson 2</span>
+    <h2>The Agent Stack & <span class="purple-text">Memory Core</span></h2>
+    <p>The database sits at the center of every memory-aware agent as the <strong>Agent Memory Core</strong> — where data is stored, retrieved, and optimized.</p>
+    <div class="flow-row" style="margin:20px 0;">
+      <div class="flow-box" style="border-color:var(--dl-accent);">
+        <div style="font-size:1.3rem;">🧠</div>LLM Layer
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-color:var(--dl-purple);">
+        <div style="font-size:1.3rem;">⚙️</div>Agent Logic
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box pulse" style="border-color:var(--dl-green); background:rgba(52,211,153,0.08);">
+        <div style="font-size:1.3rem;">💾</div>Memory Core
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-color:var(--dl-orange);">
+        <div style="font-size:1.3rem;">🔧</div>Tools & APIs
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col" style="text-align:center;">
+        <div class="icon-circle icon-blue" style="margin:0 auto 10px;">📥</div>
+        <strong>Store</strong>
+        <p class="small">Persist facts, preferences, and interactions to the database</p>
+      </div>
+      <div class="card col" style="text-align:center;">
+        <div class="icon-circle icon-purple" style="margin:0 auto 10px;">🔍</div>
+        <strong>Retrieve</strong>
+        <p class="small">Semantic search over memory to fetch relevant context</p>
+      </div>
+      <div class="card col" style="text-align:center;">
+        <div class="icon-circle icon-green" style="margin:0 auto 10px;">🔄</div>
+        <strong>Optimize</strong>
+        <p class="small">Compress, summarize, and refine stored memories over time</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 4 — MEMORY TYPES
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge badge-green">Lesson 3</span>
+    <h2>Building Persistent <span class="green-text">Memory Stores</span></h2>
+    <p>Different memory types serve different purposes — a well-architected agent uses all three.</p>
+    <div class="row" style="margin-top:16px;">
+      <div class="card card-accent-blue col">
+        <div class="icon-circle icon-blue">📚</div>
+        <h3 style="color:var(--dl-accent);">Semantic Memory</h3>
+        <p>Facts, knowledge, and domain information. "What does the agent know?"</p>
+        <p class="small" style="margin-top:8px;">Example: User preferences, product catalogs, company policies</p>
+      </div>
+      <div class="card card-accent-purple col">
+        <div class="icon-circle icon-purple">📖</div>
+        <h3>Episodic Memory</h3>
+        <p>Past interactions, conversations, and events. "What has the agent experienced?"</p>
+        <p class="small" style="margin-top:8px;">Example: Previous conversations, task outcomes, user feedback</p>
+      </div>
+      <div class="card card-accent-orange col">
+        <div class="icon-circle icon-orange">🛠️</div>
+        <h3 style="color:var(--dl-orange);">Procedural Memory</h3>
+        <p>Learned routines, workflows, and tool-use patterns. "What can the agent do?"</p>
+        <p class="small" style="margin-top:8px;">Example: Multi-step workflows, API call patterns, decision heuristics</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 5 — THE MEMORY MANAGER
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge badge-orange">Lesson 4</span>
+    <h2>The <span class="orange-text">Memory Manager</span></h2>
+    <p>The Memory Manager orchestrates <em>how</em> your agent reads, writes, and retrieves memory during execution.</p>
+    <div class="row" style="margin-top:16px;">
+      <div class="col" style="flex:1.2;">
+        <div class="code-block"><span class="kw">class</span> <span class="fn">MemoryManager</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, db, embedder, llm):
+        self.db      <span class="op">=</span> db       <span class="cm"># Oracle AI Database</span>
+        self.embedder <span class="op">=</span> embedder <span class="cm"># Embedding model</span>
+        self.llm     <span class="op">=</span> llm      <span class="cm"># LLM for summarization</span>
+
+    <span class="kw">def</span> <span class="fn">read</span>(self, query):
+        <span class="cm"># Semantic search over memory store</span>
+        <span class="kw">return</span> self.db.<span class="fn">similarity_search</span>(
+            self.embedder.<span class="fn">embed</span>(query)
+        )
+
+    <span class="kw">def</span> <span class="fn">write</span>(self, memory, mem_type):
+        <span class="cm"># Persist new memory with metadata</span>
+        self.db.<span class="fn">store</span>(memory, type<span class="op">=</span>mem_type)
+
+    <span class="kw">def</span> <span class="fn">consolidate</span>(self):
+        <span class="cm"># Compress & summarize older memories</span>
+        self.llm.<span class="fn">summarize</span>(self.db.<span class="fn">get_stale</span>())</div>
+      </div>
+      <div class="col" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="card card-accent-blue">
+          <strong class="blue-text">Read</strong>
+          <p class="small">Fetch relevant context via semantic similarity search</p>
+        </div>
+        <div class="card card-accent-green">
+          <strong class="green-text">Write</strong>
+          <p class="small">Persist new memories with type labels and metadata</p>
+        </div>
+        <div class="card card-accent-purple">
+          <strong class="purple-text">Consolidate</strong>
+          <p class="small">LLM-powered compression keeps memory lean and relevant</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 6 — SEMANTIC SEARCH & TOOL ACCESS
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge">Lesson 5</span>
+    <h2>Scaling Tool Access with <span class="gradient-text">Semantic Search</span></h2>
+    <p>Instead of hard-coding which tools to use, agents retrieve the right tools at runtime via <strong>semantic search</strong> over a tool registry.</p>
+    <div style="margin:20px 0;">
+      <div class="flow-row">
+        <div class="flow-box" style="border-color:var(--dl-accent);">
+          <div>💬</div>User Query
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color:var(--dl-purple);">
+          <div>🔢</div>Embed Query
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color:var(--dl-green);">
+          <div>🔍</div>Search Tool Registry
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color:var(--dl-orange);">
+          <div>✅</div>Select Top-K Tools
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color:var(--dl-rose);">
+          <div>⚡</div>Execute
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col">
+        <h3 style="color:var(--dl-accent);">Why Semantic Search?</h3>
+        <ul class="clean">
+          <li>Scales to hundreds of tools without prompt bloat</li>
+          <li>Agents only see the most relevant tools per query</li>
+          <li>New tools can be added without retraining or reprompting</li>
+        </ul>
+      </div>
+      <div class="card col">
+        <h3>Tech Stack</h3>
+        <table class="clean-table">
+          <tr><th>Component</th><th>Implementation</th></tr>
+          <tr><td>Vector DB</td><td><span class="blue-text">Oracle AI Database</span></td></tr>
+          <tr><td>Embeddings</td><td>Oracle GenAI / OpenAI</td></tr>
+          <tr><td>Orchestration</td><td><span class="green-text">LangChain</span></td></tr>
+          <tr><td>LLM</td><td>GPT-4 / Cohere</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 7 — WRITE-BACK LOOPS
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge badge-purple">Lesson 6</span>
+    <h2>Write-Back Loops: <span class="purple-text">Self-Updating Memory</span></h2>
+    <p>Agents don't just read memory — they <strong>autonomously update</strong> their own memory after each interaction.</p>
+    <div style="display:flex; gap:24px; margin-top:16px; align-items:stretch;">
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size:2.2rem; margin-bottom:10px;">1️⃣</div>
+        <strong>Observe</strong>
+        <p class="small" style="margin-top:6px;">Agent processes user input and generates a response</p>
+      </div>
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size:2.2rem; margin-bottom:10px;">2️⃣</div>
+        <strong>Extract</strong>
+        <p class="small" style="margin-top:6px;">LLM identifies new facts, preferences, or outcomes worth remembering</p>
+      </div>
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size:2.2rem; margin-bottom:10px;">3️⃣</div>
+        <strong>Write</strong>
+        <p class="small" style="margin-top:6px;">Memory Manager persists extracted knowledge to the Memory Core</p>
+      </div>
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size:2.2rem; margin-bottom:10px;">4️⃣</div>
+        <strong>Refine</strong>
+        <p class="small" style="margin-top:6px;">Consolidation routine merges, compresses, and deduplicates</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px; border-left:3px solid var(--dl-purple);">
+      <div class="row" style="align-items:center; gap:20px;">
+        <div class="icon-circle icon-purple" style="margin-bottom:0;">🔁</div>
+        <div>
+          <strong class="purple-text">Key Insight:</strong>
+          <p class="small" style="margin-top:4px;">Write-back loops create a <em>virtuous cycle</em> — each interaction makes the agent smarter, more personalized, and more effective for the next session.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 8 — ASSEMBLING THE MEMORY-AWARE AGENT
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <span class="badge badge-green">Lesson 7</span>
+    <h2>Assembling the <span class="green-text">Memory-Aware Agent</span></h2>
+    <p>Put it all together: a fully stateful agent with startup routine, reasoning loop, and cross-session persistence.</p>
+    <div class="row" style="margin-top:16px;">
+      <div class="col" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="card card-accent-blue">
+          <h3 style="color:var(--dl-accent); font-size:1.1rem;">① Startup Routine</h3>
+          <p>Load prior context from the Memory Core. Restore user preferences, conversation history, and task state before generating any response.</p>
+        </div>
+        <div class="card card-accent-purple">
+          <h3 style="font-size:1.1rem;">② Recursive Reasoning Loop</h3>
+          <p>At each turn: retrieve relevant memories → assemble context + tools → reason → act → extract new memories → write back.</p>
+        </div>
+        <div class="card card-accent-green">
+          <h3 style="color:var(--dl-green); font-size:1.1rem;">③ Cross-Session Persistence</h3>
+          <p>When the session ends, all learned knowledge persists in Oracle AI Database — ready for the next session instantaneously.</p>
+        </div>
+      </div>
+      <div class="col" style="display:flex; align-items:center;">
+        <div class="code-block" style="width:100%;"><span class="cm"># The full agent lifecycle</span>
+
+<span class="kw">async def</span> <span class="fn">run_agent</span>(user_input):
+  <span class="cm"># ① Startup: load prior context</span>
+  context <span class="op">=</span> memory.<span class="fn">read</span>(user_input)
+  tools   <span class="op">=</span> registry.<span class="fn">search</span>(user_input)
+
+  <span class="cm"># ② Reason & Act</span>
+  response <span class="op">=</span> llm.<span class="fn">invoke</span>(
+      input<span class="op">=</span>user_input,
+      context<span class="op">=</span>context,
+      tools<span class="op">=</span>tools
+  )
+
+  <span class="cm"># ③ Write-back: persist new knowledge</span>
+  new_memories <span class="op">=</span> llm.<span class="fn">extract_facts</span>(
+      user_input, response
+  )
+  memory.<span class="fn">write</span>(new_memories)
+
+  <span class="kw">return</span> response</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 9 — KEY TAKEAWAYS
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s9">
+  <div class="content gap-md" style="display:flex; flex-direction:column;">
+    <h2>Key Takeaways & <span class="gradient-text">Design Principles</span></h2>
+    <div class="row" style="margin-top:12px;">
+      <div class="col" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="card card-accent-blue">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-blue" style="margin-bottom:0; font-size:1.2rem;">1</div>
+            <div>
+              <strong>Memory Is Infrastructure</strong>
+              <p class="small">External, persistent, structured — not embedded in the context window.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent-purple">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-purple" style="margin-bottom:0; font-size:1.2rem;">2</div>
+            <div>
+              <strong>Type Your Memories</strong>
+              <p class="small">Semantic, episodic, and procedural memories serve distinct roles in agent cognition.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent-green">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-green" style="margin-bottom:0; font-size:1.2rem;">3</div>
+            <div>
+              <strong>Semantic Search Scales</strong>
+              <p class="small">Retrieve the right memories and tools at runtime — no prompt bloat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="card card-accent-orange">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-orange" style="margin-bottom:0; font-size:1.2rem;">4</div>
+            <div>
+              <strong>Write-Back Creates Learning</strong>
+              <p class="small">Agents that update their own memory improve autonomously over time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent-rose">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-rose" style="margin-bottom:0; font-size:1.2rem;">5</div>
+            <div>
+              <strong>Startup Routines Matter</strong>
+              <p class="small">Load prior context before generating — continuity enables long-horizon tasks.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="border-left:3px solid var(--dl-accent);">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="icon-circle icon-blue" style="margin-bottom:0; font-size:1.2rem;">6</div>
+            <div>
+              <strong>Consolidate Aggressively</strong>
+              <p class="small">Compress and deduplicate — unbounded memory growth degrades retrieval quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 10 — CLOSING
+     ════════════════════════════════════════════════ -->
+<div class="slide" id="s10">
+  <div class="content center gap-md">
+    <div style="font-size:4rem; margin-bottom:8px;" class="float">🧠</div>
+    <h1>From Stateless to <span class="gradient-text">Stateful</span></h1>
+    <p style="max-width:650px; font-size:1.15rem; margin-top:8px;">
+      Memory-aware agents don't just respond — they <strong class="blue-text">remember</strong>,
+      <strong class="purple-text">reason</strong> with history, and <strong class="green-text">improve</strong> across sessions.
+    </p>
+    <div style="display:flex; gap:16px; margin-top:32px; flex-wrap:wrap; justify-content:center;">
+      <div class="badge">Oracle AI Database</div>
+      <div class="badge badge-purple">LangChain</div>
+      <div class="badge badge-green">Vector Search</div>
+      <div class="badge badge-orange">LLM Pipelines</div>
+    </div>
+    <div style="margin-top:40px; padding-top:24px; border-top:1px solid var(--dl-border); width:100%; max-width:500px; text-align:center;">
+      <p class="small">Course by <strong style="color:#E2E8F0;">Richmond Alake</strong> & <strong style="color:#E2E8F0;">Nacho Martínez</strong></p>
+      <p class="small" style="margin-top:6px;">
+        <a href="https://www.deeplearning.ai/short-courses/agent-memory-building-memory-aware-agents/" target="_blank" style="color:var(--dl-accent); text-decoration:none;">deeplearning.ai/short-courses/agent-memory</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- ── Navigation ── -->
+<div class="slide-nav">
+  <button onclick="prev()" id="btnPrev">← Previous</button>
+  <span class="slide-counter" id="counter">1 / 10</span>
+  <button onclick="next()" id="btnNext">Next →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const bar = document.getElementById('progressBar');
+  let current = 0;
+
+  function show(n) {
+    slides[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    bar.style.width = `${((current + 1) / slides.length) * 100}%`;
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+  });
+
+  show(0);
+</script>
+</body>
+</html>

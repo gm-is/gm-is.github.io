@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Coding Plan Comparison — March 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --accent: #6c63ff;
+    --accent2: #00c9a7;
+    --text: #e4e4e7;
+    --muted: #9ca3af;
+    --warn: #f59e0b;
+    --good: #22c55e;
+    --great: #6c63ff;
+    --edu: #ec4899;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6c63ff, #00c9a7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .hero .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero .updated {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--warn);
+    font-weight: 600;
+  }
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 40px 0 6px;
+    color: var(--accent2);
+  }
+  .section-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+    font-size: 0.9rem;
+  }
+  thead th {
+    background: #22253a;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child  { border-radius: 0 12px 0 0; }
+  thead th.edu-col {
+    background: linear-gradient(135deg, #22253a 0%, #2d1f3d 100%);
+    color: var(--edu);
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:hover { background: rgba(108,99,255,0.06); }
+  .provider-cell {
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .price {
+    font-weight: 800;
+    color: var(--accent2);
+    font-size: 1.05rem;
+  }
+  .promo {
+    display: inline-block;
+    background: rgba(245,158,11,0.15);
+    color: var(--warn);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-best { background: rgba(34,197,94,0.15); color: var(--good); }
+  .badge-value { background: rgba(108,99,255,0.15); color: var(--great); }
+  .badge-new { background: rgba(245,158,11,0.15); color: var(--warn); }
+  .badge-edu { background: rgba(236,72,153,0.15); color: var(--edu); }
+  .model-list { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .tool-tag {
+    display: inline-block;
+    background: rgba(108,99,255,0.1);
+    color: #a5a0ff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin: 2px 2px;
+  }
+  .limit { color: var(--muted); font-size: 0.82rem; }
+  .edu-yes {
+    color: var(--edu);
+    font-weight: 700;
+  }
+  .edu-no {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .edu-detail {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* Quick Pick Cards */
+  .picks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .pick-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: border-color 0.2s;
+  }
+  .pick-card:hover { border-color: var(--accent); }
+  .pick-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pick-card .rec { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+  .pick-card .rec-price { color: var(--accent2); font-weight: 800; }
+  .pick-card .rec-why { color: var(--muted); font-size: 0.85rem; }
+
+  /* Explainer */
+  .explainer {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 30px;
+  }
+  .explainer h3 { font-size: 1.1rem; margin-bottom: 10px; }
+  .explainer p { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.6rem; }
+    .container { padding: 16px 10px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AI Coding Plan Comparison</h1>
+  <p class="subtitle">Side-by-side comparison of the top AI coding subscriptions for developers — flat-fee plans, IDE-native tools, and API-backed coding agents.</p>
+  <p class="updated">Updated: March 18, 2026 &middot; Prices verified from official sources</p>
+</div>
+
+<div class="container">
+
+  <!-- Quick Picks -->
+  <div class="section-title">Quick Picks</div>
+  <p class="section-desc">Best choice for common use cases.</p>
+  <div class="picks">
+    <div class="pick-card">
+      <h3>Best Overall Quality</h3>
+      <div class="rec">Claude Code (Max 5x)</div>
+      <div class="rec-price">$100/mo</div>
+      <div class="rec-why">Opus 4.6 with 1M context, agent teams, highest model quality. One subscription covers chat + CLI coding.</div>
+    </div>
+    <div class="pick-card">
+      <h3>Best Budget Entry</h3>
+      <div class="rec">Qwen Coding Plan (Lite)</div>
+      <div class="rec-price">~$5/mo (promo) &middot; $10/mo regular</div>
+      <div class="rec-why">18K requests/mo on Qwen 3.5-Plus. Works with Claude Code, Cursor, Cline. Unbeatable for light usage.</div>
+    </div>
+    <div class="pick-card">
+      <h3>Best IDE Experience</h3>
+      <div class="rec">Cursor Pro</div>
+      <div class="rec-price">$20/mo &middot; FREE for students (1 yr)</div>
+      <div class="rec-why">Unlimited tab completions, credit-based multi-model access. Students get a full year of Pro free with .edu verification.</div>
+    </div>
+    <div class="pick-card">
+      <h3>Best for Students</h3>
+      <div class="rec">GitHub Copilot Student</div>
+      <div class="rec-price">FREE</div>
+      <div class="rec-why">Free Copilot access via GitHub Education. Auto mode with multi-model access. Premium model selection restricted as of Mar 2026.</div>
+    </div>
+    <div class="pick-card">
+      <h3>Best Value Mid-Tier</h3>
+      <div class="rec">GitHub Copilot Pro</div>
+      <div class="rec-price">$10/mo</div>
+      <div class="rec-why">Unlimited completions, premium model access, coding agent — lowest price from a major US platform.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: US / Major Platform Plans -->
+  <div class="section-title">US &amp; Major Platform Plans</div>
+  <p class="section-desc">Subscriptions from Anthropic, GitHub, Cursor, and Windsurf — integrated IDE tools with multi-model access.</p>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Plan</th>
+          <th>Price</th>
+          <th class="edu-col">Student / Edu Pricing</th>
+          <th>Usage / Limits</th>
+          <th>Key Models</th>
+          <th>Supported Tools</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Claude -->
+        <tr>
+          <td class="provider-cell" rowspan="3">Anthropic<br><small style="color:var(--muted)">Claude Code</small></td>
+          <td>Pro</td>
+          <td><span class="price">$20/mo</span></td>
+          <td rowspan="3">
+            <span class="edu-no">No individual student discount</span>
+            <div class="edu-detail">Institutional Education Plan available — campus-wide pricing for universities (contact sales). Some universities provide free access through partnerships through 2027.</div>
+          </td>
+          <td>Standard usage<br><span class="limit">Includes Claude Code CLI access</span></td>
+          <td>Sonnet 4.6, Haiku 4.5<br><span class="model-list">Opus available at lower rate limits</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Claude.ai</span></td>
+          <td>Single subscription for chat + terminal coding</td>
+        </tr>
+        <tr>
+          <td>Max 5x</td>
+          <td><span class="price">$100/mo</span></td>
+          <td>25x Free capacity<br><span class="limit">Priority access during peak</span></td>
+          <td>Opus 4.6, Sonnet 4.6, Haiku 4.5<br><span class="model-list">1M context window, agent teams</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Claude.ai</span></td>
+          <td><span class="badge badge-best">Best Model Quality</span><br>Monthly only, no annual option</td>
+        </tr>
+        <tr>
+          <td>Max 20x</td>
+          <td><span class="price">$200/mo</span></td>
+          <td>100x Free capacity<br><span class="limit">Maximum priority</span></td>
+          <td>Opus 4.6, Sonnet 4.6, Haiku 4.5<br><span class="model-list">1M context, full agent teams</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Claude.ai</span></td>
+          <td>For heavy daily usage; monthly only</td>
+        </tr>
+        <!-- GitHub Copilot -->
+        <tr>
+          <td class="provider-cell" rowspan="3">GitHub<br><small style="color:var(--muted)">Copilot</small></td>
+          <td>Pro</td>
+          <td><span class="price">$10/mo</span><br><small style="color:var(--muted)">$100/yr</small></td>
+          <td rowspan="3">
+            <span class="edu-yes">FREE &mdash; Copilot Student Plan</span><br>
+            <span class="badge badge-edu">Best Student Deal</span>
+            <div class="edu-detail">Verified students via GitHub Education get free Copilot access. As of Mar 12, 2026 the Student plan restricts direct selection of premium models (GPT-5.4, Claude Opus/Sonnet) but Auto mode still routes to them. Can upgrade to paid Pro/Pro+ while keeping Student Pack benefits.</div>
+          </td>
+          <td>Unlimited completions<br><span class="limit">Monthly premium request allowance</span></td>
+          <td>Multi-model (GPT-4o, Claude, Gemini)<br><span class="model-list">Coding agent included</span></td>
+          <td><span class="tool-tag">VS Code</span><span class="tool-tag">JetBrains</span><span class="tool-tag">Neovim</span><span class="tool-tag">Xcode</span></td>
+          <td><span class="badge badge-value">Best Price / Major US</span></td>
+        </tr>
+        <tr>
+          <td>Pro+</td>
+          <td><span class="price">$39/mo</span><br><small style="color:var(--muted)">$390/yr</small></td>
+          <td>Larger premium request pool<br><span class="limit">All models unlocked</span></td>
+          <td>Full model roster<br><span class="model-list">Including all premium models</span></td>
+          <td><span class="tool-tag">VS Code</span><span class="tool-tag">JetBrains</span><span class="tool-tag">Neovim</span><span class="tool-tag">Xcode</span></td>
+          <td>Best for power users on GitHub ecosystem</td>
+        </tr>
+        <tr>
+          <td>Business</td>
+          <td><span class="price">$19/user/mo</span></td>
+          <td>Org-level policy controls<br><span class="limit">Centralized billing, SSO</span></td>
+          <td>Same as Pro<br><span class="model-list">+ admin & audit features</span></td>
+          <td><span class="tool-tag">VS Code</span><span class="tool-tag">JetBrains</span><span class="tool-tag">GitHub.com</span></td>
+          <td>Enterprise at $39/user/mo (GH Enterprise Cloud)</td>
+        </tr>
+        <!-- Cursor -->
+        <tr>
+          <td class="provider-cell" rowspan="3">Cursor</td>
+          <td>Pro</td>
+          <td><span class="price">$20/mo</span><br><small style="color:var(--muted)">$16/mo annual</small></td>
+          <td rowspan="3">
+            <span class="edu-yes">FREE Pro for 1 year ($240 value)</span><br>
+            <span class="badge badge-edu">Excellent</span>
+            <div class="edu-detail">Requires .edu email + SheerID verification. Available to high school, college, university, and bootcamp students (13+). Reverts to $20/mo after 12 months. Apply at cursor.com/students.</div>
+          </td>
+          <td>$20 credit pool / month<br><span class="limit">Unlimited tab completions; Auto mode unlimited</span></td>
+          <td>Claude Sonnet, GPT-4o, Gemini<br><span class="model-list">Credits deducted per premium call</span></td>
+          <td><span class="tool-tag">Cursor IDE</span></td>
+          <td>Credit-based system since June 2025</td>
+        </tr>
+        <tr>
+          <td>Pro+</td>
+          <td><span class="price">$60/mo</span></td>
+          <td>$60 credit pool / month<br><span class="limit">Unlimited completions + agent</span></td>
+          <td>All premium models<br><span class="model-list">Higher-tier model access</span></td>
+          <td><span class="tool-tag">Cursor IDE</span></td>
+          <td>3x the credit pool of Pro</td>
+        </tr>
+        <tr>
+          <td>Ultra</td>
+          <td><span class="price">$200/mo</span></td>
+          <td>$200 credit pool / month<br><span class="limit">Maximum throughput</span></td>
+          <td>All models, max priority<br><span class="model-list">Best for intensive coding</span></td>
+          <td><span class="tool-tag">Cursor IDE</span></td>
+          <td>Teams: $40/user/mo; Enterprise: custom</td>
+        </tr>
+        <!-- Windsurf -->
+        <tr>
+          <td class="provider-cell" rowspan="2">Windsurf</td>
+          <td>Pro</td>
+          <td><span class="price">$15/mo</span></td>
+          <td rowspan="2">
+            <span class="edu-yes">~$6.90/mo (54% off)</span><br>
+            <span class="badge badge-edu">Good Deal</span>
+            <div class="edu-detail">Requires .edu email verification. 50%+ off Pro plan for up to 12 months, renewable up to 3 times. Limited to first 4,200 signups. Full Pro features included.</div>
+          </td>
+          <td>500 prompt credits / month<br><span class="limit">Unlimited tab completions & inline edits</span></td>
+          <td>All premium models<br><span class="model-list">Multi-model Cascade agent</span></td>
+          <td><span class="tool-tag">Windsurf IDE</span></td>
+          <td>Extra credits: $10 / 250</td>
+        </tr>
+        <tr>
+          <td>Teams</td>
+          <td><span class="price">$30/user/mo</span></td>
+          <td>500 credits / user<br><span class="limit">Admin controls, analytics</span></td>
+          <td>Same as Pro<br><span class="model-list">+ team management</span></td>
+          <td><span class="tool-tag">Windsurf IDE</span></td>
+          <td>Enterprise at $60/user with ZDR, SSO, RBAC</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 2: China-Based Coding Plans -->
+  <div class="section-title">China-Based Coding Plans (API-Backed)</div>
+  <p class="section-desc">Flat-fee subscriptions from Chinese AI labs — use their models inside Claude Code, Cursor, Cline, and other tools via API key. One prompt in a coding tool typically triggers 5–30 model calls.</p>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Plan</th>
+          <th>Price</th>
+          <th class="edu-col">Student / Edu Pricing</th>
+          <th>Usage Limits</th>
+          <th>Models</th>
+          <th>Compatible Tools</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- GLM / Z.ai -->
+        <tr>
+          <td class="provider-cell" rowspan="3">Z.ai (Zhipu)<br><small style="color:var(--muted)">GLM Coding Plan</small></td>
+          <td>Lite</td>
+          <td><span class="price">$9/mo</span></td>
+          <td rowspan="3">
+            <span class="edu-no">No student discount</span>
+            <div class="edu-detail">No publicly listed edu pricing. Quarterly and annual billing discounts available for all users. Contact Z.ai support to inquire about institutional programs.</div>
+          </td>
+          <td>120 prompts / 5-hr window<br><span class="limit">Rolling quota</span></td>
+          <td>GLM-4.7, GLM-4.6, GLM-4.5<br><span class="model-list">GLM-5-Turbo coming ~Apr 2026</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Roo Code</span><span class="tool-tag">Kilo Code</span></td>
+          <td>Was $3 before Feb 2026 price increase</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td><span class="price">$27/mo</span></td>
+          <td>600 prompts / 5-hr window<br><span class="limit">Quarterly & annual discounts available</span></td>
+          <td>GLM-4.7, GLM-4.6, GLM-4.5<br><span class="model-list">GLM-5-Turbo expected late Mar</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Roo Code</span><span class="tool-tag">Kilo Code</span></td>
+          <td>Best balance of price & throughput for GLM</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td><span class="price">$72/mo</span></td>
+          <td>1,600 prompts / 5-hr window<br><span class="limit">Highest concurrency</span></td>
+          <td>GLM-5-Turbo, GLM-4.7+<br><span class="model-list">Full model access</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Roo Code</span><span class="tool-tag">Kilo Code</span></td>
+          <td>GLM-5-Turbo only on Max for now</td>
+        </tr>
+        <!-- MiniMax -->
+        <tr>
+          <td class="provider-cell" rowspan="3">MiniMax</td>
+          <td>Starter</td>
+          <td><span class="price">$10/mo</span></td>
+          <td rowspan="3">
+            <span class="edu-no">No student discount</span>
+            <div class="edu-detail">No dedicated edu pricing. Occasional seasonal promos (Back-to-School, New Year) offer ~$2 entry deals for all users. Referral program gives 12% off.</div>
+          </td>
+          <td>100 prompts / 5-hr window<br><span class="limit">Rolling quota</span></td>
+          <td>MiniMax M2.1<br><span class="model-list">M2.5 not yet on Coding Plan</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Kilo Code</span></td>
+          <td><span class="badge badge-new">Note</span> M2.5 requires pay-as-you-go API</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td><span class="price">$20/mo</span></td>
+          <td>Higher prompt quota<br><span class="limit">5-hr rolling window</span></td>
+          <td>MiniMax M2.1<br><span class="model-list">Same model as Starter</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Kilo Code</span></td>
+          <td>Good mid-range for regular coding</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td><span class="price">$50/mo</span></td>
+          <td>Highest quota tier<br><span class="limit">5-hr rolling window</span></td>
+          <td>MiniMax M2.1<br><span class="model-list">Awaiting M2.5 plan upgrade</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span><span class="tool-tag">Kilo Code</span></td>
+          <td>Consider pay-as-you-go for M2.5 access instead</td>
+        </tr>
+        <!-- Kimi / Moonshot -->
+        <tr>
+          <td class="provider-cell" rowspan="2">Moonshot AI<br><small style="color:var(--muted)">Kimi Code</small></td>
+          <td>Andante</td>
+          <td><span class="price">~$19/mo</span></td>
+          <td rowspan="2">
+            <span class="edu-no">No individual student discount</span>
+            <div class="edu-detail">Moonshot runs a Campus Program — universities can partner for free/subsidized institutional access. No individual .edu discount available. Check with your school.</div>
+          </td>
+          <td>Included coding quotas<br><span class="limit">Weekly rolling refresh (no carryover)</span></td>
+          <td>Kimi K2.5<br><span class="model-list">Agent Swarm tech, 100 parallel agents</span></td>
+          <td><span class="tool-tag">Kimi CLI</span><span class="tool-tag">Claude Code</span><span class="tool-tag">Roo Code</span></td>
+          <td>Kimi Code included in membership — no extra fee</td>
+        </tr>
+        <tr>
+          <td>Vivace</td>
+          <td><span class="price">$199/mo</span></td>
+          <td>Priority access<br><span class="limit">Highest quotas, peak hour priority</span></td>
+          <td>Kimi K2.5<br><span class="model-list">Full priority access</span></td>
+          <td><span class="tool-tag">Kimi CLI</span><span class="tool-tag">Claude Code</span><span class="tool-tag">Roo Code</span></td>
+          <td>Top tier for heavy Kimi usage</td>
+        </tr>
+        <!-- Qwen / Alibaba -->
+        <tr>
+          <td class="provider-cell" rowspan="2">Alibaba Cloud<br><small style="color:var(--muted)">Qwen Coding Plan</small></td>
+          <td>Lite</td>
+          <td>
+            <span class="price">$10/mo</span><br>
+            <span class="promo">50% OFF promo: ~$5/mo</span>
+          </td>
+          <td rowspan="2">
+            <span class="edu-no">No student discount</span>
+            <div class="edu-detail">No dedicated edu pricing. The active 50% promotional discount applies to all users and is already extremely competitive. Alibaba Cloud does offer separate academic programs but not specifically for the Coding Plan.</div>
+          </td>
+          <td>18,000 req/month<br><span class="limit">1,200 req/5-hr &middot; 9,000/week cap</span></td>
+          <td>Qwen 3.5-Plus<br><span class="model-list">Latest Qwen models</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Qwen Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span></td>
+          <td><span class="badge badge-value">Best Budget</span><br>Promo may expire — verify at checkout</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td>
+            <span class="price">$50/mo</span><br>
+            <span class="promo">50% OFF promo: ~$25/mo</span>
+          </td>
+          <td>90,000 req/month<br><span class="limit">6,000 req/5-hr &middot; 45,000/week cap</span></td>
+          <td>Qwen 3.5-Plus<br><span class="model-list">Full model access</span></td>
+          <td><span class="tool-tag">Claude Code</span><span class="tool-tag">Qwen Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Cline</span></td>
+          <td>5x Lite usage; excellent value at promo price</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Student Summary Card -->
+  <div class="section-title">Student Pricing Summary</div>
+  <p class="section-desc">Quick reference for students and educators looking for the best deals.</p>
+  <div class="explainer" style="border-color: rgba(236,72,153,0.3);">
+    <h3 style="color:var(--edu);">Best Options for Students (Ranked)</h3>
+    <p><strong style="color:var(--text);">1. GitHub Copilot Student — FREE</strong><br>The gold standard. Verified students (via GitHub Education) get free Copilot access indefinitely. As of March 2026, the Student plan restricts direct selection of premium models (GPT-5.4, Claude) but Auto mode still routes to them intelligently. You can upgrade to Pro/Pro+ later while keeping your Student Pack.</p>
+    <p><strong style="color:var(--text);">2. Cursor Pro — FREE for 1 year ($240 value)</strong><br>Full Pro plan free for 12 months with .edu email + SheerID verification. Includes unlimited tab completions and the full credit-based model access. Available to high school, college, university, and bootcamp students age 13+. Reverts to $20/mo after the free year.</p>
+    <p><strong style="color:var(--text);">3. Windsurf Pro — ~$6.90/mo (54% off)</strong><br>Half-price Pro plan for verified students, valid for 12 months and renewable up to 3 times. Limited to first 4,200 signups. Full Pro features including 500 prompt credits/mo.</p>
+    <p><strong style="color:var(--text);">4. Anthropic Claude — Institutional only</strong><br>No individual student discount. However, Anthropic offers an Education Plan for universities — check if your school has a partnership that provides free access. Some university partnerships extend through 2027.</p>
+    <p><strong style="color:var(--text);">5. China-based plans (GLM, MiniMax, Qwen, Kimi) — No student discounts</strong><br>None offer dedicated edu pricing. However, their base prices are already low ($5–$10/mo at entry tiers), making them accessible regardless. Kimi and Moonshot have Campus Programs for institutional partnerships.</p>
+  </div>
+
+  <!-- Explainer -->
+  <div class="section-title">Understanding "Coding Plans"</div>
+  <div class="explainer">
+    <h3>What is a Coding Plan?</h3>
+    <p>A <strong>Coding Plan</strong> is a flat-fee monthly subscription from an AI provider that gives you access to their models inside coding tools like Claude Code, Cursor, Cline, and others. Instead of paying per token, you pay a fixed amount and get a prompt/request quota that refreshes on a rolling basis (typically per 5-hour window or monthly).</p>
+    <p><strong>Important:</strong> One "prompt" in a coding agent typically triggers 5–30 underlying model calls. So a plan with "100 prompts per 5 hours" might translate to 500–3,000 actual API calls. This is why flat-fee plans can be dramatically cheaper than pay-as-you-go API pricing for heavy coding use.</p>
+    <h3 style="margin-top:16px;">IDE-Native vs. API-Backed</h3>
+    <p><strong>IDE-native tools</strong> (Cursor, Windsurf, GitHub Copilot) bundle the editor experience with model access — you get autocomplete, inline chat, and agent features in one package. <strong>API-backed plans</strong> (GLM, MiniMax, Qwen, Kimi) provide an API key you plug into your preferred tool. The latter gives more flexibility but requires setup.</p>
+  </div>
+
+  <!-- Key Changes -->
+  <div class="section-title">Recent Changes (Q1 2026)</div>
+  <div class="explainer">
+    <p><strong>GLM (Z.ai):</strong> Prices increased 30–60% effective Feb 11, 2026. First-purchase discounts removed. Lite went from $3 to $9/mo. Quarterly and annual billing discounts added as partial offset.</p>
+    <p><strong>MiniMax:</strong> Coding Plan still runs on M2.1 — the newer M2.5 model (SWE-Bench 80.2%) is only available via pay-as-you-go API. Plan update expected but not yet announced.</p>
+    <p><strong>Qwen (Alibaba):</strong> Newly launched with a 50% promotional discount. Regular prices are $10/mo (Lite) and $50/mo (Pro). Promo pricing brings them to ~$5 and ~$25 respectively.</p>
+    <p><strong>Cursor:</strong> Continues its credit-based model introduced June 2025. "Auto" mode is unlimited; manually selecting premium models draws from your credit pool.</p>
+    <p><strong>Claude Code:</strong> Max plan (5x at $100/mo, 20x at $200/mo) remains monthly-only with no annual billing option.</p>
+    <p><strong>GitHub Copilot Student (Mar 12):</strong> New "Copilot Student" plan replaces the old free tier. Premium model self-selection removed (GPT-5.4, Claude Opus/Sonnet); Auto mode still routes to premium models. Students can upgrade to paid plans while keeping Student Pack benefits.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Data compiled from official pricing pages and verified sources as of March 18, 2026.</p>
+  <p>Prices and promotions may change — always verify at the provider's official site before purchasing.</p>
+  <p style="margin-top:8px;">Inspired by <a href="https://codingplan.org" target="_blank">codingplan.org</a></p>
+</footer>
+
+</body>
+</html>

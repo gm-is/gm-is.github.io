@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意大利隐藏宝藏城市：完整指南与深度资源</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terracotta: #C45A3C;
+  --terracotta-light: #E8836A;
+  --olive: #5C6B4F;
+  --olive-dark: #3D4A33;
+  --cream: #FAF6F0;
+  --warm-white: #FFFDF9;
+  --gold: #C9A96E;
+  --gold-light: #E5D4AA;
+  --ink: #2A2520;
+  --ink-light: #4A4540;
+  --stone: #8C8478;
+  --stone-light: #B8B0A4;
+  --sea: #3B6B7A;
+  --sea-light: #5A9BAE;
+  --parchment: #F2ECE2;
+  --shadow: rgba(42, 37, 32, 0.08);
+  --shadow-heavy: rgba(42, 37, 32, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(196, 90, 60, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(59, 107, 122, 0.08) 0%, transparent 50%),
+    linear-gradient(170deg, var(--cream) 0%, var(--parchment) 40%, #EDE5D8 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201, 169, 110, 0.04) 80px, rgba(201, 169, 110, 0.04) 81px),
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201, 169, 110, 0.04) 80px, rgba(201, 169, 110, 0.04) 81px);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 900px;
+  padding: 2rem;
+  animation: fadeUp 1.2s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif SC', 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: var(--terracotta);
+}
+
+.hero-sub {
+  font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  color: var(--stone);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--stone-light);
+  letter-spacing: 0.05em;
+}
+
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s ease-in-out infinite;
+  color: var(--stone-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== NAV ===== */
+.toc {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.toc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  padding: 0 1rem;
+}
+
+.toc a {
+  display: block;
+  padding: 1rem 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.toc a:hover {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+
+/* ===== MAIN ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-family: 'Noto Serif SC', 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.section-header .divider {
+  width: 60px;
+  height: 2px;
+  background: var(--terracotta);
+  margin: 1.5rem auto;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--stone);
+  max-width: 650px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* ===== INTRO STAT ===== */
+.intro-stat {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+  background: var(--warm-white);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 2px;
+  margin-bottom: 4rem;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--terracotta);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  line-height: 1.8;
+}
+
+/* ===== CITY CARDS ===== */
+.city-card {
+  margin-bottom: 4rem;
+  background: var(--warm-white);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.4s;
+}
+
+.city-card:hover {
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.city-header {
+  padding: 2.5rem 3rem 2rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.city-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(201, 169, 110, 0.25);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.city-titles h3 {
+  font-family: 'Noto Serif SC', 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.city-titles .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  font-size: 1rem;
+}
+
+.city-body {
+  padding: 2rem 3rem 2.5rem;
+}
+
+.city-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: rgba(201, 169, 110, 0.1);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.city-stat {
+  background: var(--warm-white);
+  padding: 1.2rem 1.5rem;
+}
+
+.city-stat label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.city-stat value {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.city-desc {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.city-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  border-radius: 1px;
+  font-weight: 500;
+}
+
+.tag-pro {
+  background: rgba(92, 107, 79, 0.1);
+  color: var(--olive-dark);
+}
+
+.tag-con {
+  background: rgba(196, 90, 60, 0.08);
+  color: var(--terracotta);
+}
+
+.tag-who {
+  background: rgba(59, 107, 122, 0.1);
+  color: var(--sea);
+}
+
+.city-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.city-section h4 {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.city-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.city-section ul li {
+  font-size: 0.88rem;
+  color: var(--ink-light);
+  padding: 0.3rem 0;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.city-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.pros li::before { background: var(--olive); }
+.cons li::before { background: var(--terracotta); }
+
+/* ===== COMPARISON TABLE ===== */
+.comparison-wrap {
+  overflow-x: auto;
+  margin: 2rem 0 4rem;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 700px;
+}
+
+.comparison-table thead {
+  background: var(--ink);
+}
+
+.comparison-table th {
+  padding: 1rem 1.2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-align: left;
+  font-weight: 700;
+}
+
+.comparison-table td {
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+  color: var(--ink-light);
+  vertical-align: top;
+}
+
+.comparison-table tbody tr {
+  background: var(--warm-white);
+  transition: background 0.2s;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--parchment);
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background: rgba(242, 236, 226, 0.5);
+}
+
+.comparison-table tbody tr:nth-child(even):hover {
+  background: var(--parchment);
+}
+
+.comparison-table .city-name {
+  font-weight: 700;
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+}
+
+.highlight-cell {
+  color: var(--terracotta) !important;
+  font-weight: 700;
+}
+
+/* ===== PERSONA GRID ===== */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 4rem;
+}
+
+.persona-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  padding: 2rem;
+  border-radius: 2px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.persona-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+.persona-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.persona-card h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+
+.persona-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.persona-card li {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  padding: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.persona-card li strong {
+  color: var(--terracotta);
+}
+
+/* ===== TIPS ===== */
+.tips-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0 4rem;
+}
+
+.tip-card {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 2.5rem 2rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+}
+
+.tip-card h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: var(--gold-light);
+}
+
+.tip-card p {
+  font-size: 0.88rem;
+  color: rgba(250, 246, 240, 0.7);
+  line-height: 1.8;
+}
+
+/* ===== TAX SECTION ===== */
+.tax-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 4rem;
+}
+
+.tax-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: 2px;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.tax-card .tax-rate {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--terracotta);
+  margin-bottom: 0.3rem;
+}
+
+.tax-card h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.tax-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tax-card ul li {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+  line-height: 1.7;
+}
+
+.tax-card ul li:last-child { border: none; }
+
+/* ===== RESOURCES ===== */
+.resource-group {
+  margin-bottom: 3rem;
+}
+
+.resource-group h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold-light);
+}
+
+.resource-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.resource-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--warm-white);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: 2px;
+  transition: border-color 0.3s;
+  align-items: start;
+}
+
+.resource-item:hover {
+  border-color: var(--terracotta-light);
+}
+
+.resource-item a {
+  font-weight: 700;
+  color: var(--sea);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.resource-item a:hover {
+  color: var(--terracotta);
+}
+
+.resource-item .desc {
+  font-size: 0.83rem;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* ===== DATA SOURCES ===== */
+.data-sources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 4rem;
+}
+
+.data-source {
+  padding: 1.5rem;
+  background: var(--parchment);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.data-source strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.data-source span {
+  font-size: 0.75rem;
+  color: var(--stone);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 4rem;
+  padding: 3rem 2rem;
+  background: var(--ink);
+  color: rgba(250, 246, 240, 0.5);
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 2;
+}
+
+.footer strong {
+  color: var(--gold-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .city-header { flex-direction: column; gap: 0.5rem; padding: 2rem; }
+  .city-num { font-size: 2rem; }
+  .city-body { padding: 1.5rem 2rem; }
+  .city-sections { grid-template-columns: 1fr; }
+  .tips-row { grid-template-columns: 1fr; }
+  .intro-stat { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  .persona-grid { grid-template-columns: 1fr; }
+  .tax-cards { grid-template-columns: 1fr; }
+  .resource-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  .toc-inner { gap: 0; }
+  .toc a { padding: 0.8rem; font-size: 0.65rem; }
+  .container { padding: 0 1rem; }
+}
+
+@media print {
+  .toc, .scroll-hint { display: none; }
+  .city-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-label">意大利 · 深度搬迁与旅行指南</div>
+    <h1>7座被低估的<br><em>隐藏宝藏城市</em></h1>
+    <p class="hero-sub">
+      没有拥挤人群，没有旅游溢价，生活品质极高。<br>
+      从税务制度到签证路径，一份完整的行动手册。
+    </p>
+    <div class="hero-meta">
+      <span>来源 · @thealepalombo</span>
+      <span>整理 · 2026年3月</span>
+      <span>7 城市 · 20+ 资源</span>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ 向下滚动</div>
+</section>
+
+<!-- ===== NAV ===== -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#cities">7座城市</a>
+    <a href="#compare">横向对比</a>
+    <a href="#personas">人群推荐</a>
+    <a href="#tips">实用建议</a>
+    <a href="#tax">税务制度</a>
+    <a href="#resources">深度资源</a>
+    <a href="#data">数据来源</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ===== INTRO ===== -->
+  <div class="section-header" id="cities">
+    <div class="section-number">第一部分</div>
+    <h2>7座隐藏的宝藏城市</h2>
+    <div class="divider"></div>
+    <p>意大利富人悄悄生活的地方——完全不在游客雷达上</p>
+  </div>
+
+  <div class="intro-stat">
+    <div class="stat-number">7,904</div>
+    <div class="stat-text">
+      意大利共有 7,904 个市镇，但游客通常只去大约 15 个。以下 7 座城市由当地人经过数小时辩论后精选——没有人群、没有旅游溢价、生活品质极高。
+    </div>
+  </div>
+
+  <!-- CITY 1 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">01</div>
+      <div class="city-titles">
+        <h3>的里雅斯特 Trieste</h3>
+        <div class="subtitle">中欧混血城市 —— 海边的维也纳</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~198,000</value></div>
+        <div class="city-stat"><label>房价</label><value>€2,558/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+9.3%</value></div>
+        <div class="city-stat"><label>生活成本</label><value>~€1,600/月</value></div>
+        <div class="city-stat"><label>租金 80㎡</label><value>~€900/月</value></div>
+        <div class="city-stat"><label>最近机场</label><value>TRS 30分钟</value></div>
+      </div>
+      <p class="city-desc">
+        哈布斯堡建筑风格，乔伊斯曾在此写《尤利西斯》。氛围一半奥地利、一半地中海。卢布尔雅那（斯洛文尼亚）1小时，萨格勒布（克罗地亚）2.5小时，威尼斯2小时——三国交汇。SISSA 顶级物理/数学研究所带来国际化学术社区。当地人穿着考究，维也纳式的优雅在意大利其他城市罕见。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">三国交汇</span>
+        <span class="tag tag-pro">学术生态</span>
+        <span class="tag tag-pro">真正的城市</span>
+        <span class="tag tag-con">布拉风 150km/h</span>
+        <span class="tag tag-con">英语有限</span>
+        <span class="tag tag-who">适合：远程工作者 · 知识文化爱好者</span>
+      </div>
+      <div class="city-sections">
+        <div class="city-section"><h4>优势</h4>
+          <ul class="pros">
+            <li>三国2.5小时内通达（斯洛文尼亚、克罗地亚、意大利）</li>
+            <li>科技生态成长中，大学+SISSA研究所</li>
+            <li>阿尔卑斯山日游，克罗地亚海岸周末游</li>
+            <li>月交通卡仅€40</li>
+          </ul>
+        </div>
+        <div class="city-section"><h4>注意</h4>
+          <ul class="cons">
+            <li>冬天布拉风阵风可达150km/h，建筑外墙装有行人扶手</li>
+            <li>城市朝东不朝南——夏天凉爽但冬天更冷</li>
+            <li>意大利语带斯拉夫口音，英语普及度低</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 2 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">02</div>
+      <div class="city-titles">
+        <h3>卢卡 Lucca</h3>
+        <div class="subtitle">被时间遗忘的城墙之城</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~94,000</value></div>
+        <div class="city-stat"><label>房价</label><value>€2,321/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+6.4%</value></div>
+        <div class="city-stat"><label>生活成本</label><value>€1,500–1,800/月 (夫妻)</value></div>
+        <div class="city-stat"><label>最近机场</label><value>比萨 PSA 25分钟</value></div>
+      </div>
+      <p class="city-desc">
+        4公里完整文艺复兴城墙，可在墙顶散步或骑车——每日黄昏的 passeggiata 是当地仪式，不是旅游项目。平坦、可骑行、限车的老城中心。比萨机场廉航遍布欧洲（€30起）。佛罗伦萨90分钟火车，五渔村2小时，海边维亚雷焦仅20分钟。城内有双语学校（1-18岁）。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">比萨机场25分钟</span>
+        <span class="tag tag-pro">双语学校</span>
+        <span class="tag tag-pro">平坦可骑行</span>
+        <span class="tag tag-who">适合：家庭 · 需机场便利的远程工作者</span>
+      </div>
+      <div class="city-sections">
+        <div class="city-section"><h4>优势</h4>
+          <ul class="pros">
+            <li>比萨机场 Ryanair/easyJet/BA/Lufthansa/KLM 全覆盖</li>
+            <li>成熟的外籍社区和数字游民场景</li>
+            <li>托斯卡纳品质，佛罗伦萨价格的一半</li>
+          </ul>
+        </div>
+        <div class="city-section"><h4>注意</h4>
+          <ul class="cons">
+            <li>城墙内房价偏高，需去周边区域（€1,440/㎡起）</li>
+            <li>夏天可能拥挤</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 3 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">03</div>
+      <div class="city-titles">
+        <h3>莱切 Lecce</h3>
+        <div class="subtitle">南方的佛罗伦萨</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~93,000</value></div>
+        <div class="city-stat"><label>房价</label><value>€1,647/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+6%</value></div>
+        <div class="city-stat"><label>生活成本</label><value>~€1,300/月 (单人)</value></div>
+        <div class="city-stat"><label>最近机场</label><value>布林迪西 BDS 40分钟</value></div>
+      </div>
+      <p class="city-desc">
+        巴洛克建筑用金色 Leccia 石灰岩雕刻，日落时整座城仿佛燃烧。€200-300K 可在老城区买 120-180㎡。萨兰托海滩（Gallipoli、Otranto、Porto Cesareo）仅30-45分钟。大学带来25,000+学生，全年有咖啡馆、夜生活、文化活动。一顿正餐含酒仅 €15-20。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">可享7%统一税</span>
+        <span class="tag tag-pro">30分钟到海滩</span>
+        <span class="tag tag-pro">成本极低</span>
+        <span class="tag tag-con">夏天35-40°C</span>
+        <span class="tag tag-con">火车到罗马5-6小时</span>
+        <span class="tag tag-who">适合：退休者 · 美食爱好者</span>
+      </div>
+      <div class="city-sections">
+        <div class="city-section"><h4>优势</h4>
+          <ul class="pros">
+            <li>亚得里亚海和爱奥尼亚海双海岸可达</li>
+            <li>一切低于意大利全国平均：食物、交通、医疗</li>
+            <li>Puglia地区附近小镇可享7%外国收入统一税</li>
+          </ul>
+        </div>
+        <div class="city-section"><h4>注意</h4>
+          <ul class="cons">
+            <li>夏天酷热，非温和的地中海气候</li>
+            <li>基础设施改善中但仍落后北方</li>
+            <li>飞或开车是主要选项</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 4 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">04</div>
+      <div class="city-titles">
+        <h3>曼托瓦 Mantova</h3>
+        <div class="subtitle">最被低估的文艺复兴城市</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~50,000</value></div>
+        <div class="city-stat"><label>房价</label><value>€1,614/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+2%</value></div>
+        <div class="city-stat"><label>生活成本</label><value>€1,400–1,700/月 (夫妻)</value></div>
+        <div class="city-stat"><label>最近机场</label><value>维罗纳 VRN 30分钟</value></div>
+      </div>
+      <p class="city-desc">
+        贡扎加家族统治400年，宫殿有500个房间，曼特里斯主义杰作 Palazzo Te，被三个人工湖环绕。UNESCO世界遗产。几乎没有外国人知道它存在。距米兰、博洛尼亚各1.5小时，加尔达湖30分钟。Il Sole 24 Ore 多次评为意大利生活质量最佳城市之一。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">UNESCO遗产</span>
+        <span class="tag tag-pro">北部经济圈</span>
+        <span class="tag tag-pro">文化性价比最高</span>
+        <span class="tag tag-con">冬天多雾</span>
+        <span class="tag tag-con">不靠海</span>
+        <span class="tag tag-who">适合：文化退休者 · 家庭</span>
+      </div>
+      <div class="city-sections">
+        <div class="city-section"><h4>优势</h4>
+          <ul class="pros">
+            <li>伦巴第经济核心，米兰价格的零头</li>
+            <li>世界级美食：tortelli di zucca、sbrisolona</li>
+            <li>维罗纳国际学校30分钟</li>
+          </ul>
+        </div>
+        <div class="city-section"><h4>注意</h4>
+          <ul class="cons">
+            <li>波河平原11-2月雾蒙蒙，夏天闷热35°C+</li>
+            <li>非海滩城市——平原、稻田、南瓜地</li>
+            <li>旅游景点外英语有限</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 5 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">05</div>
+      <div class="city-titles">
+        <h3>阿斯科利皮切诺 Ascoli Piceno</h3>
+        <div class="subtitle">石灰华之城</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~45,000</value></div>
+        <div class="city-stat"><label>房价</label><value>€1,345/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+3% (省级+13%)</value></div>
+        <div class="city-stat"><label>生活成本</label><value>€1,200–1,500/月 (夫妻)</value></div>
+        <div class="city-stat"><label>最近机场</label><value>佩斯卡拉 1h20m</value></div>
+      </div>
+      <p class="city-desc">
+        几乎全部由白色石灰华建造。人民广场被评为意大利最美十大广场之一。30分钟到亚得里亚海，30分钟到西比利尼山脉——同日享受海滩和滑雪。Marche地区是意大利最安全的地区之一。7座城市中<strong>房价最低、升值最快</strong>。Olive ascolane（地球上最好的炸橄榄）。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">最便宜 €1,345/㎡</span>
+        <span class="tag tag-pro">升值最快 +13%</span>
+        <span class="tag tag-pro">山海兼得</span>
+        <span class="tag tag-con">必须开车</span>
+        <span class="tag tag-con">机场较远</span>
+        <span class="tag tag-who">适合：纯正意大利生活 · 美食爱好者</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 6 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">06</div>
+      <div class="city-titles">
+        <h3>奥尔维耶托 Orvieto</h3>
+        <div class="subtitle">悬崖上的城市</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~21,500</value></div>
+        <div class="city-stat"><label>房价</label><value>€1,578/㎡</value></div>
+        <div class="city-stat"><label>同比涨幅</label><value>+1%</value></div>
+        <div class="city-stat"><label>生活成本</label><value>€1,300–1,500/月 (夫妻)</value></div>
+        <div class="city-stat"><label>到罗马</label><value>快车1小时</value></div>
+      </div>
+      <p class="city-desc">
+        坐落在火山凝灰岩高原上，需坐缆车上城。脚下有1,200+条伊特鲁里亚地下隧道，头顶是意大利最伟大的哥特式大教堂之一。"慢城"运动（Cittàslow）总部。<strong>核心优势：快车到罗马仅1小时</strong>——中部意大利最接近罗马的小城。成熟的英美外籍人士社区。Orvieto Classico 葡萄酒 + 翁布里亚松露。两人晚餐含当地酒仅 €35。
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">罗马1小时</span>
+        <span class="tag tag-pro">英美社区成熟</span>
+        <span class="tag tag-pro">慢城总部</span>
+        <span class="tag tag-who">适合：退休者 · 作家/艺术家 · 情侣</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- CITY 7 -->
+  <article class="city-card">
+    <div class="city-header">
+      <div class="city-num">07</div>
+      <div class="city-titles">
+        <h3>贝加莫 Bergamo</h3>
+        <div class="subtitle">所有人飞进来却没人停留的城市</div>
+      </div>
+    </div>
+    <div class="city-body">
+      <div class="city-stats">
+        <div class="city-stat"><label>人口</label><value>~120,000</value></div>
+        <div class="city-stat"><label>房价（中心）</label><value>€2,860/㎡</value></div>
+        <div class="city-stat"><label>房价（郊区）</label><value>~€1,773/㎡</value></div>
+        <div class="city-stat"><label>生活成本</label><value>€830/月 (不含租金)</value></div>
+        <div class="city-stat"><label>机场距离</label><value>7km / 15分钟</value></div>
+        <div class="city-stat"><label>目的地</label><value>130+ 欧洲城市</value></div>
+      </div>
+      <p class="city-desc">
+        奥里奥机场每年1,600万旅客飞进来直奔米兰或科莫湖——几乎没人抬头。但上城区（Città Alta）是意大利最美的中世纪古城之一：威尼斯城墙、缆车、鹅卵石广场与阿尔卑斯山景。下城区（Città Bassa）是现代城市：购物、餐厅、服务。Ryanair意大利最大枢纽。距米兰45分钟火车。Numbeo生活质量指数181.96（"非常高"）。<strong>租金比里斯本低48.6%。</strong>
+      </p>
+      <div class="city-tags">
+        <span class="tag tag-pro">最佳机场 130+目的地</span>
+        <span class="tag tag-pro">米兰45分钟</span>
+        <span class="tag tag-pro">租金比里斯本低49%</span>
+        <span class="tag tag-con">中心房价不低</span>
+        <span class="tag tag-con">冬天冷+雾</span>
+        <span class="tag tag-who">适合：频繁飞行者 · 创业者 · 家庭</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== COMPARISON ===== -->
+  <div class="section-header" id="compare">
+    <div class="section-number">第二部分</div>
+    <h2>横向对比速查</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="comparison-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>最佳城市</th>
+          <th>关键数据</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>最便宜</td><td class="city-name">Ascoli Piceno</td><td class="highlight-cell">€1,345/㎡</td></tr>
+        <tr><td>最佳机场</td><td class="city-name">Bergamo</td><td>奥里奥，15分钟，130+目的地</td></tr>
+        <tr><td>最大城市</td><td class="city-name">Trieste</td><td>198,000人，最全服务</td></tr>
+        <tr><td>文化性价比</td><td class="city-name">Mantova</td><td>UNESCO遗产 + €1,614/㎡</td></tr>
+        <tr><td>最佳海滩</td><td class="city-name">Lecce</td><td>30-45分钟到萨兰托</td></tr>
+        <tr><td>最近罗马</td><td class="city-name">Orvieto</td><td>快车仅1小时</td></tr>
+        <tr><td>升值最快</td><td class="city-name">Ascoli Piceno</td><td class="highlight-cell">省级同比+13%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== PERSONAS ===== -->
+  <div class="section-header" id="personas">
+    <div class="section-number">第三部分</div>
+    <h2>按人群推荐</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="persona-icon">🏖️</div>
+      <h4>退休人士</h4>
+      <ul>
+        <li><strong>Orvieto</strong> — 罗马通达 + 外籍社区</li>
+        <li><strong>Lecce</strong> — 海滩 + 低成本 + 美食</li>
+        <li><strong>Ascoli Piceno</strong> — 纯正 + 便宜</li>
+      </ul>
+    </div>
+    <div class="persona-card">
+      <div class="persona-icon">💻</div>
+      <h4>远程工作者 / 创业者</h4>
+      <ul>
+        <li><strong>Bergamo</strong> — 130+航线枢纽</li>
+        <li><strong>Trieste</strong> — 真正的城市 + 三国通达</li>
+        <li><strong>Lucca</strong> — 比萨机场 + 光纤 + 托斯卡纳</li>
+      </ul>
+    </div>
+    <div class="persona-card">
+      <div class="persona-icon">👨‍👩‍👧‍👦</div>
+      <h4>家庭</h4>
+      <ul>
+        <li><strong>Lucca</strong> — 城内双语学校</li>
+        <li><strong>Bergamo</strong> — 北意学校 + 交通</li>
+        <li><strong>Mantova</strong> — 维罗纳国际学校30分钟</li>
+      </ul>
+    </div>
+    <div class="persona-card">
+      <div class="persona-icon">📊</div>
+      <h4>预算优化者</h4>
+      <ul>
+        <li><strong>Ascoli Piceno</strong> — €1,345/㎡ + Marche价值</li>
+        <li><strong>Lecce</strong> — €1,647/㎡ + 7%统一税</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== TIPS ===== -->
+  <div class="section-header" id="tips">
+    <div class="section-number">第四部分</div>
+    <h2>三条实用建议</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="tips-row">
+    <div class="tip-card" data-num="1">
+      <h4>先在冬天去</h4>
+      <p>别只看夏天。能接受一月份的阴冷、多雾或强风，就能接受这座城市。冬天暴露所有缺点。</p>
+    </div>
+    <div class="tip-card" data-num="2">
+      <h4>请当地税务顾问</h4>
+      <p>Commercialista（注册税务顾问）是必选项。不要自己 DIY 意大利官僚体系——这不是可选的。</p>
+    </div>
+    <div class="tip-card" data-num="3">
+      <h4>先学意大利语到 A2</h4>
+      <p>在这些小城，英语行不通。去之前至少达到 A2 水平，这决定了你能否真正融入当地生活。</p>
+    </div>
+  </div>
+
+  <!-- ===== TAX ===== -->
+  <div class="section-header" id="tax">
+    <div class="section-number">第五部分</div>
+    <h2>意大利税务制度速览</h2>
+    <div class="divider"></div>
+    <p>2026年最新规则，所有数据均经专业来源核实</p>
+  </div>
+
+  <div class="tax-cards">
+    <div class="tax-card">
+      <div class="tax-rate">7%</div>
+      <h4>退休者统一税</h4>
+      <ul>
+        <li>所有外国收入的 7%，最长 10 年</li>
+        <li>过去 5 年非意大利税务居民</li>
+        <li>领取外国养老金</li>
+        <li>定居在南部/部分中部 ≤20,000 人小镇</li>
+        <li>适用地区：西西里、卡拉布里亚、撒丁岛、坎帕尼亚、巴西利卡塔、普利亚、阿布鲁佐、莫利塞 + 中部地震灾区</li>
+        <li>免除海外资产财富税和申报义务</li>
+        <li>2026 年预算法未改变此制度</li>
+      </ul>
+    </div>
+    <div class="tax-card">
+      <div class="tax-rate">€300K</div>
+      <h4>高净值人士统一税</h4>
+      <ul>
+        <li>2026年起从 €200K 提高至 €300K/年</li>
+        <li>适用于所有外国来源收入，最长 15 年</li>
+        <li>每增加一个家属 +€50,000</li>
+        <li>免除财富税、遗产税和外国资产申报</li>
+        <li>早期进入者可能保留旧费率（祖父条款）</li>
+      </ul>
+    </div>
+    <div class="tax-card">
+      <div class="tax-rate">DNV</div>
+      <h4>数字游民签证</h4>
+      <ul>
+        <li>2024 年正式启动，2026 年运行中</li>
+        <li>最低年收入：€28,000–30,000</li>
+        <li>储蓄证明：€30,000+</li>
+        <li>健康保险：≥€30,000 覆盖</li>
+        <li>需租房或购房</li>
+        <li>签证 1 年，可续期 2 次（共 3 年）</li>
+        <li>不受年度配额限制，无需工作许可</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== RESOURCES ===== -->
+  <div class="section-header" id="resources">
+    <div class="section-number">第六部分</div>
+    <h2>深度研究资源汇总</h2>
+    <div class="divider"></div>
+    <p>按维度整理的 20+ 个高质量信息源</p>
+  </div>
+
+  <div class="resource-group">
+    <h3>综合旅行指南</h3>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a href="https://visitolia.com/italy-travel-guide-V21295" target="_blank">Visitolia 意大利旅行指南</a>
+        <div class="desc">综合旅行规划：景点、交通、住宿、美食、签证要求。UNESCO遗产地导览。</div>
+      </div>
+      <div class="resource-item">
+        <a href="http://palombo.substack.com" target="_blank">Palombo Substack</a>
+        <div class="desc">原帖作者的深度周刊：欧洲搬迁/生活/税务分析，含实地验证数据。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-group">
+    <h3>搬迁与生活质量</h3>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a href="https://www.gate-away.com/blog/quality-of-life-in-italy-the-best-cities-to-live-in-and-buy-property-in-2026/" target="_blank">Il Sole 24 Ore 生活质量报告解读</a>
+        <div class="desc">意大利最权威的省级生活质量排名（第36版）。2025年 Trento/Bolzano/Udine 居首。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://residaro.com/blog/best-cities-to-live-italy" target="_blank">Residaro：最佳居住城市</a>
+        <div class="desc">针对外籍人士的深度城市分析：成本、房产趋势、社区特色、邻里评分。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://getwherenext.com/blog/cost-of-living-italy-2026" target="_blank">WhereNext：2026生活成本</a>
+        <div class="desc">逐城成本对比（罗马/米兰/佛罗伦萨/南部），含税务制度和签证路径总结。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://magictowns.it/" target="_blank">Magic Towns</a>
+        <div class="desc">专注意大利小镇搬迁：房产、税务、社区融入。有AI助手和策划服务。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://italiatut.com/en/moving-to-italy-2025-2026-how-to-move-where-to-live-and-how-much-it-costs/" target="_blank">Italiatut 搬迁指南</a>
+        <div class="desc">2025-2026 居留许可类型、各区对比、实操流程、签证时间线。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-group">
+    <h3>税务专题</h3>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a href="https://www.studiolegalemetta.com/legal-questions-and-answers/italian-7-per-cent-flat-tax/" target="_blank">Studio Legale Metta：7%统一税</a>
+        <div class="desc">意大利律所出品。2026预算法确认规则未变。含 ISTAT 人口数据查询方法。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://magictowns.it/the-definitive-2026-list-of-italy-7-tax-towns/" target="_blank">Magic Towns：7%税资格小镇列表</a>
+        <div class="desc">唯一手工整理的 2,000+ 资格小镇列表（付费会员可搜索）。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.globalcitizensolutions.com/italy-flat-tax/" target="_blank">Global Citizen Solutions：统一税总览</a>
+        <div class="desc">覆盖 7% 退休税 + €300K 高净值税 + 数字游民税务的一站式指南。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.relocate.world/en/articles/seven-percent-region-retirement" target="_blank">Relocate.World：美国公民7%税</a>
+        <div class="desc">面向美国退休者，含 US-Italy 双重征税条约解读和具体资格城镇示例。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.relocate.world/en/articles/italy-special-tax-regimes-guide" target="_blank">Relocate.World：特别税制全景</a>
+        <div class="desc">7% 退休税 vs €200K 高净值税 vs 科学家/教授90%免税对比。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://arlettipartners.com/pension-the-preferential-tax-regime-for-foreign-pensioners-who-move-to-southern-italy/" target="_blank">Arletti Partners：最新裁定</a>
+        <div class="desc">2025年税务局裁定确认：外国公司清算收入也适用 7% 税率。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-group">
+    <h3>数字游民签证</h3>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a href="https://citizenremote.com/visas/italy-digital-nomad-visa/" target="_blank">Citizen Remote：2026完整指南</a>
+        <div class="desc">2026年2月更新。含最新法规、收入要求、处理时间、税务规划。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.globalcitizensolutions.com/italy-digital-nomad-visa/" target="_blank">Global Citizen Solutions</a>
+        <div class="desc">含各城市数字游民友好度评分（博洛尼亚/佛罗伦萨/都灵/巴勒莫）。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://getgoldenvisa.com/italy-digital-nomad-visa" target="_blank">Get Golden Visa</a>
+        <div class="desc">数字游民 vs 黄金签证 vs 选择性居留签证对比。含费用明细。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://italiancitizenshipassistance.com/digital-nomad-visa/" target="_blank">Italian Citizenship Assistance</a>
+        <div class="desc">强调 2026 年领事馆审查趋严。建议收入远超最低线，准备5年以上工作经验。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://lawzana.com/articles/italy/italy-digital-nomad-visa-application-guide-and-2026-tax-390" target="_blank">Lawzana：税务+申请全指南</a>
+        <div class="desc">最详细的税务规划部分。含常设机构（PE）风险、续签审查要点。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-group">
+    <h3>房产与搬迁激励</h3>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a href="https://www.relocate.world/en/articles/move-to-candela-vetto-molise" target="_blank">Relocate.World：付费搬迁计划</a>
+        <div class="desc">Candela 等小镇付费吸引新居民（最高 €2,000/家庭）。含 €1 房屋拍卖。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youritaliandream.com/get-paid-to-move-to-italy/" target="_blank">Your Italian Dream：搬迁补助</a>
+        <div class="desc">各地区分散式补助计划详解。2026 预计延续但竞争更激烈、材料要求更严。</div>
+      </div>
+      <div class="resource-item">
+        <a href="https://magictowns.it/where-to-move-in-italy-instead-of-tuscany/" target="_blank">Magic Towns：托斯卡纳替代方案</a>
+        <div class="desc">5 个比托斯卡纳更便宜的替代选择，含真实生活体验和价格对比。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DATA SOURCES ===== -->
+  <div class="section-header" id="data">
+    <div class="section-number">第七部分</div>
+    <h2>关键数据来源</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="data-sources">
+    <div class="data-source">
+      <strong>Il Sole 24 Ore</strong>
+      <span>意大利生活质量年度排名（最权威）</span>
+    </div>
+    <div class="data-source">
+      <strong>ISTAT</strong>
+      <span>意大利国家统计局（人口/7%税资格）</span>
+    </div>
+    <div class="data-source">
+      <strong>Numbeo</strong>
+      <span>全球生活成本 / 质量指数</span>
+    </div>
+    <div class="data-source">
+      <strong>Immobiliare.it</strong>
+      <span>意大利最大房产平台（实时房价）</span>
+    </div>
+    <div class="data-source">
+      <strong>Idealista.it</strong>
+      <span>房产搜索与市场趋势</span>
+    </div>
+    <div class="data-source">
+      <strong>Agenzia delle Entrate</strong>
+      <span>意大利税务局（官方税务信息）</span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  综合整理自 <strong>@thealepalombo</strong> 推特长帖、<strong>Visitolia</strong> 旅行指南，以及多个搬迁/税务/签证专业资源。<br>
+  所有税务信息仅供参考，具体操作请咨询意大利注册税务顾问（commercialista）。<br>
+  整理于 2026年3月
+</footer>
+
+</body>
+</html>

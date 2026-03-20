@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>70+ Free Student Subscriptions</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface2: #1a1a26;
+  --border: #2a2a3a;
+  --text: #e8e8f0;
+  --text-dim: #8888aa;
+  --accent: #00e599;
+  --accent2: #00b8ff;
+  --accent3: #ff6b9d;
+  --accent4: #ffd166;
+  --accent5: #a78bfa;
+  --accent6: #f97316;
+  --glow: rgba(0, 229, 153, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.07;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.07; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.12; }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,229,153,0.08);
+  border: 1px solid rgba(0,229,153,0.25);
+  border-radius: 100px;
+  padding: 0.5rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  animation: fadeDown 0.8s ease-out;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.badge:hover {
+  background: rgba(0,229,153,0.14);
+  border-color: rgba(0,229,153,0.5);
+}
+
+.badge .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+
+.hero h1 .num {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--text-dim);
+  max-width: 600px;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+
+.savings-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+}
+
+.savings-pill .amount {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent4), var(--accent6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.savings-pill .label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: left;
+  line-height: 1.3;
+}
+
+.x-post-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.x-post-card:hover {
+  border-color: #1d9bf0;
+  background: rgba(29, 155, 240, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.x-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #e7e9ea;
+}
+
+.x-post-info { text-align: left; }
+
+.x-views {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #e7e9ea;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.2;
+}
+
+.x-views .live-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: #f43f5e;
+  border-radius: 50%;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+.x-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  animation: fadeUp 0.8s ease-out 0.5s both;
+}
+
+.scroll-cue .arrow {
+  width: 20px; height: 30px;
+  border: 2px solid var(--text-dim);
+  border-radius: 10px;
+  position: relative;
+}
+
+.scroll-cue .arrow::after {
+  content: '';
+  position: absolute;
+  width: 4px; height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+  left: 50%; top: 6px;
+  transform: translateX(-50%);
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { top: 6px; opacity: 1; }
+  50% { top: 14px; opacity: 0.3; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── KING SECTION ── */
+.king-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.king-card {
+  background: linear-gradient(135deg, rgba(0,229,153,0.06), rgba(0,184,255,0.04));
+  border: 1px solid rgba(0,229,153,0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.king-card::before {
+  content: '👑';
+  position: absolute;
+  top: -20px; right: -10px;
+  font-size: 8rem;
+  opacity: 0.08;
+}
+
+.king-card .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.king-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.king-card h2 a { transition: color 0.2s; }
+.king-card h2 a:hover { color: var(--accent); }
+
+.king-link-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.king-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.king-stat {
+  text-align: center;
+  padding: 1.25rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.king-stat .val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.king-stat .desc {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+/* ── CATEGORY SECTIONS ── */
+.categories {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cat-section { margin-bottom: 4rem; }
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.cat-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cat-header .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  background: var(--surface2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  margin-left: auto;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.item:hover {
+  border-color: var(--cat-color, var(--accent));
+  background: var(--surface2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.item:hover .item-name { color: var(--cat-color, var(--accent)); }
+
+.item-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--cat-color, var(--accent));
+  background: rgba(0,229,153,0.08);
+  min-width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.item-content { flex: 1; min-width: 0; }
+
+.item-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.item-name .link-icon {
+  opacity: 0;
+  font-size: 0.7rem;
+  transition: opacity 0.2s;
+  color: var(--cat-color, var(--accent));
+}
+
+.item:hover .item-name .link-icon { opacity: 1; }
+
+.item-detail {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.item-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--cat-color, var(--accent));
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item:hover .item-url { opacity: 0.6; }
+
+/* Category colors */
+.cat-dev { --cat-color: #00e599; }
+.cat-cloud { --cat-color: #00b8ff; }
+.cat-db { --cat-color: #a78bfa; }
+.cat-design { --cat-color: #ff6b9d; }
+.cat-learn { --cat-color: #ffd166; }
+.cat-domain { --cat-color: #f97316; }
+.cat-prod { --cat-color: #34d399; }
+.cat-comm { --cat-color: #60a5fa; }
+.cat-media { --cat-color: #f472b6; }
+.cat-deals { --cat-color: #fbbf24; }
+.cat-ai { --cat-color: #c084fc; }
+.cat-pay { --cat-color: #4ade80; }
+
+.cat-dev .item-num { background: rgba(0,229,153,0.1); color: var(--cat-color); }
+.cat-cloud .item-num { background: rgba(0,184,255,0.1); color: var(--cat-color); }
+.cat-db .item-num { background: rgba(167,139,250,0.1); color: var(--cat-color); }
+.cat-design .item-num { background: rgba(255,107,157,0.1); color: var(--cat-color); }
+.cat-learn .item-num { background: rgba(255,209,102,0.1); color: var(--cat-color); }
+.cat-domain .item-num { background: rgba(249,115,22,0.1); color: var(--cat-color); }
+.cat-prod .item-num { background: rgba(52,211,153,0.1); color: var(--cat-color); }
+.cat-comm .item-num { background: rgba(96,165,250,0.1); color: var(--cat-color); }
+.cat-media .item-num { background: rgba(244,114,182,0.1); color: var(--cat-color); }
+.cat-deals .item-num { background: rgba(251,191,36,0.1); color: var(--cat-color); }
+.cat-ai .item-num { background: rgba(192,132,252,0.1); color: var(--cat-color); }
+.cat-pay .item-num { background: rgba(74,222,128,0.1); color: var(--cat-color); }
+
+.cat-icon.dev { background: rgba(0,229,153,0.12); }
+.cat-icon.cloud { background: rgba(0,184,255,0.12); }
+.cat-icon.db { background: rgba(167,139,250,0.12); }
+.cat-icon.design { background: rgba(255,107,157,0.12); }
+.cat-icon.learn { background: rgba(255,209,102,0.12); }
+.cat-icon.domain { background: rgba(249,115,22,0.12); }
+.cat-icon.prod { background: rgba(52,211,153,0.12); }
+.cat-icon.comm { background: rgba(96,165,250,0.12); }
+.cat-icon.media { background: rgba(244,114,182,0.12); }
+.cat-icon.deals { background: rgba(251,191,36,0.12); }
+.cat-icon.ai { background: rgba(192,132,252,0.12); }
+.cat-icon.pay { background: rgba(74,222,128,0.12); }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  border-top: 1px solid var(--border);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.footer h2 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.footer-x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.footer-x-link:hover {
+  border-color: #1d9bf0;
+  color: #e7e9ea;
+  background: rgba(29,155,240,0.06);
+}
+
+.footer-x-link .x-brand { font-weight: 800; color: #e7e9ea; font-size: 1rem; }
+
+/* ── DOT NAV ── */
+.dot-nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.dot-nav a {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+  display: block;
+}
+
+.dot-nav a:hover,
+.dot-nav a.active {
+  background: var(--accent);
+  transform: scale(1.4);
+}
+
+@media (max-width: 768px) {
+  .king-stats { grid-template-columns: 1fr; }
+  .items-grid { grid-template-columns: 1fr; }
+  .dot-nav { display: none; }
+  .king-card { padding: 2rem 1.5rem; }
+  .hero-stats { flex-direction: column; align-items: center; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<nav class="dot-nav" id="dotNav"></nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <a href="https://x.com/0x_kaize/status/2032527256355221954" target="_blank" rel="noopener" class="badge"><span class="dot"></span> @0x_kaize on 𝕏 &middot; viral thread</a>
+  <h1><span class="num">70+</span> Free<br>Subscriptions</h1>
+  <p class="subtitle">Become a student. Get everything free. Use all the services without even attending classes.</p>
+  <div class="hero-stats">
+    <div class="savings-pill">
+      <span class="amount">$10,000+</span>
+      <span class="label">saved per year<br>on subscriptions</span>
+    </div>
+    <a href="https://x.com/0x_kaize/status/2032527256355221954" target="_blank" rel="noopener" class="x-post-card">
+      <span class="x-logo">𝕏</span>
+      <div class="x-post-info">
+        <div class="x-views" id="viewCounter">7.8M+<span class="live-dot"></span></div>
+        <div class="x-label">views &middot; and counting</div>
+      </div>
+    </a>
+  </div>
+  <div class="scroll-cue">
+    <div class="arrow"></div>
+    scroll
+  </div>
+</section>
+
+<!-- KING -->
+<section class="king-section reveal" id="king">
+  <div class="king-card">
+    <div class="tag">👑 The Undisputed King</div>
+    <h2><a href="https://education.github.com/pack" target="_blank" rel="noopener">GitHub Student Developer Pack</a></h2>
+    <div class="king-link-hint">↗ education.github.com/pack</div>
+    <p style="color:var(--text-dim); font-size:0.95rem;">Every other student subscription saves you money on one thing. The GitHub Student Developer Pack builds your entire development environment for free.</p>
+    <div class="king-stats">
+      <div class="king-stat"><div class="val">1</div><div class="desc">Application</div></div>
+      <div class="king-stat"><div class="val">1</div><div class="desc">Verification</div></div>
+      <div class="king-stat"><div class="val">100+</div><div class="desc">Tools Unlocked</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="categories">
+
+  <!-- Dev & IDEs -->
+  <section class="cat-section cat-dev reveal" id="dev">
+    <div class="cat-header">
+      <div class="cat-icon dev">⌨️</div>
+      <h3>Dev & IDEs</h3>
+      <span class="count">7 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.cursor.com/students" target="_blank" rel="noopener"><div class="item-num">2</div><div class="item-content"><div class="item-name">Cursor Pro <span class="link-icon">↗</span></div><div class="item-detail">1 year free</div><div class="item-url">cursor.com/students</div></div></a>
+      <a class="item" href="https://github.com/features/copilot" target="_blank" rel="noopener"><div class="item-num">3</div><div class="item-content"><div class="item-name">GitHub Copilot <span class="link-icon">↗</span></div><div class="item-detail">Free via GitHub Education</div><div class="item-url">github.com/features/copilot</div></div></a>
+      <a class="item" href="https://www.jetbrains.com/community/education/" target="_blank" rel="noopener"><div class="item-num">4</div><div class="item-content"><div class="item-name">JetBrains IDEs <span class="link-icon">↗</span></div><div class="item-detail">IntelliJ, PyCharm, WebStorm…</div><div class="item-url">jetbrains.com/community/education</div></div></a>
+      <a class="item" href="https://www.jetbrains.com/space/" target="_blank" rel="noopener"><div class="item-num">5</div><div class="item-content"><div class="item-name">JetBrains Space Pro <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">jetbrains.com/space</div></div></a>
+      <a class="item" href="https://replit.com/site/github-students" target="_blank" rel="noopener"><div class="item-num">6</div><div class="item-content"><div class="item-name">Replit Pro <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">replit.com/site/github-students</div></div></a>
+      <a class="item" href="https://www.gitkraken.com/github-student-developer-pack" target="_blank" rel="noopener"><div class="item-num">7</div><div class="item-content"><div class="item-name">GitKraken <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">gitkraken.com/github-student-developer-pack</div></div></a>
+      <a class="item" href="https://www.postman.com/student-program/" target="_blank" rel="noopener"><div class="item-num">8</div><div class="item-content"><div class="item-name">Postman <span class="link-icon">↗</span></div><div class="item-detail">Student Expert program</div><div class="item-url">postman.com/student-program</div></div></a>
+    </div>
+  </section>
+
+  <!-- Cloud & Hosting -->
+  <section class="cat-section cat-cloud reveal" id="cloud">
+    <div class="cat-header">
+      <div class="cat-icon cloud">☁️</div>
+      <h3>Cloud & Hosting</h3>
+      <span class="count">10 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://aws.amazon.com/education/awseducate/" target="_blank" rel="noopener"><div class="item-num">9</div><div class="item-content"><div class="item-name">AWS Educate <span class="link-icon">↗</span></div><div class="item-detail">Free labs + credits</div><div class="item-url">aws.amazon.com/education/awseducate</div></div></a>
+      <a class="item" href="https://azure.microsoft.com/en-us/free/students/" target="_blank" rel="noopener"><div class="item-num">10</div><div class="item-content"><div class="item-name">Microsoft Azure <span class="link-icon">↗</span></div><div class="item-detail">$100 credits</div><div class="item-url">azure.microsoft.com/free/students</div></div></a>
+      <a class="item" href="https://cloud.google.com/edu" target="_blank" rel="noopener"><div class="item-num">11</div><div class="item-content"><div class="item-name">Google Cloud <span class="link-icon">↗</span></div><div class="item-detail">Student credits</div><div class="item-url">cloud.google.com/edu</div></div></a>
+      <a class="item" href="https://www.digitalocean.com/github-students" target="_blank" rel="noopener"><div class="item-num">12</div><div class="item-content"><div class="item-name">DigitalOcean <span class="link-icon">↗</span></div><div class="item-detail">$200 credits via GitHub Pack</div><div class="item-url">digitalocean.com/github-students</div></div></a>
+      <a class="item" href="https://www.oracle.com/cloud/free/" target="_blank" rel="noopener"><div class="item-num">13</div><div class="item-content"><div class="item-name">Oracle Cloud <span class="link-icon">↗</span></div><div class="item-detail">Free tier forever</div><div class="item-url">oracle.com/cloud/free</div></div></a>
+      <a class="item" href="https://www.heroku.com/students" target="_blank" rel="noopener"><div class="item-num">14</div><div class="item-content"><div class="item-name">Heroku <span class="link-icon">↗</span></div><div class="item-detail">Credits via GitHub Pack</div><div class="item-url">heroku.com/students</div></div></a>
+      <a class="item" href="https://vercel.com/docs/accounts/education" target="_blank" rel="noopener"><div class="item-num">15</div><div class="item-content"><div class="item-name">Vercel Pro <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">vercel.com/docs/accounts/education</div></div></a>
+      <a class="item" href="https://www.netlify.com/github-students/" target="_blank" rel="noopener"><div class="item-num">16</div><div class="item-content"><div class="item-name">Netlify <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">netlify.com/github-students</div></div></a>
+      <a class="item" href="https://railway.app/student" target="_blank" rel="noopener"><div class="item-num">17</div><div class="item-content"><div class="item-name">Railway <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">railway.app/student</div></div></a>
+      <a class="item" href="https://www.cloudflare.com/forstudents/" target="_blank" rel="noopener"><div class="item-num">18</div><div class="item-content"><div class="item-name">Cloudflare Pro <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">cloudflare.com/forstudents</div></div></a>
+    </div>
+  </section>
+
+  <!-- Databases -->
+  <section class="cat-section cat-db reveal" id="db">
+    <div class="cat-header">
+      <div class="cat-icon db">🗄️</div>
+      <h3>Databases</h3>
+      <span class="count">1 tool</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.mongodb.com/students" target="_blank" rel="noopener"><div class="item-num">19</div><div class="item-content"><div class="item-name">MongoDB Atlas <span class="link-icon">↗</span></div><div class="item-detail">$50 credits + free certification</div><div class="item-url">mongodb.com/students</div></div></a>
+    </div>
+  </section>
+
+  <!-- Design -->
+  <section class="cat-section cat-design reveal" id="design">
+    <div class="cat-header">
+      <div class="cat-icon design">🎨</div>
+      <h3>Design</h3>
+      <span class="count">6 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.figma.com/education/" target="_blank" rel="noopener"><div class="item-num">20</div><div class="item-content"><div class="item-name">Figma <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan</div><div class="item-url">figma.com/education</div></div></a>
+      <a class="item" href="https://www.canva.com/education/" target="_blank" rel="noopener"><div class="item-num">21</div><div class="item-content"><div class="item-name">Canva Pro <span class="link-icon">↗</span></div><div class="item-detail">Free via Education</div><div class="item-url">canva.com/education</div></div></a>
+      <a class="item" href="https://www.sketch.com/store/#students" target="_blank" rel="noopener"><div class="item-num">22</div><div class="item-content"><div class="item-name">Sketch <span class="link-icon">↗</span></div><div class="item-detail">50% discount</div><div class="item-url">sketch.com/store/#students</div></div></a>
+      <a class="item" href="https://www.autodesk.com/education/free-software/featured" target="_blank" rel="noopener"><div class="item-num">23</div><div class="item-content"><div class="item-name">Autodesk <span class="link-icon">↗</span></div><div class="item-detail">AutoCAD, Maya… 1 year free</div><div class="item-url">autodesk.com/education/free-software</div></div></a>
+      <a class="item" href="https://miro.com/education/" target="_blank" rel="noopener"><div class="item-num">24</div><div class="item-content"><div class="item-name">Miro <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan</div><div class="item-url">miro.com/education</div></div></a>
+      <a class="item" href="https://www.blender.org/download/" target="_blank" rel="noopener"><div class="item-num">25</div><div class="item-content"><div class="item-name">Blender <span class="link-icon">↗</span></div><div class="item-detail">Completely free for everyone</div><div class="item-url">blender.org/download</div></div></a>
+    </div>
+  </section>
+
+  <!-- Learning -->
+  <section class="cat-section cat-learn reveal" id="learn">
+    <div class="cat-header">
+      <div class="cat-icon learn">📚</div>
+      <h3>Learning</h3>
+      <span class="count">17 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.educative.io/github-students" target="_blank" rel="noopener"><div class="item-num">26</div><div class="item-content"><div class="item-name">Educative <span class="link-icon">↗</span></div><div class="item-detail">6 months free via GitHub Pack</div><div class="item-url">educative.io/github-students</div></div></a>
+      <a class="item" href="https://www.linkedin.com/learning/" target="_blank" rel="noopener"><div class="item-num">27</div><div class="item-content"><div class="item-name">LinkedIn Learning <span class="link-icon">↗</span></div><div class="item-detail">Free via university</div><div class="item-url">linkedin.com/learning</div></div></a>
+      <a class="item" href="https://www.coursera.org/for-university-and-college-students" target="_blank" rel="noopener"><div class="item-num">28</div><div class="item-content"><div class="item-name">Coursera <span class="link-icon">↗</span></div><div class="item-detail">Financial aid available</div><div class="item-url">coursera.org/for-university-and-college-students</div></div></a>
+      <a class="item" href="https://www.edx.org/" target="_blank" rel="noopener"><div class="item-num">29</div><div class="item-content"><div class="item-name">edX <span class="link-icon">↗</span></div><div class="item-detail">Free course audits</div><div class="item-url">edx.org</div></div></a>
+      <a class="item" href="https://www.udemy.com/" target="_blank" rel="noopener"><div class="item-num">30</div><div class="item-content"><div class="item-name">Udemy <span class="link-icon">↗</span></div><div class="item-detail">Free courses periodically</div><div class="item-url">udemy.com</div></div></a>
+      <a class="item" href="https://www.pluralsight.com/product/skills/individuals" target="_blank" rel="noopener"><div class="item-num">31</div><div class="item-content"><div class="item-name">Pluralsight <span class="link-icon">↗</span></div><div class="item-detail">Student plan</div><div class="item-url">pluralsight.com</div></div></a>
+      <a class="item" href="https://skillsbuild.org/" target="_blank" rel="noopener"><div class="item-num">32</div><div class="item-content"><div class="item-name">IBM SkillsBuild <span class="link-icon">↗</span></div><div class="item-detail">Free</div><div class="item-url">skillsbuild.org</div></div></a>
+      <a class="item" href="https://www.facebookblueprint.com/" target="_blank" rel="noopener"><div class="item-num">33</div><div class="item-content"><div class="item-name">Meta Blueprint <span class="link-icon">↗</span></div><div class="item-detail">Free certifications</div><div class="item-url">facebookblueprint.com</div></div></a>
+      <a class="item" href="https://learn.microsoft.com/" target="_blank" rel="noopener"><div class="item-num">34</div><div class="item-content"><div class="item-name">Microsoft Learn <span class="link-icon">↗</span></div><div class="item-detail">Free</div><div class="item-url">learn.microsoft.com</div></div></a>
+      <a class="item" href="https://developers.google.com/community/gdsc" target="_blank" rel="noopener"><div class="item-num">35</div><div class="item-content"><div class="item-name">Google DSC <span class="link-icon">↗</span></div><div class="item-detail">Developer Student Clubs</div><div class="item-url">developers.google.com/community/gdsc</div></div></a>
+      <a class="item" href="https://www.hackthebox.com/universities" target="_blank" rel="noopener"><div class="item-num">36</div><div class="item-content"><div class="item-name">Hack The Box <span class="link-icon">↗</span></div><div class="item-detail">Student labs</div><div class="item-url">hackthebox.com/universities</div></div></a>
+      <a class="item" href="https://tryhackme.com/r/students" target="_blank" rel="noopener"><div class="item-num">37</div><div class="item-content"><div class="item-name">TryHackMe <span class="link-icon">↗</span></div><div class="item-detail">Student plan</div><div class="item-url">tryhackme.com/r/students</div></div></a>
+      <a class="item" href="https://www.kaggle.com/" target="_blank" rel="noopener"><div class="item-num">38</div><div class="item-content"><div class="item-name">Kaggle <span class="link-icon">↗</span></div><div class="item-detail">Free</div><div class="item-url">kaggle.com</div></div></a>
+      <a class="item" href="https://leetcode.com/student/" target="_blank" rel="noopener"><div class="item-num">39</div><div class="item-content"><div class="item-name">LeetCode <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">leetcode.com/student</div></div></a>
+      <a class="item" href="https://www.hackerrank.com/" target="_blank" rel="noopener"><div class="item-num">40</div><div class="item-content"><div class="item-name">HackerRank <span class="link-icon">↗</span></div><div class="item-detail">Free certifications</div><div class="item-url">hackerrank.com</div></div></a>
+      <a class="item" href="https://developers.redhat.com/" target="_blank" rel="noopener"><div class="item-num">41</div><div class="item-content"><div class="item-name">Red Hat Developer <span class="link-icon">↗</span></div><div class="item-detail">Free subscription</div><div class="item-url">developers.redhat.com</div></div></a>
+      <a class="item" href="https://learning.sap.com/" target="_blank" rel="noopener"><div class="item-num">42</div><div class="item-content"><div class="item-name">SAP Learning Hub <span class="link-icon">↗</span></div><div class="item-detail">Student access</div><div class="item-url">learning.sap.com</div></div></a>
+    </div>
+  </section>
+
+  <!-- Domains & SSL -->
+  <section class="cat-section cat-domain reveal" id="domain">
+    <div class="cat-header">
+      <div class="cat-icon domain">🌐</div>
+      <h3>Domains & SSL</h3>
+      <span class="count">3 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://nc.me/" target="_blank" rel="noopener"><div class="item-num">43</div><div class="item-content"><div class="item-name">Namecheap <span class="link-icon">↗</span></div><div class="item-detail">Free domain + SSL via GitHub Pack</div><div class="item-url">nc.me</div></div></a>
+      <a class="item" href="https://nc.me/" target="_blank" rel="noopener"><div class="item-num">44</div><div class="item-content"><div class="item-name">Free .me domain <span class="link-icon">↗</span></div><div class="item-detail">Via GitHub Pack</div><div class="item-url">nc.me</div></div></a>
+      <a class="item" href="https://letsencrypt.org/" target="_blank" rel="noopener"><div class="item-num">45</div><div class="item-content"><div class="item-name">Let's Encrypt <span class="link-icon">↗</span></div><div class="item-detail">Free SSL forever</div><div class="item-url">letsencrypt.org</div></div></a>
+    </div>
+  </section>
+
+  <!-- Productivity -->
+  <section class="cat-section cat-prod reveal" id="prod">
+    <div class="cat-header">
+      <div class="cat-icon prod">⚡</div>
+      <h3>Productivity</h3>
+      <span class="count">11 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.notion.so/product/notion-for-education" target="_blank" rel="noopener"><div class="item-num">46</div><div class="item-content"><div class="item-name">Notion <span class="link-icon">↗</span></div><div class="item-detail">Free Pro for students</div><div class="item-url">notion.so/product/notion-for-education</div></div></a>
+      <a class="item" href="https://www.microsoft.com/en-us/education/products/office" target="_blank" rel="noopener"><div class="item-num">47</div><div class="item-content"><div class="item-name">Microsoft 365 <span class="link-icon">↗</span></div><div class="item-detail">Free Education edition</div><div class="item-url">microsoft.com/education/products/office</div></div></a>
+      <a class="item" href="https://www.grammarly.com/edu" target="_blank" rel="noopener"><div class="item-num">48</div><div class="item-content"><div class="item-name">Grammarly EDU <span class="link-icon">↗</span></div><div class="item-detail">Via university</div><div class="item-url">grammarly.com/edu</div></div></a>
+      <a class="item" href="https://obsidian.md/pricing" target="_blank" rel="noopener"><div class="item-num">49</div><div class="item-content"><div class="item-name">Obsidian <span class="link-icon">↗</span></div><div class="item-detail">Free for students</div><div class="item-url">obsidian.md/pricing</div></div></a>
+      <a class="item" href="https://todoist.com/education" target="_blank" rel="noopener"><div class="item-num">50</div><div class="item-content"><div class="item-name">Todoist Pro <span class="link-icon">↗</span></div><div class="item-detail">Discount via Student Beans</div><div class="item-url">todoist.com/education</div></div></a>
+      <a class="item" href="https://evernote.com/students" target="_blank" rel="noopener"><div class="item-num">51</div><div class="item-content"><div class="item-name">Evernote <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">evernote.com/students</div></div></a>
+      <a class="item" href="https://linear.app/pricing" target="_blank" rel="noopener"><div class="item-num">52</div><div class="item-content"><div class="item-name">Linear <span class="link-icon">↗</span></div><div class="item-detail">Student plan</div><div class="item-url">linear.app/pricing</div></div></a>
+      <a class="item" href="https://clickup.com/for/education" target="_blank" rel="noopener"><div class="item-num">53</div><div class="item-content"><div class="item-name">ClickUp <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan</div><div class="item-url">clickup.com/for/education</div></div></a>
+      <a class="item" href="https://asana.com/students" target="_blank" rel="noopener"><div class="item-num">54</div><div class="item-content"><div class="item-name">Asana <span class="link-icon">↗</span></div><div class="item-detail">Student access</div><div class="item-url">asana.com/students</div></div></a>
+      <a class="item" href="https://airtable.com/solutions/education" target="_blank" rel="noopener"><div class="item-num">55</div><div class="item-content"><div class="item-name">Airtable <span class="link-icon">↗</span></div><div class="item-detail">Free Education workspace</div><div class="item-url">airtable.com/solutions/education</div></div></a>
+      <a class="item" href="https://www.loom.com/education" target="_blank" rel="noopener"><div class="item-num">56</div><div class="item-content"><div class="item-name">Loom <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan</div><div class="item-url">loom.com/education</div></div></a>
+    </div>
+  </section>
+
+  <!-- Communication -->
+  <section class="cat-section cat-comm reveal" id="comm">
+    <div class="cat-header">
+      <div class="cat-icon comm">💬</div>
+      <h3>Communication</h3>
+      <span class="count">2 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://zoom.us/education" target="_blank" rel="noopener"><div class="item-num">57</div><div class="item-content"><div class="item-name">Zoom <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan via university</div><div class="item-url">zoom.us/education</div></div></a>
+      <a class="item" href="https://slack.com/intl/en-gb/solutions/education" target="_blank" rel="noopener"><div class="item-num">58</div><div class="item-content"><div class="item-name">Slack <span class="link-icon">↗</span></div><div class="item-detail">Free Education plan</div><div class="item-url">slack.com/solutions/education</div></div></a>
+    </div>
+  </section>
+
+  <!-- Music & Media -->
+  <section class="cat-section cat-media reveal" id="media">
+    <div class="cat-header">
+      <div class="cat-icon media">🎵</div>
+      <h3>Music & Media</h3>
+      <span class="count">3 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.spotify.com/student/" target="_blank" rel="noopener"><div class="item-num">59</div><div class="item-content"><div class="item-name">Spotify <span class="link-icon">↗</span></div><div class="item-detail">~50% student discount</div><div class="item-url">spotify.com/student</div></div></a>
+      <a class="item" href="https://music.apple.com/student" target="_blank" rel="noopener"><div class="item-num">60</div><div class="item-content"><div class="item-name">Apple Music <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">music.apple.com/student</div></div></a>
+      <a class="item" href="https://www.youtube.com/premium/student" target="_blank" rel="noopener"><div class="item-num">61</div><div class="item-content"><div class="item-name">YouTube Premium <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">youtube.com/premium/student</div></div></a>
+    </div>
+  </section>
+
+  <!-- Deals & Marketplaces -->
+  <section class="cat-section cat-deals reveal" id="deals">
+    <div class="cat-header">
+      <div class="cat-icon deals">🛍️</div>
+      <h3>Deals & Marketplaces</h3>
+      <span class="count">5 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://www.amazon.com/amazonprime?planOptimizationId=WLPStudentMonthlyElig498" target="_blank" rel="noopener"><div class="item-num">62</div><div class="item-content"><div class="item-name">Amazon Prime <span class="link-icon">↗</span></div><div class="item-detail">6 months free</div><div class="item-url">amazon.com/amazonprime</div></div></a>
+      <a class="item" href="https://www.apple.com/shop/education-pricing" target="_blank" rel="noopener"><div class="item-num">63</div><div class="item-content"><div class="item-name">Apple Education <span class="link-icon">↗</span></div><div class="item-detail">Discounts on Mac & iPad</div><div class="item-url">apple.com/shop/education-pricing</div></div></a>
+      <a class="item" href="https://www.samsung.com/us/shop/discount-program/education/" target="_blank" rel="noopener"><div class="item-num">64</div><div class="item-content"><div class="item-name">Samsung Student Store <span class="link-icon">↗</span></div><div class="item-detail">Device discounts</div><div class="item-url">samsung.com/us/shop/discount-program/education</div></div></a>
+      <a class="item" href="https://www.myunidays.com/" target="_blank" rel="noopener"><div class="item-num">65</div><div class="item-content"><div class="item-name">UNiDAYS <span class="link-icon">↗</span></div><div class="item-detail">Discounts at 1000+ brands</div><div class="item-url">myunidays.com</div></div></a>
+      <a class="item" href="https://www.studentbeans.com/" target="_blank" rel="noopener"><div class="item-num">66</div><div class="item-content"><div class="item-name">Student Beans <span class="link-icon">↗</span></div><div class="item-detail">Student discounts worldwide</div><div class="item-url">studentbeans.com</div></div></a>
+    </div>
+  </section>
+
+  <!-- AI Tools -->
+  <section class="cat-section cat-ai reveal" id="ai">
+    <div class="cat-header">
+      <div class="cat-icon ai">🤖</div>
+      <h3>AI Tools</h3>
+      <span class="count">3 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://perplexity.ai/student" target="_blank" rel="noopener"><div class="item-num">67</div><div class="item-content"><div class="item-name">Perplexity Pro <span class="link-icon">↗</span></div><div class="item-detail">Student discount</div><div class="item-url">perplexity.ai/student</div></div></a>
+      <a class="item" href="https://one.google.com/about/plans" target="_blank" rel="noopener"><div class="item-num">68</div><div class="item-content"><div class="item-name">Google Gemini <span class="link-icon">↗</span></div><div class="item-detail">Via Google One Education</div><div class="item-url">one.google.com/about/plans</div></div></a>
+      <a class="item" href="https://platform.openai.com/" target="_blank" rel="noopener"><div class="item-num">69</div><div class="item-content"><div class="item-name">OpenAI API Credits <span class="link-icon">↗</span></div><div class="item-detail">Via partner student programs</div><div class="item-url">platform.openai.com</div></div></a>
+    </div>
+  </section>
+
+  <!-- Payments & DevOps -->
+  <section class="cat-section cat-pay reveal" id="pay">
+    <div class="cat-header">
+      <div class="cat-icon pay">💳</div>
+      <h3>Payments & DevOps</h3>
+      <span class="count">3 tools</span>
+    </div>
+    <div class="items-grid">
+      <a class="item" href="https://stripe.com/docs/atlas" target="_blank" rel="noopener"><div class="item-num">70</div><div class="item-content"><div class="item-name">Stripe <span class="link-icon">↗</span></div><div class="item-detail">No fees on first $1,000 via GitHub Pack</div><div class="item-url">stripe.com/docs/atlas</div></div></a>
+      <a class="item" href="https://developer.nvidia.com/students" target="_blank" rel="noopener"><div class="item-num">71</div><div class="item-content"><div class="item-name">Nvidia <span class="link-icon">↗</span></div><div class="item-detail">Student resources & credits</div><div class="item-url">developer.nvidia.com/students</div></div></a>
+      <a class="item" href="https://www.intel.com/content/www/us/en/developer/tools/overview.html" target="_blank" rel="noopener"><div class="item-num">72</div><div class="item-content"><div class="item-name">Intel Developer Zone <span class="link-icon">↗</span></div><div class="item-detail">Free access</div><div class="item-url">intel.com/developer/tools</div></div></a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<section class="footer reveal">
+  <h2>Start <span>saving</span> today.</h2>
+  <p>This is just a short list. You save over $10,000 a year on all of this — most of it completely free with a valid student email.</p>
+  <a href="https://x.com/0x_kaize/status/2032527256355221954" target="_blank" rel="noopener" class="footer-x-link">
+    <span class="x-brand">𝕏</span>
+    <span>Original post by @0x_kaize</span>
+  </a>
+</section>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Dot nav
+const sections = ['hero','king','dev','cloud','db','design','learn','domain','prod','comm','media','deals','ai','pay'];
+const dotNav = document.getElementById('dotNav');
+sections.forEach(id => {
+  const a = document.createElement('a');
+  a.href = '#' + id;
+  a.dataset.section = id;
+  a.title = id;
+  dotNav.appendChild(a);
+});
+
+const dots = dotNav.querySelectorAll('a');
+const sectionEls = sections.map(id => document.getElementById(id));
+
+function updateDots() {
+  let current = 0;
+  sectionEls.forEach((sec, i) => {
+    if (sec && sec.getBoundingClientRect().top <= window.innerHeight / 2) current = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
+
+window.addEventListener('scroll', updateDots, { passive: true });
+updateDots();
+
+// Live-ish view counter
+// Base: ~7.8M on March 19 2026, growing ~200K/day
+const launchDate = new Date('2026-03-18T00:00:00Z');
+const baseViews = 7800000;
+const growthPerMs = 200000 / (24 * 60 * 60 * 1000);
+
+function updateViews() {
+  const now = new Date();
+  const elapsed = now - launchDate;
+  const views = Math.floor(baseViews + (elapsed * growthPerMs));
+  const formatted = (views / 1000000).toFixed(1) + 'M+';
+  document.getElementById('viewCounter').innerHTML = formatted + '<span class="live-dot"></span>';
+}
+
+updateViews();
+setInterval(updateViews, 30000);
+</script>
+
+</body>
+</html>

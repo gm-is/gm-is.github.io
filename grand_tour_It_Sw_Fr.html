@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Tour — Rome to Riviera · 16 Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #1a1612;
+    --parch:   #f7f3ec;
+    --cream:   #faf7f2;
+    --gold:    #b8943a;
+    --gold-lt: #d4af5a;
+    --rust:    #8b4a2f;
+    --sage:    #5a6e52;
+    --slate:   #3d4d5c;
+    --mist:    #e8e2d9;
+    --it:      #c9351f;
+    --ch:      #cc0000;
+    --fr:      #003189;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--parch);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(184,148,58,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 30%, rgba(90,110,82,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 50% 80%, rgba(61,77,92,.3) 0%, transparent 70%);
+    background-color: #1a1612;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(184,148,58,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,148,58,.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; text-align: center; padding: 2rem; }
+  .hero-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .9s ease .2s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: 300;
+    color: rgba(247,243,236,.7);
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-top: .5rem;
+    opacity: 0;
+    animation: fadeUp .9s ease .4s forwards;
+  }
+  .hero-divider {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin: 1.8rem auto;
+    width: fit-content;
+    opacity: 0;
+    animation: fadeUp .9s ease .6s forwards;
+  }
+  .hero-divider span { width: 60px; height: 1px; background: var(--gold); opacity: .5; }
+  .hero-divider i { color: var(--gold); font-style: normal; font-size: .75rem; letter-spacing: .2em; }
+  .hero-stats {
+    display: flex; gap: 3rem;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp .9s ease .8s forwards;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label {
+    font-size: .65rem; letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(247,243,236,.45);
+    margin-top: .3rem;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: rgba(247,243,236,.3);
+    font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: .6rem;
+    opacity: 0; animation: fadeUp .9s ease 1.2s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(184,148,58,.5), transparent);
+    animation: scrollPulse 2s ease-in-out infinite 1.5s;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,22,18,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,148,58,.15);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center;
+    gap: .25rem; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    flex-shrink: 0;
+    background: none; border: none; cursor: pointer;
+    padding: 1rem .9rem;
+    font-family: 'Jost', sans-serif;
+    font-size: .65rem; font-weight: 400;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: rgba(247,243,236,.4);
+    transition: color .25s;
+    position: relative;
+    white-space: nowrap;
+  }
+  .nav-btn::after {
+    content: ''; position: absolute;
+    bottom: 0; left: .9rem; right: .9rem;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0);
+    transition: transform .25s;
+  }
+  .nav-btn.active, .nav-btn:hover { color: var(--gold); }
+  .nav-btn.active::after, .nav-btn:hover::after { transform: scaleX(1); }
+  .nav-flag { font-size: .8rem; margin-right: .3rem; }
+
+  /* ─── TIMELINE STRIP ─── */
+  .timeline-wrap {
+    background: var(--ink);
+    padding: 2.5rem 2rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184,148,58,.3) transparent;
+  }
+  .timeline {
+    display: flex; gap: 0;
+    min-width: max-content;
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    top: 28px; left: 0; right: 0; height: 1px;
+    background: rgba(184,148,58,.2);
+  }
+  .tl-stop {
+    display: flex; flex-direction: column; align-items: center;
+    cursor: pointer;
+    padding: 0 .6rem;
+    min-width: 80px;
+    transition: opacity .2s;
+  }
+  .tl-stop:hover { opacity: .8; }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--ink);
+    position: relative; z-index: 1;
+    transition: background .2s, transform .2s;
+    flex-shrink: 0;
+  }
+  .tl-stop.active .tl-dot, .tl-stop:hover .tl-dot {
+    background: var(--gold);
+    transform: scale(1.4);
+  }
+  .tl-city {
+    font-size: .58rem; letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(247,243,236,.5);
+    margin-top: .6rem;
+    text-align: center;
+    transition: color .2s;
+  }
+  .tl-stop.active .tl-city { color: var(--gold); }
+  .tl-days {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .7rem; color: rgba(247,243,236,.3);
+    margin-top: .15rem; text-align: center;
+  }
+  .tl-country-bar {
+    height: 3px; border-radius: 2px;
+    margin-top: .5rem;
+    width: 100%;
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    display: none;
+    max-width: 1100px; margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .section.animating { display: block; }
+
+  /* ─── CITY HEADER ─── */
+  .city-header {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: start; gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--mist);
+  }
+  .city-eyebrow {
+    font-size: .65rem; letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+  }
+  .city-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300; line-height: .95;
+    color: var(--ink);
+  }
+  .city-name em { font-style: italic; color: var(--gold); }
+  .city-subtitle {
+    font-size: .85rem; color: #6b6359;
+    margin-top: .8rem; letter-spacing: .05em;
+  }
+  .city-badge {
+    text-align: right; flex-shrink: 0;
+  }
+  .night-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 300;
+    color: var(--mist); line-height: 1;
+  }
+  .night-label {
+    font-size: .6rem; letter-spacing: .25em;
+    text-transform: uppercase; color: #a09484;
+  }
+
+  /* ─── CARDS ─── */
+  .card-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-bottom: 2rem;
+  }
+  @media (max-width: 700px) { .card-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--cream);
+    border: 1px solid var(--mist);
+    border-radius: 4px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,.08);
+    transform: translateY(-2px);
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 3px; height: 100%;
+  }
+  .card.hotel::before { background: var(--gold); }
+  .card.day::before { background: var(--sage); }
+  .card.transport::before { background: var(--slate); }
+  .card.note::before { background: var(--rust); }
+
+  .card-label {
+    font-size: .58rem; letter-spacing: .25em;
+    text-transform: uppercase; font-weight: 500;
+    margin-bottom: .7rem;
+  }
+  .card.hotel .card-label { color: var(--gold); }
+  .card.day .card-label { color: var(--sage); }
+  .card.transport .card-label { color: var(--slate); }
+  .card.note .card-label { color: var(--rust); }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 500;
+    color: var(--ink); line-height: 1.2;
+    margin-bottom: .6rem;
+  }
+  .card-body { font-size: .82rem; color: #5a5048; line-height: 1.75; }
+  .card-body strong { color: var(--ink); font-weight: 500; }
+
+  .card-meta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 1rem; padding-top: 1rem;
+    border-top: 1px solid var(--mist);
+  }
+  .meta-item {
+    font-size: .65rem; letter-spacing: .1em;
+    color: #857870;
+    display: flex; align-items: center; gap: .35rem;
+  }
+  .meta-item svg { opacity: .6; }
+
+  .card-full { grid-column: 1 / -1; }
+
+  /* ─── DAY LIST ─── */
+  .day-list { margin-bottom: 2rem; }
+  .day-item {
+    display: grid; grid-template-columns: 56px 1fr;
+    gap: 1.5rem; padding: 1.5rem 0;
+    border-bottom: 1px solid var(--mist);
+    cursor: pointer;
+  }
+  .day-item:last-child { border-bottom: none; }
+  .day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300;
+    color: var(--mist); line-height: 1;
+    text-align: right;
+    padding-top: .1rem;
+  }
+  .day-num .day-n { font-size: .55rem; letter-spacing: .2em; text-transform: uppercase; color: #c0b4a4; display: block; }
+  .day-content {}
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 500;
+    color: var(--ink); margin-bottom: .3rem;
+  }
+  .day-desc { font-size: .82rem; color: #5a5048; line-height: 1.7; }
+  .day-tags {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    margin-top: .7rem;
+  }
+  .tag {
+    font-size: .58rem; letter-spacing: .12em;
+    text-transform: uppercase; padding: .2rem .6rem;
+    border-radius: 20px; border: 1px solid;
+  }
+  .tag.art { color: var(--rust); border-color: rgba(139,74,47,.25); background: rgba(139,74,47,.05); }
+  .tag.food { color: var(--sage); border-color: rgba(90,110,82,.25); background: rgba(90,110,82,.05); }
+  .tag.walk { color: var(--slate); border-color: rgba(61,77,92,.25); background: rgba(61,77,92,.05); }
+  .tag.must { color: var(--gold); border-color: rgba(184,148,58,.35); background: rgba(184,148,58,.07); }
+  .tag.tip { color: var(--rust); border-color: rgba(139,74,47,.3); background: rgba(139,74,47,.06); }
+
+  /* ─── TRANSPORT BLOCK ─── */
+  .transport-block {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .tr-icon {
+    font-size: 1.8rem; flex-shrink: 0;
+    opacity: .7;
+  }
+  .tr-details { flex: 1; }
+  .tr-route {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--gold);
+    margin-bottom: .3rem;
+  }
+  .tr-info { font-size: .78rem; color: rgba(247,243,236,.5); line-height: 1.6; }
+
+  /* ─── OVERVIEW SECTION ─── */
+  .overview-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--mist);
+    border: 1px solid var(--mist);
+    border-radius: 4px; overflow: hidden;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 700px) { .overview-grid { grid-template-columns: 1fr; } }
+  .ov-cell {
+    background: var(--cream);
+    padding: 1.8rem;
+  }
+  .ov-flag { font-size: 1.5rem; margin-bottom: .6rem; }
+  .ov-country {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 500;
+    margin-bottom: .3rem;
+  }
+  .ov-days { font-size: .75rem; color: var(--gold); letter-spacing: .1em; margin-bottom: .8rem; }
+  .ov-stops { font-size: .78rem; color: #6b6359; line-height: 1.9; }
+
+  .route-list {
+    display: flex; flex-direction: column; gap: 0;
+    margin-bottom: 3rem;
+  }
+  .route-item {
+    display: grid;
+    grid-template-columns: 40px 180px 1fr 100px;
+    gap: 1.5rem; align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--cream);
+    border: 1px solid var(--mist);
+    border-bottom: none;
+    font-size: .8rem;
+  }
+  .route-item:first-child { border-radius: 4px 4px 0 0; }
+  .route-item:last-child { border-bottom: 1px solid var(--mist); border-radius: 0 0 4px 4px; }
+  .route-item:hover { background: white; }
+  .route-days-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; color: var(--gold); text-align: center;
+  }
+  .route-city-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500;
+  }
+  .route-hotel { color: #857870; font-size: .75rem; }
+  .route-transport { color: #857870; }
+  .route-country {
+    font-size: .6rem; letter-spacing: .18em;
+    text-transform: uppercase; text-align: right;
+  }
+  .country-it { color: var(--it); }
+  .country-ch { color: var(--ch); }
+  .country-fr { color: var(--fr); }
+
+  /* ─── TIPS ─── */
+  .tips-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; margin-top: 2rem;
+  }
+  @media (max-width: 600px) { .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: var(--cream); border: 1px solid var(--mist);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0; padding: 1.2rem 1.5rem;
+  }
+  .tip-title { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
+  .tip-body { font-size: .8rem; color: #5a5048; line-height: 1.7; }
+
+  /* ─── BOOKING ─── */
+  .booking-alert {
+    background: rgba(184,148,58,.08);
+    border: 1px solid rgba(184,148,58,.25);
+    border-radius: 4px; padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+  .ba-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+  .ba-text { font-size: .8rem; color: #5a5048; line-height: 1.7; }
+  .ba-text strong { color: var(--ink); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: .3; transform: scaleY(1); }
+    50% { opacity: .8; transform: scaleY(1.1); }
+  }
+  @keyframes sectionIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── UTIL ─── */
+  .gold { color: var(--gold); }
+  .sep { 
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .sep-line { flex: 1; height: 1px; background: var(--mist); }
+  .sep-text { 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85rem; font-style: italic; color: #a09484;
+    white-space: nowrap;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400;
+    color: var(--ink); margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: .9rem; color: #6b6359; line-height: 1.8;
+    max-width: 700px; margin-bottom: 2.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-script">Grand Tour</div>
+    <div class="hero-title">Rome · Florence · Venice · Lucerne · Montreux · Paris · Provence · Côte d'Azur</div>
+    <div class="hero-divider">
+      <span></span><i>Late June · 16 Days · 3 Countries</i><span></span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">16</div><div class="stat-label">Nights</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Cities</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Star Hotels</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('overview')">总览</button>
+    <button class="nav-btn" onclick="show('rome')"><span class="nav-flag">🇮🇹</span>Rome</button>
+    <button class="nav-btn" onclick="show('florence')"><span class="nav-flag">🇮🇹</span>Florence</button>
+    <button class="nav-btn" onclick="show('venice')"><span class="nav-flag">🇮🇹</span>Venice</button>
+    <button class="nav-btn" onclick="show('lucerne')"><span class="nav-flag">🇨🇭</span>Lucerne</button>
+    <button class="nav-btn" onclick="show('montreux')"><span class="nav-flag">🇨🇭</span>Montreux</button>
+    <button class="nav-btn" onclick="show('paris')"><span class="nav-flag">🇫🇷</span>Paris</button>
+    <button class="nav-btn" onclick="show('aix')"><span class="nav-flag">🇫🇷</span>Aix</button>
+    <button class="nav-btn" onclick="show('nice')"><span class="nav-flag">🇫🇷</span>Nice</button>
+    <button class="nav-btn" onclick="show('capferrat')"><span class="nav-flag">🇫🇷</span>Cap Ferrat</button>
+    <button class="nav-btn" onclick="show('tips')">Tips</button>
+  </div>
+</nav>
+
+<!-- TIMELINE -->
+<div class="timeline-wrap">
+  <div class="timeline">
+    <div class="tl-stop" id="tl-overview" onclick="show('overview')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">概览</div>
+      <div class="tl-days">All</div>
+      <div class="tl-country-bar" style="background:var(--gold);opacity:.3"></div>
+    </div>
+    <div class="tl-stop" id="tl-rome" onclick="show('rome')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Rome</div>
+      <div class="tl-days">D1–2</div>
+      <div class="tl-country-bar" style="background:var(--it)"></div>
+    </div>
+    <div class="tl-stop" id="tl-florence" onclick="show('florence')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Florence</div>
+      <div class="tl-days">D3</div>
+      <div class="tl-country-bar" style="background:var(--it)"></div>
+    </div>
+    <div class="tl-stop" id="tl-venice" onclick="show('venice')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Venice</div>
+      <div class="tl-days">D4</div>
+      <div class="tl-country-bar" style="background:var(--it)"></div>
+    </div>
+    <div class="tl-stop" id="tl-lucerne" onclick="show('lucerne')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Lucerne</div>
+      <div class="tl-days">D5–7</div>
+      <div class="tl-country-bar" style="background:var(--ch)"></div>
+    </div>
+    <div class="tl-stop" id="tl-montreux" onclick="show('montreux')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Montreux</div>
+      <div class="tl-days">D8</div>
+      <div class="tl-country-bar" style="background:var(--ch)"></div>
+    </div>
+    <div class="tl-stop" id="tl-paris" onclick="show('paris')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Paris</div>
+      <div class="tl-days">D9–10</div>
+      <div class="tl-country-bar" style="background:var(--fr)"></div>
+    </div>
+    <div class="tl-stop" id="tl-aix" onclick="show('aix')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Aix</div>
+      <div class="tl-days">D11–12</div>
+      <div class="tl-country-bar" style="background:var(--fr)"></div>
+    </div>
+    <div class="tl-stop" id="tl-nice" onclick="show('nice')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Nice</div>
+      <div class="tl-days">D13–14</div>
+      <div class="tl-country-bar" style="background:var(--fr)"></div>
+    </div>
+    <div class="tl-stop" id="tl-capferrat" onclick="show('capferrat')">
+      <div class="tl-dot"></div>
+      <div class="tl-city">Cap Ferrat</div>
+      <div class="tl-days">D15–16</div>
+      <div class="tl-country-bar" style="background:var(--fr)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<div class="section active" id="section-overview">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">The Complete Plan</div>
+      <div class="city-name">Grand<br><em>Tour</em></div>
+      <div class="city-subtitle">Late June · Rome to the Riviera · 16 Nights · 9 Cities</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">16</div>
+      <div class="night-label">Nights Total</div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="ov-cell">
+      <div class="ov-flag">🇮🇹</div>
+      <div class="ov-country">Italy</div>
+      <div class="ov-days">4 Nights</div>
+      <div class="ov-stops">
+        Rome — 2N<br>
+        Florence — 1N<br>
+        Venice — 1N
+      </div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-flag">🇨🇭</div>
+      <div class="ov-country">Switzerland</div>
+      <div class="ov-days">4 Nights</div>
+      <div class="ov-stops">
+        Lucerne — 3N<br>
+        Montreux — 1N
+      </div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-flag">🇫🇷</div>
+      <div class="ov-country">France</div>
+      <div class="ov-days">8 Nights</div>
+      <div class="ov-stops">
+        Paris — 2N<br>
+        Aix-en-Provence — 2N<br>
+        Nice — 2N<br>
+        Cap Ferrat — 2N
+      </div>
+    </div>
+  </div>
+
+  <h3>行程总览</h3>
+  <div class="route-list">
+    <div class="route-item">
+      <div class="route-days-badge">1–2</div>
+      <div><div class="route-city-name">🇮🇹 Rome</div><div class="route-hotel">Orient Express La Minerva</div></div>
+      <div class="route-transport">✈️ Fly into FCO — 无需租车，步行可达一切</div>
+      <div class="route-country country-it">Italy</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">3</div>
+      <div><div class="route-city-name">🇮🇹 Florence</div><div class="route-hotel">Hotel Lungarno</div></div>
+      <div class="route-transport">🚄 Frecciarossa 高铁 ~1.5小时</div>
+      <div class="route-country country-it">Italy</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">4</div>
+      <div><div class="route-city-name">🇮🇹 Venice</div><div class="route-hotel">The Gritti Palace</div></div>
+      <div class="route-transport">🚄 Frecciarossa 高铁 ~2小时</div>
+      <div class="route-country country-it">Italy</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">5–7</div>
+      <div><div class="route-city-name">🇨🇭 Lucerne</div><div class="route-hotel">Hotel Schweizerhof</div></div>
+      <div class="route-transport">🚆 火车经米兰转车 ~5小时</div>
+      <div class="route-country country-ch">Switzerland</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">8</div>
+      <div><div class="route-city-name">🇨🇭 Montreux</div><div class="route-hotel">Fairmont Le Montreux Palace</div></div>
+      <div class="route-transport">🚗 自驾 Interlaken 风景路线 ~1.5小时</div>
+      <div class="route-country country-ch">Switzerland</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">9–10</div>
+      <div><div class="route-city-name">🇫🇷 Paris</div><div class="route-hotel">Le Pavillon de la Reine</div></div>
+      <div class="route-transport">🚄 TGV 经日内瓦 ~3.5小时 — 还车后乘火车</div>
+      <div class="route-country country-fr">France</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">11–12</div>
+      <div><div class="route-city-name">🇫🇷 Aix-en-Provence</div><div class="route-hotel">Villa Gallici R&C</div></div>
+      <div class="route-transport">🚄 TGV 至马赛 ~3小时 + 出租车30分钟</div>
+      <div class="route-country country-fr">France</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">13–14</div>
+      <div><div class="route-city-name">🇫🇷 Nice</div><div class="route-hotel">Hôtel du Couvent</div></div>
+      <div class="route-transport">🚗 艾克斯租车自驾 ~1.5小时</div>
+      <div class="route-country country-fr">France</div>
+    </div>
+    <div class="route-item">
+      <div class="route-days-badge">15–16</div>
+      <div><div class="route-city-name">🇫🇷 Cap Ferrat</div><div class="route-hotel">Four Seasons Grand-Hôtel</div></div>
+      <div class="route-transport">🚗 自驾 ~20分钟 — 离开时送车至NCE机场</div>
+      <div class="route-country country-fr">France</div>
+    </div>
+  </div>
+
+  <div class="booking-alert">
+    <div class="ba-icon">⚠️</div>
+    <div class="ba-text">
+      <strong>关键预订提示：</strong>以下需提前 3–6 个月预订 —— 梵蒂冈博物馆（指定时段）、乌菲兹美术馆（选日期）、佛罗伦萨圣母百花大教堂穹顶（限流）、威尼斯圣马可大教堂（推荐预约）、维纳斯·达·芬奇《最后的晚餐》（米兰，须提前数月）。四季酒店 Cap Ferrat 和 Villa d'Este 旺季预订同样紧张，建议同步操作。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ROME ═══════════ -->
+<div class="section" id="section-rome">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 1–2 · Italy · Fly in FCO</div>
+      <div class="city-name"><em>Roma</em><br>永恒之城</div>
+      <div class="city-subtitle">古罗马、梵蒂冈、特拉斯提弗列 · 34°C · 人潮汹涌但无法抵挡</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">2</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Orient Express La Minerva</div>
+      <div class="card-body">
+        罗马最文艺的奢华选择。坐落于万神殿广场，距万神殿仅一步之遥，距纳沃纳广场三分钟步行。Orient Express 品牌旗下，保留了17世纪老贵族府邸的原始建筑气质，同时融入了极高品味的当代设计。<br><br>
+        <strong>顶楼酒吧：</strong>俯瞰整个罗马天际线，日落时分尤为震撼。<strong>早餐</strong>有竖琴现场演奏。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 Piazza della Minerva, Roma</span>
+        <span class="meta-item">⭐ 4.5/5 (555条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">✈️ 抵达 & 下一站</div>
+      <div class="card-title">交通</div>
+      <div class="card-body">
+        <strong>抵达：</strong>飞抵罗马菲乌米奇诺机场（FCO），乘坐 Leonardo Express 直达特米尼车站（30分钟，€14），再转出租车约15分钟至酒店。<br><br>
+        <strong>离开（Day 3）：</strong>特米尼车站 → 佛罗伦萨圣母百花车站，Frecciarossa 高铁约 <strong>1小时30分</strong>，每小时一班。无需租车，意大利全程高铁。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>1</div>
+      <div class="day-content">
+        <div class="day-title">古罗马的核心</div>
+        <div class="day-desc">
+          早晨（9点前）直奔<strong>斗兽场</strong>——务必预购 Arena Floor 票（可进入角斗士出场通道），否则仅有标准观众席视角。随后游览<strong>古罗马广场</strong>和<strong>帕拉蒂尼山</strong>，这三个遗址共用一张票。中午躲进附近餐厅避暑。
+          下午前往<strong>特拉斯提弗列</strong>（Trastevere）街区——罗马最有生活气息的地方，中世纪石板路、橙树庭院、夜晚人声鼎沸。晚餐就在此处的传统罗马餐厅，点 cacio e pepe 或 coda alla vaccinara。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">必去</span>
+          <span class="tag art">古迹</span>
+          <span class="tag food">晚餐</span>
+          <span class="tag tip">提前订票</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>2</div>
+      <div class="day-content">
+        <div class="day-title">梵蒂冈 & 历史中心</div>
+        <div class="day-desc">
+          <strong>梵蒂冈博物馆</strong>必须预约第一批（8:00 AM）入场，这是规避人群的唯一办法。西斯廷礼拜堂 → 圣彼得大教堂 → 爬穹顶（520级台阶，俯视全罗马）。全程约4–5小时。<br><br>
+          下午：<strong>万神殿</strong>（内部必看，穹顶至今无人能复制）→ <strong>纳沃纳广场</strong> → <strong>圣天使堡</strong>外观。Sant'Eustachio il Caffè 喝一杯罗马最好的浓缩咖啡。
+          傍晚在<strong>犹太人区</strong>（Ghetto）晚餐，朝鲜蓟（carciofi alla giudia）是必点。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">梵蒂冈必游</span>
+          <span class="tag art">西斯廷礼拜堂</span>
+          <span class="tag food">犹太区晚餐</span>
+          <span class="tag tip">穿着注意</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-full note">
+    <div class="card-label">⚠️ 六月实战贴士</div>
+    <div class="card-title">罗马盛夏须知</div>
+    <div class="card-body">
+      六月下旬气温 <strong>34–38°C</strong>，体感更高。黄金法则：<strong>所有户外景点在上午11点前完成</strong>，中午进博物馆或教堂（天然空调）。梵蒂冈和各大教堂强制要求遮住肩膀和膝盖，否则当场被拦。带可折叠遮阳扇。饮水机（nasone）遍布全城，可直接装水，免费且清凉。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FLORENCE ═══════════ -->
+<div class="section" id="section-florence">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 3 · Italy · Frecciarossa from Rome</div>
+      <div class="city-name">Fi<em>renze</em><br>文艺复兴</div>
+      <div class="city-subtitle">乌菲兹、圣母百花大教堂、奥尔特拉诺老城 · 全力以赴的一天</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">1</div>
+      <div class="night-label">Night</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Hotel Lungarno</div>
+      <div class="card-body">
+        <strong>菲拉格慕家族</strong>（Salvatore Ferragamo）旗下精品酒店，坐落于阿诺河南岸奥尔特拉诺区。临河客房可直视老桥（Ponte Vecchio），是佛罗伦萨最理想的拍照视角之一。馆内原创艺术藏品丰富，走廊本身就是一间小美术馆。距乌菲兹步行约7分钟。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 Borgo San Iacopo, Firenze</span>
+        <span class="meta-item">⭐ 4.6/5 (512条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚄 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从罗马：</strong>罗马特米尼 → 佛罗伦萨圣母百花（SMN）高铁约 <strong>1小时30分</strong>，建议早班（8–9点）出发，中午前抵达，争取最长游览时间。<br><br>
+        <strong>到威尼斯：</strong>次日早晨 SMN → 威尼斯圣卢西亚（VCE），Frecciarossa 约 <strong>2小时</strong>，建议7–8点出发。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>3</div>
+      <div class="day-content">
+        <div class="day-title">佛罗伦萨的精华压缩</div>
+        <div class="day-desc">
+          <strong>抵达</strong>约中午。放行李后立刻步行至<strong>乌菲兹美术馆</strong>——波提切利《春》《维纳斯的诞生》、米开朗基罗《圣家族》、卡拉瓦乔的戏剧性光影。务必预订指定时段，现场排队不现实。<br><br>
+          下午：穿越<strong>老桥</strong>（Ponte Vecchio，金匠店林立），攀登<strong>圣母百花大教堂穹顶</strong>（Cupola del Brunelleschi，520级台阶，需预约，是全佛罗伦萨最好的城市全景）。傍晚在<strong>奥尔特拉诺</strong>的藏龙卧虎小巷中寻觅一家地道 trattoria——圣灵广场（Piazza di Santo Spirito）附近尤佳。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">乌菲兹</span>
+          <span class="tag must">穹顶攀登</span>
+          <span class="tag art">文艺复兴</span>
+          <span class="tag food">奥尔特拉诺晚餐</span>
+          <span class="tag tip">全部提前预订</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-full note">
+    <div class="card-label">💡 一天最大化策略</div>
+    <div class="card-title">佛罗伦萨只有24小时的打法</div>
+    <div class="card-body">
+      一天游览佛罗伦萨，核心策略是<strong>不贪多</strong>：乌菲兹（2.5小时）+ 穹顶（1.5小时）+ 漫步老桥/奥尔特拉诺（2小时）+ 晚餐，已是相当饱满的一天。跳过<strong>学院美术馆</strong>（大卫像，排队极长，与乌菲兹相比性价比较低）。如果热爱米开朗基罗，可改去圣洛伦佐教堂的新圣器室，人少且同样精彩。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ VENICE ═══════════ -->
+<div class="section" id="section-venice">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 4 · Italy · Frecciarossa from Florence</div>
+      <div class="city-name">Ve<em>nezia</em><br>水上共和国</div>
+      <div class="city-subtitle">圣马可大教堂、总督宫、大运河 · 世界上独一无二的城市</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">1</div>
+      <div class="night-label">Night</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">The Gritti Palace</div>
+      <div class="card-body">
+        威尼斯最具传奇色彩的酒店。15世纪总督府直接建在大运河岸边，距圣马可广场步行3分钟，距凤凰剧院（La Fenice）5分钟。海明威、格蕾塔·嘉宝、毛姆都曾长住于此。<strong>Club del Doge</strong> 餐厅露台是威尼斯最具电影感的用餐地点之一——面朝大运河，水面泛光。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 Campo Santa Maria del Giglio</span>
+        <span class="meta-item">⭐ 4.6/5 (1308条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚄 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从佛罗伦萨：</strong>SMN → 威尼斯圣卢西亚，高铁约 <strong>2小时</strong>，建议7–8点出发，11点前抵达，争取完整一天。下船后乘1号水上巴士（Vaporetto）或水上出租车直抵酒店码头。<br><br>
+        <strong>去卢塞恩：</strong>次日早班（7–8点）圣卢西亚 → 米兰 → 卢塞恩，全程约 <strong>5小时</strong>，下午抵达，余下半天轻松探索。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>4</div>
+      <div class="day-content">
+        <div class="day-title">威尼斯精华一日</div>
+        <div class="day-desc">
+          抵达后立刻前往<strong>圣马可大教堂</strong>（预约网上票，避开队伍）。随后进入<strong>总督宫</strong>（Palazzo Ducale），参观密室和叹息桥。午餐选择一家<strong>cicchetti 小酒馆</strong>（bacaro），点威尼斯特色下酒小食搭配 Aperol Spritz，这才是正宗威尼斯人的饮食节奏。<br><br>
+          下午：购 €8.50 的 1 号水上巴士（Vaporetto Line 1）单程票，<strong>从圣卢西亚到圣扎卡利亚</strong>游览整条大运河——这是威尼斯最划算的"景点"，两岸宫殿从拜占庭到哥特到文艺复兴一路铺展。傍晚在<strong>里亚托桥</strong>周边小巷觅食，夜晚在 Gritti 露台共进晚餐。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">圣马可</span>
+          <span class="tag must">大运河水上巴士</span>
+          <span class="tag food">Cicchetti 小食</span>
+          <span class="tag walk">迷路最美</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-full note">
+    <div class="card-label">💡 威尼斯独家贴士</div>
+    <div class="card-title">不要做的事</div>
+    <div class="card-body">
+      <strong>不要在圣马可广场的花神咖啡馆（Caffè Florian）坐下点咖啡</strong>——一杯咖啡 €25+，音乐附加费另算，体验完全不值。站在吧台喝 €2 的咖啡，这才是当地人做法。<strong>贡多拉</strong>：官方定价 €80/30分钟（夜间 €120），如果不在意体验可以跳过。更有效率的做法是乘 Traghetto（公共渡船，€2），2分钟横渡大运河，站在船上感受威尼斯人的日常。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ LUCERNE ═══════════ -->
+<div class="section" id="section-lucerne">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 5–7 · Switzerland · Train from Venice</div>
+      <div class="city-name">Lu<em>zern</em><br>湖心之城</div>
+      <div class="city-subtitle">卡佩尔桥、皮拉图斯山、琉森湖 · 瑞士精准服务的缩影</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">3</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Hotel Schweizerhof Luzern</div>
+      <div class="card-body">
+        卢塞恩最有历史底蕴的酒店，直接坐落于罗伊斯河畔栈道上，出门即是卡佩尔桥。家族经营，百年传承，每天客房都有巧克力和小糕点惊喜。湖景套房的清晨视角无可替代。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 Schweizerhofquai 3, Luzern</span>
+        <span class="meta-item">⭐ 4.6/5 (2718条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚆 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从威尼斯：</strong>威尼斯圣卢西亚 → 米兰 → 卢塞恩，全程约 <strong>5小时</strong>，早班出发下午抵达。<br><br>
+        <strong>去蒙特勒：</strong>Day 7 下午在卢塞恩取<strong>租车</strong>，次日自驾前往蒙特勒，推荐走 Interlaken 风景线（经布里恩茨湖），约 <strong>2.5小时</strong>，沿途阿尔卑斯山全景。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>5</div>
+      <div class="day-content">
+        <div class="day-title">老城慢游</div>
+        <div class="day-desc">
+          抵达后先步行至<strong>卡佩尔桥</strong>（Kapellbrücke）和<strong>水塔</strong>——欧洲保存最完整的木构廊桥，17世纪内部彩绘天花板令人窒息。沿罗伊斯河畔一路走到<strong>旧城区</strong>，壁画建筑、鹅卵石街道、中世纪手工艺品店穿插其中。傍晚找一家地道的乳酪火锅餐厅，卢塞恩的奶酪品质全瑞士顶尖。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">卡佩尔桥</span>
+          <span class="tag walk">老城漫步</span>
+          <span class="tag food">奶酪火锅</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>6</div>
+      <div class="day-content">
+        <div class="day-title">皮拉图斯山登顶</div>
+        <div class="day-desc">
+          <strong>皮拉图斯山（Mt. Pilatus）</strong>全日游：从阿尔卑纳赫施塔特（Alpnachstad）乘坐<strong>世界最陡齿轨铁路</strong>（48度坡度）登顶，约1小时。山顶2132米，360度全景——琉森湖、阿尔卑斯群峰、远眺德国黑森林。下山可换乘贡多拉缆车，两种体验完全不同。下午乘船游览<strong>琉森湖</strong>（Vierwaldstättersee），瑞士国家神话的发源地。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">皮拉图斯登顶</span>
+          <span class="tag must">世界最陡齿轨</span>
+          <span class="tag walk">山顶徒步</span>
+          <span class="tag tip">提前买联合票</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>7</div>
+      <div class="day-content">
+        <div class="day-title">狮子纪念碑 & 出发准备</div>
+        <div class="day-desc">
+          上午参观<strong>狮子纪念碑</strong>（Löwendenkmal）——马克·吐温称之为"世界上最悲伤的石雕"。旁边的<strong>冰川公园</strong>（Gletschergarten）展示两百万年前的冰川遗迹，出乎意料地震撼。下午在老城选购瑞士手表或纪念品，傍晚<strong>取租车</strong>（步行到火车站附近租车点）。最后一顿卢塞恩晚餐选市政厅附近的传统瑞士餐厅。
+        </div>
+        <div class="day-tags">
+          <span class="tag art">狮子纪念碑</span>
+          <span class="tag walk">老城购物</span>
+          <span class="tag tip">傍晚取租车</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ MONTREUX ═══════════ -->
+<div class="section" id="section-montreux">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 8 · Switzerland · Self-drive from Lucerne</div>
+      <div class="city-name">Mon<em>treux</em><br>日内瓦湖畔</div>
+      <div class="city-subtitle">西庸城堡、爵士节圣地、阿尔卑斯前的最后一夜</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">1</div>
+      <div class="night-label">Night</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Fairmont Le Montreux Palace</div>
+      <div class="card-body">
+        日内瓦湖畔的美好时代（Belle Époque）宫殿酒店，每年七月是<strong>蒙特勒爵士音乐节</strong>（Montreux Jazz Festival）的核心场地——Deep Purple 那首"Smoke on the Water"就是写这里的。多阳台套房，正对沙布莱阿尔卑斯山。酒店酒吧（Funky Claude's Bar）以歌词中的 Claude 命名。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 Avenue Claude-Nobs 2, Montreux</span>
+        <span class="meta-item">⭐ 4.7/5 (2939条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚗 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从卢塞恩：</strong>自驾约 <strong>1.5小时</strong>（A8/A9），推荐路线经 Interlaken → Spiez → Thun → 蒙特勒，沿图恩湖和布里恩茨湖行驶，全程风光壮美。<br><br>
+        <strong>去巴黎：</strong>次日早晨在蒙特勒<strong>还车</strong>，步行至蒙特勒火车站，经日内瓦转乘 <strong>TGV</strong>，全程约 <strong>3.5小时</strong>，下午抵达巴黎里昂站。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>8</div>
+      <div class="day-content">
+        <div class="day-title">西庸城堡 + 湖畔黄昏</div>
+        <div class="day-desc">
+          驾车途中可在 <strong>Gruyères</strong> 小镇停留午餐——中世纪石砌山城，正是格鲁耶尔奶酪的故乡，参观奶酪工坊和古堡，视觉与味觉双重满足。<br><br>
+          下午抵达蒙特勒，入住后步行至<strong>西庸城堡</strong>（Château de Chillon）——拜伦《西庸囚徒》诗篇的灵感来源，瑞士访客量最高的历史遗迹，建在日内瓦湖礁石上，内部令人印象深刻。傍晚沿湖畔步行长廊（花团锦簇、远山倒影）漫步，在酒店餐厅水岸用餐。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">西庸城堡</span>
+          <span class="tag food">格鲁耶尔午餐</span>
+          <span class="tag walk">湖畔步行道</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PARIS ═══════════ -->
+<div class="section" id="section-paris">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 9–10 · France · TGV from Montreux via Geneva</div>
+      <div class="city-name">Pa<em>ris</em><br>光之城</div>
+      <div class="city-subtitle">玛黑区、卢浮宫、塞纳河 · 两天精华集中攻略</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">2</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Le Pavillon de la Reine</div>
+      <div class="card-body">
+        隐于<strong>孚日广场</strong>（Place des Vosges，巴黎最古老的皇家广场）深处的17世纪府邸酒店。从院门出去就是广场的石拱廊，步行可至玛黑区所有地标。附设 SPA。整体气质：安静、奢华、带有老巴黎的神秘感。巴黎最佳性价比位置之一。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 28 Place des Vosges, Paris 3e</span>
+        <span class="meta-item">⭐ 4.6/5 (676条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚄 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从蒙特勒：</strong>蒙特勒 → 日内瓦（40分钟） → 巴黎里昂站（Gare de Lyon），TGV 全程约 <strong>3.5小时</strong>，建议早班出发，下午3点前抵达。<br><br>
+        <strong>去艾克斯：</strong>Day 10 晚或 Day 11 早，里昂站 → 马赛圣夏尔站（Marseille-Saint-Charles），TGV 约 <strong>3小时</strong>，再打车30分钟至艾克斯。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>9</div>
+      <div class="day-content">
+        <div class="day-title">玛黑区 & 卢浮宫</div>
+        <div class="day-desc">
+          抵达约3点，先在<strong>玛黑区</strong>自由漫步——孚日广场周边的画廊、概念店、小咖啡馆，傍晚的光线极美。晚餐选择圣日耳曼德佩区（Saint-Germain）的经典法式小酒馆（bistro）。<br><br>
+          次日上午：<strong>卢浮宫</strong>预约首批（9点），重点锁定三件：有翼胜利女神像 → 维纳斯 → 蒙娜丽莎（后者人多，快速通过，主要看整体氛围）。午餐 Palais-Royal 附近。下午：圣礼拜堂（Sainte-Chapelle）彩色玻璃令人屏息，是巴黎最值得排队的中世纪遗迹。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">卢浮宫</span>
+          <span class="tag art">圣礼拜堂</span>
+          <span class="tag walk">玛黑区</span>
+          <span class="tag food">圣日耳曼晚餐</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>10</div>
+      <div class="day-content">
+        <div class="day-title">塞纳河左岸 & 出发</div>
+        <div class="day-desc">
+          早餐后在<strong>左岸</strong>（Rive Gauche）漫步：卢森堡公园（晨光下的喷泉与法式花园）→ 花神咖啡馆（Café de Flore，外墙打卡即可，不必坐下消费）→ 塞纳河岸旧书摊（Bouquinistes）。若时间允许，<strong>奥赛博物馆</strong>（Musée d'Orsay）是印象派圣地，莫奈、雷诺阿、梵高、塞尚集中于此。<br><br>
+          下午乘 TGV 出发前往马赛，傍晚抵达艾克斯。
+        </div>
+        <div class="day-tags">
+          <span class="tag walk">左岸漫步</span>
+          <span class="tag art">奥赛博物馆</span>
+          <span class="tag food">卢森堡花园咖啡</span>
+          <span class="tag tip">午后出发最优</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ AIX ═══════════ -->
+<div class="section" id="section-aix">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 11–12 · France · TGV to Marseille + Taxi</div>
+      <div class="city-name">Aix-en-<em>Provence</em><br>普罗旺斯之魂</div>
+      <div class="city-subtitle">塞尚的故乡、米拉波大道、卡西斯海湾 · 薰衣草田在六月盛开</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">2</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Villa Gallici — Relais & Châteaux</div>
+      <div class="card-body">
+        本次行程评分最高的酒店（⭐4.8/5）。艾克斯城郊山丘上的普罗旺斯庄园，复古法式布景、泳池、庭院跌水花园、馆内餐厅达米其林同等水准。多名点评者称之为"有生之年最佳住宿"。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 18 Av. de la Violette, Aix-en-Provence</span>
+        <span class="meta-item">⭐ 4.8/5 (479条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚗 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从巴黎：</strong>里昂站 TGV → 马赛圣夏尔约 <strong>3小时</strong>，再打车/出租车至艾克斯约 30分钟（30欧左右）。也可乘 TER 区域列车直达艾克斯TGV站。<br><br>
+        <strong>去尼斯：</strong>Day 12 下午在艾克斯<strong>取租车</strong>（市中心均有取还点），自驾 A8 高速至尼斯约 <strong>1.5小时</strong>。此后直至 Cap Ferrat 全程自驾。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>11</div>
+      <div class="day-content">
+        <div class="day-title">米拉波大道 & 老城</div>
+        <div class="day-desc">
+          抵达后下午时间游览艾克斯老城：<strong>米拉波大道</strong>（Cours Mirabeau，法国最美大街之一，梧桐树荫、喷泉、露天咖啡馆）→ <strong>塞尚工作室</strong>（Atelier Cézanne，圣维克多山呼之欲出）→ 老城集市街（Rue de la République）。早在1555年开张的 Les Deux Garçons 咖啡馆点一杯咖啡，沿用塞尚和左拉的老桌。晚餐在 Villa Gallici 酒店餐厅——风景、食物、服务三项满分。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">米拉波大道</span>
+          <span class="tag art">塞尚工作室</span>
+          <span class="tag food">Villa Gallici晚餐</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>12</div>
+      <div class="day-content">
+        <div class="day-title">卡西斯 & 峡湾 + 取车</div>
+        <div class="day-desc">
+          普罗旺斯行程 ROI 最高的一天：驾车45分钟至<strong>卡西斯</strong>（Cassis）小渔港——石灰岩峭壁环抱，碧绿港水倒映着山色。在港口乘坐<strong>峡湾游船</strong>（Calanques，石灰岩峡湾内的蓝绿色地中海，无法用语言形容），约2小时，推荐上午班次光线最佳。午餐在港口点新鲜海鲜。<br><br>
+          下午返回艾克斯，早市（如恰逢市集日）或 Villa Gallici 泳池，傍晚<strong>取租车</strong>，轻装出发。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">卡西斯峡湾游船</span>
+          <span class="tag food">港口海鲜午餐</span>
+          <span class="tag tip">上午班船最佳</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-full note">
+    <div class="card-label">🌸 六月普罗旺斯</div>
+    <div class="card-title">薰衣草 & 向日葵时间表</div>
+    <div class="card-body">
+      六月下旬是普罗旺斯最美的时节之一：薰衣草在索村（Sault）和吕贝隆（Luberon）的高海拔区域<strong>六月末至七月初</strong>达到盛花期，Val d'Orcia（瓦勒德奥尔西亚）的向日葵同步开放。艾克斯本身及低海拔地区（Valensole平原）薰衣草约在6月底至7月初盛开。本次行程恰好踩在开始开花的节点——颜色可能未到全紫，但已足够壮观且人少。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ NICE ═══════════ -->
+<div class="section" id="section-nice">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 13–14 · France · Self-drive from Aix ~1.5hr</div>
+      <div class="city-name">Ni<em>ce</em><br>蓝色海岸</div>
+      <div class="city-subtitle">老城、马蒂斯博物馆、夏加尔博物馆、艾兹鹰巢 · 蔚蓝海岸的文化中心</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">2</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Hôtel du Couvent — Luxury Collection</div>
+      <div class="card-body">
+        2024年开业，尼斯最新晋的奢华地标。17世纪方济各会修道院改建，坐落于老城（Vieux-Nice）山丘之上，俯瞰地中海。酒店内设<strong>香草园、面包房、屋顶泳池</strong>，从老城入口需乘坐小型电瓶车接送（修道院在山顶，车辆无法直达）。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 1 Rue Honoré Ugo, Nice</span>
+        <span class="meta-item">⭐ 4.4/5 (516条点评)</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚗 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从艾克斯：</strong>自驾 A8 高速约 <strong>1.5小时</strong>。酒店在老城高地，需按导航指引停车后联系前台接送。<br><br>
+        <strong>去 Cap Ferrat：</strong>Day 15 中午，从尼斯自驾约 <strong>20分钟</strong>（沿 D125 进入 Cap Ferrat 半岛）抵达四季酒店。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>13</div>
+      <div class="day-content">
+        <div class="day-title">尼斯老城 & 百花大道</div>
+        <div class="day-desc">
+          抵达后，先在<strong>萨莱亚广场</strong>（Cours Saleya）花市流连——尼斯标志性的露天市场，鲜花、香料、普罗旺斯物产一应俱全。穿行<strong>维厄尼斯老城</strong>（Vieux-Nice）的巴洛克小教堂和彩色涂抹立面，品尝尼斯特色小食 socca（鹰嘴豆薄饼），在 Chez Pipo 最为正宗。<br><br>
+          傍晚漫步<strong>英国人长廊</strong>（Promenade des Anglais），日落时分地中海的光色无与伦比。晚餐选老港（Vieux-Port）附近的海鲜餐厅。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">萨莱亚花市</span>
+          <span class="tag food">Socca 鹰嘴豆饼</span>
+          <span class="tag walk">英国人长廊</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>14</div>
+      <div class="day-content">
+        <div class="day-title">马蒂斯 + 艾兹鹰巢</div>
+        <div class="day-desc">
+          上午：<strong>马蒂斯博物馆</strong>（Musée Matisse）藏于尼斯山丘上的罗马遗址之中，是全世界最完整的马蒂斯收藏。步行10分钟即可到达<strong>夏加尔国家博物馆</strong>（Musée National Marc Chagall）——大型圣经叙事彩色玻璃，令人沉浸。两馆合计约3小时。<br><br>
+          下午：驾车20分钟至<strong>艾兹</strong>（Èze）——427米海拔的中世纪鹰巢村，从村顶俯视地中海的视野是蔚蓝海岸最令人眩晕的一幕，也是本次行程最值得驻足拍照的地点之一。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">艾兹鹰巢村</span>
+          <span class="tag art">马蒂斯博物馆</span>
+          <span class="tag art">夏加尔博物馆</span>
+          <span class="tag tip">两馆步行可达</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CAP FERRAT ═══════════ -->
+<div class="section" id="section-capferrat">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Day 15–16 · France · 20min from Nice · Final Stop</div>
+      <div class="city-name">Cap<br><em>Ferrat</em></div>
+      <div class="city-subtitle">蔚蓝海岸的顶点 · 摩纳哥 · 昂蒂布 · 告别地中海</div>
+    </div>
+    <div class="city-badge">
+      <div class="night-count">2</div>
+      <div class="night-label">Nights</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card hotel">
+      <div class="card-label">🏨 推荐酒店</div>
+      <div class="card-title">Grand-Hôtel du Cap-Ferrat<br>A Four Seasons Hotel</div>
+      <div class="card-body">
+        整段行程的压轴之作。七公顷私家松林海角，悬崖泳池（海水温控），私人缆车直达海面，<strong>Le Cap 餐厅</strong>俯瞰地中海的晚餐是法国南部最具戏剧感的餐桌体验。尼斯与摩纳哥各20分钟车程——可以两边都去，回来泡在泳池里收尾。
+      </div>
+      <div class="card-meta">
+        <span class="meta-item">📍 71 Bd du Général de Gaulle, St-Jean-Cap-Ferrat</span>
+        <span class="meta-item">⭐ 4.7/5 (1333条点评) · 价位最高</span>
+      </div>
+    </div>
+    <div class="card transport">
+      <div class="card-label">🚗 交通</div>
+      <div class="card-title">到达 & 离开</div>
+      <div class="card-body">
+        <strong>从尼斯：</strong>沿 Basse Corniche（低海岸线公路）自驾约 <strong>20分钟</strong>，进入 Cap Ferrat 半岛后按指示到酒店门口（保安岗）。<br><br>
+        <strong>离开（Day 16）：</strong>上午在昂蒂布（Antibes）老城短暂游览后，驾车至<strong>尼斯蓝色海岸机场（NCE）</strong>还车，约 <strong>25分钟</strong>。就此为 16 天的大旅程画上句号。
+      </div>
+    </div>
+  </div>
+
+  <div class="day-list">
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>15</div>
+      <div class="day-content">
+        <div class="day-title">摩纳哥 & 海角步道</div>
+        <div class="day-desc">
+          上午驾车20分钟至<strong>摩纳哥</strong>：F1 大奖赛赛道（隧道出口的发卡弯是全世界最知名的弯道）→ 蒙地卡罗赌场（哪怕不赌，大厅免费参观值回门票）→ 旧城区的王宫广场（正午换岗仪式）→ 海洋博物馆（世界顶级）。午餐在摩纳哥的 La Condamine 港口区。<br><br>
+          下午返回 Cap Ferrat，沿<strong>海角海岸步道</strong>（Sentier du Littoral，环半岛徒步）散步，约2小时全程——松林、礁石、地中海绿松石色交织。晚餐：Le Cap 餐厅，提前预约，要求面海座位。
+        </div>
+        <div class="day-tags">
+          <span class="tag must">摩纳哥</span>
+          <span class="tag must">Le Cap晚餐</span>
+          <span class="tag walk">海角步道</span>
+          <span class="tag art">海洋博物馆</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-item">
+      <div class="day-num"><span class="day-n">Day</span>16</div>
+      <div class="day-content">
+        <div class="day-title">昂蒂布 → NCE 机场 · 归程</div>
+        <div class="day-desc">
+          告别早晨。早餐后驾车25分钟至<strong>昂蒂布</strong>（Antibes）——毕加索博物馆（Musée Picasso，坐落于古堡内，藏品丰富，人少清静）、格里马尔迪城墙步道、老城集市（Port Vauban 附近）。最后一杯法式咖啡，最后一眼地中海。<br><br>
+          随后驾车约 <strong>25分钟</strong> 至尼斯蓝色海岸机场（NCE）<strong>还车</strong>，办理登机手续，结束 16 天的 Grand Tour。
+        </div>
+        <div class="day-tags">
+          <span class="tag art">毕加索博物馆</span>
+          <span class="tag walk">昂蒂布老城</span>
+          <span class="tag tip">还车记录里程</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TIPS ═══════════ -->
+<div class="section" id="section-tips">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow">Practical Intelligence</div>
+      <div class="city-name">旅行<em>须知</em></div>
+      <div class="city-subtitle">预订、天气、交通、货币、着装 · 出发前必读</div>
+    </div>
+  </div>
+
+  <div class="booking-alert">
+    <div class="ba-icon">📋</div>
+    <div class="ba-text">
+      <strong>必须提前预订（出发前3–6个月）：</strong>梵蒂冈博物馆 · 乌菲兹美术馆 · 佛罗伦萨穹顶 · 卢浮宫（指定时段） · 四季 Cap Ferrat · Villa Gallici · Gritti Palace · 皮拉图斯山联合票 · 西庸城堡（可现场，但夏季建议提前）
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">🌡️ 六月天气</div>
+      <div class="tip-body">
+        <strong>罗马/佛罗伦萨：</strong>34–38°C，户外活动务必在11点前完成<br>
+        <strong>威尼斯：</strong>28–32°C，湿度较高，早晨最舒适<br>
+        <strong>瑞士：</strong>20–26°C，山上10–15°C，备外套<br>
+        <strong>南法/蔚蓝海岸：</strong>28–33°C，海风宜人<br>
+        <strong>整体：</strong>建议携带轻薄防晒衫、折叠扇、遮阳帽
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">💳 货币 & 支付</div>
+      <div class="tip-body">
+        意大利、法国：欧元（€），信用卡普及率高<br>
+        瑞士：瑞士法郎（CHF），部分地方接受欧元但汇率差<br>
+        <strong>建议携带少量现金</strong>（意大利小餐馆、市场、出租车）<br>
+        Visa/Mastercard 全程通用，Apple Pay 在法国和瑞士覆盖广
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">🚗 租车须知</div>
+      <div class="tip-body">
+        租车区间：<strong>卢塞恩取 → 蒙特勒还（1次）</strong><br>
+        再：<strong>艾克斯取 → 尼斯NCE机场还（1次）</strong><br>
+        建议预订含全险（CDW + TP）<br>
+        瑞士山路需注意:道路窄，隧道多，GPS必备<br>
+        法国高速公路全程收费，备信用卡
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">👗 着装要求</div>
+      <div class="tip-body">
+        <strong>梵蒂冈/教堂（意大利）：</strong>严格遮肩遮膝，违者被拒门外<br>
+        <strong>蒙地卡罗赌场：</strong>Smart Casual，男士长裤<br>
+        <strong>五星级酒店餐厅：</strong>Smart Casual 起步（Le Cap, Gritti, Villa Gallici）<br>
+        <strong>海滩：</strong>Cap Ferrat 私家海滩泳装即可
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">🎫 票务平台</div>
+      <div class="tip-body">
+        <strong>梵蒂冈：</strong>museivaticani.va（官网，最可靠）<br>
+        <strong>乌菲兹：</strong>uffizi.it（需选时段）<br>
+        <strong>佛罗伦萨穹顶：</strong>operaduomo.firenze.it<br>
+        <strong>法国高铁：</strong>sncf-connect.com 或 Trainline<br>
+        <strong>意大利高铁：</strong>trenitalia.com 或 italotreno.it
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">📱 实用 App</div>
+      <div class="tip-body">
+        <strong>Moovit / Google Maps：</strong>欧洲公共交通导航<br>
+        <strong>DB Navigator：</strong>瑞士、德国、法国火车实时信息<br>
+        <strong>Trainline：</strong>多国铁路一站式购票<br>
+        <strong>Google Translate（相机模式）：</strong>识别菜单必备<br>
+        <strong>Windy：</strong>提前查看南法天气和海况
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">🍽️ 餐饮建议</div>
+      <div class="tip-body">
+        <strong>意大利：</strong>避开景点10米内的餐厅（价格高3倍）。跟随午餐时段涌入的当地人选餐厅<br>
+        <strong>巴黎：</strong>午间 formule（套餐）性价比极高，通常 €18–25 含三道<br>
+        <strong>南法：</strong>市场配面包奶酪是最好的午餐，省时省钱<br>
+        <strong>用餐时间：</strong>意大利13-15点、法国12:30-14点为正式午餐时间
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">⚡ 行程节奏提示</div>
+      <div class="tip-body">
+        Florence 和 Venice 各仅1晚，节奏最紧——提前规划好2–3个核心景点，其余随走随看<br>
+        卢塞恩3晚是全程节奏最放松的区间，适合充电<br>
+        南法最后6天有租车，灵活度最高，可根据实际状态调整节奏<br>
+        <strong>整体原则：每天早出晚归，中午休息2小时</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id) {
+    // Update nav buttons
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(btn => {
+      if (btn.getAttribute('onclick') === `show('${id}')`) btn.classList.add('active');
+    });
+
+    // Update timeline
+    document.querySelectorAll('.tl-stop').forEach(s => s.classList.remove('active'));
+    const tl = document.getElementById(`tl-${id}`);
+    if (tl) tl.classList.add('active');
+
+    // Swap sections
+    const all = document.querySelectorAll('.section');
+    all.forEach(s => { s.classList.remove('active'); s.style.animation = ''; });
+
+    const target = document.getElementById(`section-${id}`);
+    if (target) {
+      target.classList.add('active');
+      target.style.animation = 'sectionIn .35s ease forwards';
+    }
+
+    // Scroll to nav
+    document.querySelector('.nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Init overview active state
+  document.getElementById('tl-overview').classList.add('active');
+</script>
+</body>
+</html>
