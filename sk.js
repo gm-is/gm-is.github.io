@@ -23,7 +23,7 @@ api.unmap('U');
 api.unmap('\'');
 
 
-settings.blocklistPattern = /(((calendar|docs|mail).google|trello|duolingo|youtube|udemy|overleaf).com)|(learn.polyu.edu.hk/)/i
+settings.blocklistPattern = /(((calendar|docs|mail).google|trello|duolingo|youtube|udemy|overleaf).com)|(learn.polyu.edu.hk)/i
 
 
 api.map('H','S'); // h b -> go one [H]istory [B]ack
