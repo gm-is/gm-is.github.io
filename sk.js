@@ -3,7 +3,7 @@ settings.smoothscroll = true;
 
 
 api.mapkey('F', 'Freedium.cfd' , function() {
-    window.open("https://freedium.cfd/"+encodeURIComponent(window.location), '_self');
+    window.open("https://freedium-mirror.cfd/"+encodeURIComponent(window.location), '_self');
 });
 
 
@@ -23,7 +23,7 @@ api.unmap('U');
 api.unmap('\'');
 
 
-settings.blocklistPattern = /((calendar|docs|mail).google|trello|duolingo|youtube|udemy|overleaf).com/i
+settings.blocklistPattern = /(((calendar|docs|mail).google|trello|duolingo|youtube|udemy|overleaf).com)|(https://learn.polyu.edu.hk/)/i
 
 
 api.map('H','S'); // h b -> go one [H]istory [B]ack
