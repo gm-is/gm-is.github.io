@@ -1,0 +1,1729 @@
+[
+  {
+    "id": "the-bitter-lesson",
+    "title": "The Bitter Lesson",
+    "author": "Rich Sutton",
+    "date": "2019-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Rich Sutton.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/bitter-lesson/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "generative-ai-for-economic-research-jel",
+    "title": "Generative AI for Economic Research (JEL)",
+    "author": "Anton Korinek",
+    "date": "2023-09-01",
+    "type": "paper",
+    "tags": [
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/korinek-2023/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "applications-of-generative-ai-for-economic-research",
+    "title": "Applications of Generative AI for Economic Research",
+    "author": "Anton Korinek",
+    "date": "2024-11-01",
+    "type": "paper",
+    "tags": [
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/applications-generative-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "llm-collaboration-and-reasoning",
+    "title": "LLM Collaboration and Reasoning",
+    "author": "Anton Korinek",
+    "date": "2024-12-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/llm-collaboration/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-as-normal-technology",
+    "title": "AI as Normal Technology",
+    "author": "Arvind Narayanan & Sayash Kapoor",
+    "date": "2025-04-15",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Arvind Narayanan & Sayash Kapoor.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-normal-technology/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-agents-generative-ai-for-economic-research",
+    "title": "AI Agents — Generative AI for Economic Research",
+    "author": "Anton Korinek",
+    "date": "2025-08-01",
+    "type": "paper",
+    "tags": [
+      "agents",
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-agents-generative-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "agentic-everything",
+    "title": "Agentic Everything",
+    "author": "Teddy Svoronos",
+    "date": "2025-11-01",
+    "type": "thread",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Teddy Svoronos.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/agentic-everything/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-changed-how-i-work-part-1",
+    "title": "Claude Code Changed How I Work (Part 1)",
+    "author": "Scott Cunningham",
+    "date": "2025-12-13",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-changed-how-i-work-1/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-changed-how-i-work-part-2",
+    "title": "Claude Code Changed How I Work (Part 2)",
+    "author": "Scott Cunningham",
+    "date": "2025-12-19",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-changed-how-i-work-2/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "prompting-insights-modern-ai-for-economics-research",
+    "title": "Prompting Insights: Modern AI for Economics Research",
+    "author": "Benjamin Golub",
+    "date": "2025-12-01",
+    "type": "paper",
+    "tags": [
+      "economics",
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Benjamin Golub.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/prompting-insights-golub/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "refine-ink-ai-powered-referee-reports",
+    "title": "Refine.ink: AI-Powered Referee Reports",
+    "author": "Benjamin Golub & Markus Brunnermeier",
+    "date": "2025-12-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Benjamin Golub & Markus Brunnermeier.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/refine-ink-golub/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "the-shape-of-ai-jaggedness-bottlenecks-and-salients",
+    "title": "The Shape of AI: Jaggedness, Bottlenecks and Salients",
+    "author": "Ethan Mollick",
+    "date": "2025-12-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/shape-of-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "using-llms-with-cursor",
+    "title": "Using LLMs with Cursor",
+    "author": "Benjamin Golub & Markus Brunnermeier",
+    "date": "2025-12-01",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Benjamin Golub & Markus Brunnermeier.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/using-llms-cursor/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-changed-how-i-work-part-3",
+    "title": "Claude Code Changed How I Work (Part 3)",
+    "author": "Scott Cunningham",
+    "date": "2026-01-01",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-changed-how-i-work-3/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "reflections-on-vibe-researching",
+    "title": "Reflections on Vibe Researching",
+    "author": "Joshua Gans",
+    "date": "2026-01-03",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Joshua Gans.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/reflections-vibe-research/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-and-what-comes-next",
+    "title": "Claude Code and What Comes Next",
+    "author": "Ethan Mollick",
+    "date": "2026-01-07",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-what-comes-next/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-changed-how-i-work-part-4",
+    "title": "Claude Code Changed How I Work (Part 4)",
+    "author": "Scott Cunningham",
+    "date": "2026-01-11",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-changed-how-i-work-4/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-changed-how-i-work-part-5",
+    "title": "Claude Code Changed How I Work (Part 5)",
+    "author": "Scott Cunningham",
+    "date": "2026-01-12",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-changed-how-i-work-5/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-6-video-explainer",
+    "title": "Part 6: Video Explainer",
+    "author": "Scott Cunningham",
+    "date": "2026-01-14",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-6-video-explainer/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-7-making-beautiful-decks",
+    "title": "Part 7: Making Beautiful Decks",
+    "author": "Scott Cunningham",
+    "date": "2026-01-17",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-7-beautiful-decks/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "feedback-machines",
+    "title": "Feedback Machines",
+    "author": "Claes Backman",
+    "date": "2026-01-22",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Claes Backman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/feedback-machines/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-9-bib-files-and-article-retrieval",
+    "title": "Part 9: .bib Files and Article Retrieval",
+    "author": "Scott Cunningham",
+    "date": "2026-01-24",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-9-bib-files/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-10-lecture-decks",
+    "title": "Part 10: Lecture Decks",
+    "author": "Scott Cunningham",
+    "date": "2026-01-29",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-10-lecture-decks/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-11-deck-prompt",
+    "title": "Part 11: Deck Prompt",
+    "author": "Scott Cunningham",
+    "date": "2026-01-30",
+    "type": "series",
+    "tags": [
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-11-deck-prompt/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-12-empirical-research-workflow",
+    "title": "Part 12: Empirical Research Workflow",
+    "author": "Scott Cunningham",
+    "date": "2026-02-02",
+    "type": "series",
+    "tags": [
+      "workflow"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-12-empirical-research/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-13-skills-and-split-pdf",
+    "title": "Part 13: Skills and Split-PDF",
+    "author": "Scott Cunningham",
+    "date": "2026-02-03",
+    "type": "series",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-13-skills-split-pdf/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-14-pnas-replication-part-1",
+    "title": "Part 14: PNAS Replication (Part 1)",
+    "author": "Scott Cunningham",
+    "date": "2026-02-05",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-14-pnas-replication-1/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-15-pnas-replication-results",
+    "title": "Part 15: PNAS Replication Results",
+    "author": "Scott Cunningham",
+    "date": "2026-02-06",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-15-pnas-replication-2/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-16-memory-foam-mattress-theory",
+    "title": "Part 16: Memory Foam Mattress Theory",
+    "author": "Scott Cunningham",
+    "date": "2026-02-08",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-16-memory-foam/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-17-zero-profit-condition",
+    "title": "Part 17: Zero Profit Condition",
+    "author": "Scott Cunningham",
+    "date": "2026-02-10",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-17-zero-profit/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "chernycode",
+    "title": "ChernyCode",
+    "author": "Antonio Mele",
+    "date": "2026-02-11",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Antonio Mele.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cherny-code/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "a-guide-to-which-ai-to-use-in-the-agentic-era",
+    "title": "A Guide to Which AI to Use in the Agentic Era",
+    "author": "Ethan Mollick",
+    "date": "2026-02-17",
+    "type": "guide",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/guide-which-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-21-faculty-adoption",
+    "title": "Part 21: Faculty Adoption",
+    "author": "Scott Cunningham",
+    "date": "2026-02-17",
+    "type": "series",
+    "tags": [
+      "academia",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-21-faculty-adoption/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-21-attention-and-congestion",
+    "title": "Part 21: Attention and Congestion",
+    "author": "Scott Cunningham",
+    "date": "2026-02-19",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-21-attention-congestion/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-24-agents-auditing-did-code",
+    "title": "Part 24: Agents Auditing DiD Code",
+    "author": "Scott Cunningham",
+    "date": "2026-02-25",
+    "type": "series",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-24-agents-auditing-did/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-adoption-x-post",
+    "title": "Claude Code Adoption (X Post)",
+    "author": "Chris Blattman",
+    "date": "2026-02-26",
+    "type": "thread",
+    "tags": [
+      "coding-agents",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/blattman-x-post/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "from-claude-code-skeptic-to-power-user",
+    "title": "From Claude Code Skeptic to Power User",
+    "author": "Chris Blattman",
+    "date": "2026-02-26",
+    "type": "thread",
+    "tags": [
+      "coding-agents",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/thread-cblatts/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "man-computer-symbiosis-and-ai-in-research",
+    "title": "Man-Computer Symbiosis and AI in Research",
+    "author": "Alex Imas",
+    "date": "2026-02-26",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alex Imas.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/thread-alexolegimas/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-25-autonomous-agents",
+    "title": "Part 25: Autonomous Agents",
+    "author": "Scott Cunningham",
+    "date": "2026-02-26",
+    "type": "series",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-25-autonomous-agents/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "vibe-research",
+    "title": "Vibe Research",
+    "author": "Vincent Gregoire",
+    "date": "2026-02-26",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Vincent Gregoire.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/vibe-research/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-wrds-toolkit",
+    "title": "Claude Code WRDS Toolkit",
+    "author": "Piotrek Orlowski",
+    "date": "2026-02-27",
+    "type": "tool",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Piotrek Orlowski.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-wrds-tools/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "how-to-encourage-adoption-of-ai-among-faculty",
+    "title": "How to Encourage Adoption of AI Among Faculty",
+    "author": "Scott Cunningham",
+    "date": "2026-02-01",
+    "type": "guide",
+    "tags": [
+      "academia",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/baylor-ai-taskforce/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "something-big-is-happening",
+    "title": "Something Big Is Happening",
+    "author": "Matt Shumer",
+    "date": "2026-02-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Matt Shumer.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/something-big-happening/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "academics-need-to-wake-up-on-ai",
+    "title": "Academics Need to Wake Up on AI",
+    "author": "Alexander Kustov",
+    "date": "2026-03-02",
+    "type": "thread",
+    "tags": [
+      "academia",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alexander Kustov.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/academics-wake-up/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-27-research-and-publishing",
+    "title": "Part 27: Research and Publishing",
+    "author": "Scott Cunningham",
+    "date": "2026-03-02",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-27-research-vs-publishing/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "the-train-has-left-the-station",
+    "title": "The Train Has Left the Station",
+    "author": "Solomon Messing & Joshua Tucker",
+    "date": "2026-03-03",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Solomon Messing & Joshua Tucker.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/train-left-station/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "academics-need-to-wake-up-on-ai-part-ii",
+    "title": "Academics Need to Wake Up on AI, Part II",
+    "author": "Alexander Kustov",
+    "date": "2026-03-04",
+    "type": "series",
+    "tags": [
+      "academia",
+      "adoption"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alexander Kustov.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/academics-wake-up-2/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-as-project-manager",
+    "title": "Claude Code as Project Manager",
+    "author": "Panos Ipeirotis",
+    "date": "2026-03-04",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Panos Ipeirotis.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/project-manager-claude/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "can-ai-replace-social-science-researchers",
+    "title": "Can AI Replace Social Science Researchers?",
+    "author": "David Karpf",
+    "date": "2026-03-05",
+    "type": "paper",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by David Karpf.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/can-ai-replace-researchers/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "how-do-scientists-use-claude-code",
+    "title": "How Do Scientists Use Claude Code?",
+    "author": "Charles Yang",
+    "date": "2026-03-05",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Charles Yang.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/how-scientists-use-claude-code/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-29-can-claude-code-find-facts",
+    "title": "Part 29: Can Claude Code Find Facts?",
+    "author": "Scott Cunningham",
+    "date": "2026-03-05",
+    "type": "series",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-29-finding-facts/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-31-the-satisfaction-in-discovering",
+    "title": "Part 31: The Satisfaction in Discovering",
+    "author": "Scott Cunningham",
+    "date": "2026-03-11",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-31-satisfaction-discovering/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-agents-for-economic-research-voxdev",
+    "title": "AI Agents for Economic Research (VoxDev)",
+    "author": "Aniket Panjwani",
+    "date": "2026-03-12",
+    "type": "paper",
+    "tags": [
+      "agents",
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Aniket Panjwani.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-agents-econ-research/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-agents-for-economics-research-slides",
+    "title": "AI Agents for Economics Research (Slides)",
+    "author": "Aniket Panjwani",
+    "date": "2026-03-12",
+    "type": "paper",
+    "tags": [
+      "agents",
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Aniket Panjwani.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/panjwani-slides/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-powered-pipeline-to-stress-test-research-ideas",
+    "title": "AI-Powered Pipeline to Stress-Test Research Ideas",
+    "author": "Alejandro Lopez-Lira",
+    "date": "2026-03-12",
+    "type": "paper",
+    "tags": [
+      "workflow"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alejandro Lopez-Lira.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/stress-test-research-pipeline/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-32-a-modest-proposal-for-editors",
+    "title": "Part 32: A Modest Proposal for Editors",
+    "author": "Scott Cunningham",
+    "date": "2026-03-13",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-32-modest-proposal-editors/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "research-in-the-time-of-ai",
+    "title": "Research in the Time of AI",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-16",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/research-in-time-of-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-for-academics",
+    "title": "Claude Code for Academics",
+    "author": "Alessandro Spina",
+    "date": "2026-03-18",
+    "type": "thread",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alessandro Spina.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/spina-paper/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-33-help-claude-help-us",
+    "title": "Part 33: Help Claude Help Us",
+    "author": "Scott Cunningham",
+    "date": "2026-03-19",
+    "type": "series",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-33-continue-learning/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "openai-and-the-fully-automated-researcher",
+    "title": "OpenAI and the Fully Automated Researcher",
+    "author": "Will Douglas Heaven",
+    "date": "2026-03-20",
+    "type": "paper",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Will Douglas Heaven.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/openai-automated-researcher/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-one-shot-papers",
+    "title": "AI One-Shot Papers",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-21",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-one-shot-papers/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "automated-research-in-finance",
+    "title": "Automated Research in Finance",
+    "author": "Alejandro Lopez-Lira",
+    "date": "2026-03-22",
+    "type": "paper",
+    "tags": [
+      "finance"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alejandro Lopez-Lira.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/automated-research-finance/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "every-claude-code-hack-i-know",
+    "title": "Every Claude Code Hack I Know",
+    "author": "Matt Van Horn",
+    "date": "2026-03-22",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Matt Van Horn.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-hacks/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "llms-haven-t-raised-nber-papers-above-trend",
+    "title": "LLMs Haven't Raised NBER Papers Above Trend",
+    "author": "Arin Dube",
+    "date": "2026-03-22",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Arin Dube.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/thread-arindube/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "when-will-the-research-paper-disappear",
+    "title": "When Will the Research Paper Disappear?",
+    "author": "Tyler Cowen",
+    "date": "2026-03-23",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Tyler Cowen.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/research-paper-disappear/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "twelve-arguments-for-traditional-higher-education",
+    "title": "Twelve Arguments for Traditional Higher Education",
+    "author": "Jesus Fernandez-Villaverde",
+    "date": "2026-03-24",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Jesus Fernandez-Villaverde.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/thread-jesusferna/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "data-analysis-claude-code-for-economists",
+    "title": "Data Analysis: Claude Code for Economists",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-28",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/data-analysis-economists/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "getting-started-claude-code-for-economists",
+    "title": "Getting Started: Claude Code for Economists",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-28",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/getting-started-economists/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "web-scraping-claude-code-for-economists",
+    "title": "Web Scraping: Claude Code for Economists",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-28",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/web-scraping-economists/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "from-an-empty-folder-to-a-figure",
+    "title": "From an Empty Folder to a Figure",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-29",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/empty-folder-to-figure/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "from-edgar-filings-to-a-structured-database",
+    "title": "From EDGAR Filings to a Structured Database",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-29",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/edgar-filings/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "getting-started-researcher-s-setup-guide",
+    "title": "Getting Started: Researcher's Setup Guide",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-29",
+    "type": "guide",
+    "tags": [
+      "academia",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/getting-started-researchers/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-dispatch-and-the-power-of-interfaces",
+    "title": "Claude Dispatch and the Power of Interfaces",
+    "author": "Ethan Mollick",
+    "date": "2026-03-31",
+    "type": "thread",
+    "tags": [
+      "interfaces"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-dispatch/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "a-real-claude-md",
+    "title": "A Real CLAUDE.md",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/real-claude-md/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "academic-tax-basics",
+    "title": "Academic Tax Basics",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/academic-tax-basics/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "agents-vs-skills",
+    "title": "Agents vs Skills",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "tool",
+    "tags": [
+      "agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/agents-vs-skills/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-for-professionals-who-don-t-code",
+    "title": "AI for Professionals Who Don't Code",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-for-professionals/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-project-folders",
+    "title": "AI Project Folders",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-project-folders/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-research-feedback-skills",
+    "title": "AI Research Feedback Skills",
+    "author": "Claes Backman",
+    "date": "2026-03-01",
+    "type": "tool",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Claes Backman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-research-feedback-skills/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "architecture-patterns",
+    "title": "Architecture Patterns",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/architecture-patterns/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "awesome-econ-ai-stuff",
+    "title": "Awesome Econ AI Stuff",
+    "author": "Antonio Mele",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Antonio Mele.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/awesome-econ-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "build-your-own",
+    "title": "Build Your Own",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/build-your-own/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "building-an-ai-executive-assistant",
+    "title": "Building an AI Executive Assistant",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-executive-assistant/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "building-skills",
+    "title": "Building Skills",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "tool",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/building-skills/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "chatbot-essentials",
+    "title": "Chatbot Essentials",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/chatbot-essentials/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "chatbots-done-right",
+    "title": "Chatbots Done Right",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/chatbots-done-right/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "chatgpt-vs-claude",
+    "title": "ChatGPT vs Claude",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/chatgpt-vs-claude/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-for-newbies",
+    "title": "Claude Code for Newbies",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-newbies/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "compilation-multi-year-review",
+    "title": "Compilation & Multi-Year Review",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/compilation-review/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "continuous-improvement",
+    "title": "Continuous Improvement",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/continuous-improvement/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "daaf-framework",
+    "title": "DAAF Framework",
+    "author": "Brian Heseung Kim",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Brian Heseung Kim.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/daaf-framework/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "document-collection",
+    "title": "Document Collection",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/document-collection/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "example-noise-canceling",
+    "title": "Example: Noise Canceling",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/example-noise-canceling/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "example-project-dashboard",
+    "title": "Example: Project Dashboard",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/example-project-dashboard/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "example-research-design",
+    "title": "Example: Research Design",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/example-research-design/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "install-claude-code-mac",
+    "title": "Install Claude Code (Mac)",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/install-mac/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "install-claude-code-windows",
+    "title": "Install Claude Code (Windows)",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/install-windows/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "learn-about-ai-coding-agents",
+    "title": "Learn About AI Coding Agents",
+    "author": "Antonio Mele",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Antonio Mele.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/learn-ai-coding-agents/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "mcp-setup",
+    "title": "MCP Setup",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/mcp-setup/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "meeting-transcription",
+    "title": "Meeting Transcription",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/meeting-transcription/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "my-claude-code-setup",
+    "title": "My Claude Code Setup",
+    "author": "Pedro Sant'Anna",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "coding-agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Pedro Sant'Anna.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/my-claude-code-setup/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "notebooklm",
+    "title": "NotebookLM",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/notebooklm/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "patterns",
+    "title": "Patterns",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/patterns/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "privacy-setup-decisions",
+    "title": "Privacy & Setup Decisions",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/privacy-setup/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "project-ape",
+    "title": "Project APE",
+    "author": "Social Catalyst Lab",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Social Catalyst Lab.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/project-ape/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "project-management-with-ai",
+    "title": "Project Management with AI",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/project-management/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "prompt-engineering",
+    "title": "Prompt Engineering",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/prompt-engineering/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "prompt-plan-review-revise",
+    "title": "Prompt, Plan, Review, Revise",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/prompt-plan-review-revise/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "set-up-vs-code",
+    "title": "Set Up VS Code",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/setup-vs-code/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "skill-library",
+    "title": "Skill Library",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/skill-library/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "starter-templates",
+    "title": "Starter Templates",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/starter-templates/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "stress-test-any-plan",
+    "title": "Stress-Test Any Plan",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/stress-test-plan/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "teaching-ai-your-voice",
+    "title": "Teaching AI Your Voice",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/teaching-ai-your-voice/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "the-cost-reality",
+    "title": "The Cost Reality",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cost-reality/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "using-claude-code-for-tax-season",
+    "title": "Using Claude Code for Tax Season",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/tax-season/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "voice-dictation",
+    "title": "Voice Dictation",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/voice-dictation/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "what-ai-got-wrong",
+    "title": "What AI Got Wrong",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/what-ai-got-wrong/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "when-to-get-help",
+    "title": "When to Get Help",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/when-to-get-help/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "workflow-overview",
+    "title": "Workflow Overview",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "workflow"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/workflow-overview/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "workflows",
+    "title": "Workflows",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "workflow"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/workflows/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "your-claude-md",
+    "title": "Your CLAUDE.md",
+    "author": "Chris Blattman",
+    "date": "2026-03-01",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chris Blattman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/your-claude-md/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-skills-for-academic-researchers",
+    "title": "Claude Code Skills for Academic Researchers",
+    "author": "Alessandro Spina",
+    "date": "2026-04-01",
+    "type": "tool",
+    "tags": [
+      "academia",
+      "coding-agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alessandro Spina.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/brownbag-claude-skills/",
+    "origin": "auto",
+    "relates_to": []
+  }
+]

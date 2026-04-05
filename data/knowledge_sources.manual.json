@@ -1,0 +1,18 @@
+[
+  {
+    "id": "langchain-note-by-harrison-chase",
+    "title": "LangChain note by Harrison Chase",
+    "author": "Harrison Chase",
+    "date": "2026-04-05",
+    "type": "thread",
+    "tags": [
+      "agents",
+      "ai",
+      "workflow"
+    ],
+    "summary": "Manual source added from X for weekly knowledge-map tracking.",
+    "url": "https://x.com/hwchase17/status/2040467997022884194",
+    "origin": "manual",
+    "relates_to": []
+  }
+]
