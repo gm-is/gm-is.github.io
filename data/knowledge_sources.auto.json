@@ -42,6 +42,20 @@
     "relates_to": []
   },
   {
+    "id": "ai-powered-finance-scholarship",
+    "title": "AI-Powered (Finance) Scholarship",
+    "author": "Robert Novy-Marx & Mihail Velikov",
+    "date": "2024-12-01",
+    "type": "paper",
+    "tags": [
+      "finance"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Robert Novy-Marx & Mihail Velikov.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-powered-scholarship/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "llm-collaboration-and-reasoning",
     "title": "LLM Collaboration and Reasoning",
     "author": "Anton Korinek",
@@ -52,6 +66,20 @@
     ],
     "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
     "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/llm-collaboration/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "prompts-to-paper-hedging-the-ai-singularity",
+    "title": "Prompts-to-Paper: Hedging the AI Singularity",
+    "author": "Andrew Y. Chen",
+    "date": "2025-04-01",
+    "type": "paper",
+    "tags": [
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Andrew Y. Chen.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/prompts-to-paper/",
     "origin": "auto",
     "relates_to": []
   },
@@ -1697,6 +1725,20 @@
     "relates_to": []
   },
   {
+    "id": "claude-container-a-complete-beginner-s-guide",
+    "title": "Claude Container: A Complete Beginner's Guide",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-03-01",
+    "type": "guide",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-container/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "your-claude-md",
     "title": "Your CLAUDE.md",
     "author": "Chris Blattman",
@@ -1723,6 +1765,63 @@
     ],
     "summary": "Auto-synced source from the AI econ timeline by Alessandro Spina.",
     "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/brownbag-claude-skills/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "some-thoughts-on-ai-and-research",
+    "title": "Some Thoughts on AI and Research",
+    "author": "Isaiah Andrews",
+    "date": "2026-04-03",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Isaiah Andrews.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/andrews-ai-research/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "large-datasets-and-structured-databases",
+    "title": "Large Datasets and Structured Databases",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-04-05",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/large-datasets-economists/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "large-datasets-claude-code-for-economists-video",
+    "title": "Large Datasets: Claude Code for Economists (Video)",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-04-05",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/large-datasets-video/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "part-38-a-plug-for-paul-goldsmith-pinkham-s-markus-academy-series",
+    "title": "Part 38: A Plug for Paul Goldsmith-Pinkham's Markus Academy Series",
+    "author": "Scott Cunningham",
+    "date": "2026-04-05",
+    "type": "series",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Scott Cunningham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/cc-series-38-plug-paulgp/",
     "origin": "auto",
     "relates_to": []
   }
