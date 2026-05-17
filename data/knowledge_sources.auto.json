@@ -1970,6 +1970,34 @@
     "relates_to": []
   },
   {
+    "id": "thinking-with-agents-uvm-agentic-ai-bootcamp",
+    "title": "Thinking with Agents (UVM Agentic AI Bootcamp)",
+    "author": "Erkmen G. Aslim & Emily Beam",
+    "date": "2026-04-22",
+    "type": "thread",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Erkmen G. Aslim & Emily Beam.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/thinking-with-agents/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "agentic-ai-bootcamp-session-1-from-chat-to-autonomous-agents",
+    "title": "Agentic AI Bootcamp — Session 1: From Chat to Autonomous Agents",
+    "author": "Erkmen G. Aslim & Emily Beam",
+    "date": "2026-04-22",
+    "type": "thread",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Erkmen G. Aslim & Emily Beam.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/agentic-bootcamp-1-aslim-beam/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "part-44-my-four-criteria-for-using-agents-referee-reports",
     "title": "Part 44: My Four Criteria for Using Agents (Referee Reports)",
     "author": "Scott Cunningham",
@@ -2053,6 +2081,166 @@
     ],
     "summary": "Auto-synced source from the AI econ timeline by Alejandro Lopez-Lira.",
     "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/zeropaper-gallery/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "agentic-ai-bootcamp-session-2-research-workflows-teaching-applications",
+    "title": "Agentic AI Bootcamp — Session 2: Research Workflows, Teaching & Applications",
+    "author": "Erkmen G. Aslim & Emily Beam",
+    "date": "2026-04-27",
+    "type": "paper",
+    "tags": [
+      "agents",
+      "workflow"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Erkmen G. Aslim & Emily Beam.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/agentic-bootcamp-2-aslim-beam/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "openai-codex-full-course-4-hours-build-ship",
+    "title": "OpenAI Codex Full Course (4 Hours): Build & Ship",
+    "author": "Aniket Panjwani",
+    "date": "2026-05-02",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Aniket Panjwani.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/panjwani-codex-course/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "academic-research-skills-for-claude-code-ars",
+    "title": "Academic Research Skills for Claude Code (ARS)",
+    "author": "Edward Cheng-I Wu",
+    "date": "2026-05-05",
+    "type": "tool",
+    "tags": [
+      "academia",
+      "coding-agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Edward Cheng-I Wu.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ars-claude-code/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-101-for-academic-researchers",
+    "title": "Claude Code 101 for Academic Researchers",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-07",
+    "type": "paper",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-101-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-102-for-academic-researchers",
+    "title": "Claude Code 102 for Academic Researchers",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-07",
+    "type": "paper",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-102-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "codex-101-for-academic-researchers",
+    "title": "Codex 101 for Academic Researchers",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-13",
+    "type": "paper",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/codex-101-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "codex-102-for-academic-researchers",
+    "title": "Codex 102 for Academic Researchers",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-15",
+    "type": "paper",
+    "tags": [
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/codex-102-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "academic-research-skills-for-codex-ars-codex",
+    "title": "Academic Research Skills for Codex (ARS-Codex)",
+    "author": "Edward Cheng-I Wu",
+    "date": "2026-05-01",
+    "type": "tool",
+    "tags": [
+      "academia",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Edward Cheng-I Wu.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ars-codex/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "katmercode-claude-code-inside-obsidian",
+    "title": "KatmerCode: Claude Code inside Obsidian",
+    "author": "Halil Kaan Canan",
+    "date": "2026-05-01",
+    "type": "thread",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Halil Kaan Canan.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/katmer-code/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "my580-agentic-ai-for-social-science-and-data-science-research",
+    "title": "MY580: Agentic AI for Social Science and Data Science Research",
+    "author": "Daniel de Kadt",
+    "date": "2026-05-01",
+    "type": "paper",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Daniel de Kadt.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/my580-agentic-ai/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "why-no-one-can-agree-about-ai-progress-right-now",
+    "title": "Why No One Can Agree About AI Progress Right Now",
+    "author": "Brian Heseung Kim",
+    "date": "2026-03-03",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Brian Heseung Kim.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-progress-mental-model/",
     "origin": "auto",
     "relates_to": []
   },
