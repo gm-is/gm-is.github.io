@@ -2231,6 +2231,48 @@
     "relates_to": []
   },
   {
+    "id": "zeropaper-enhanced-ai-assisted-research-template-with-agentic-capabilities",
+    "title": "ZeroPaper: Enhanced AI-Assisted Research Template with Agentic Capabilities",
+    "author": "Alejandro Lopez-Lira",
+    "date": "2026-05-01",
+    "type": "paper",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alejandro Lopez-Lira.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/zeropaper-template/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "zeropaper-an-autonomous-research-system-paper",
+    "title": "ZeroPaper: An Autonomous Research System (paper)",
+    "author": "Alejandro Lopez-Lira",
+    "date": "2026-05-01",
+    "type": "paper",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alejandro Lopez-Lira.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/zeropaper-paper/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "edhec-master-class-using-ai-for-research",
+    "title": "EDHEC Master Class: Using AI for Research",
+    "author": "Mihail Velikov",
+    "date": "2026-05-01",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mihail Velikov.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/velikov-edhec/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "why-no-one-can-agree-about-ai-progress-right-now",
     "title": "Why No One Can Agree About AI Progress Right Now",
     "author": "Brian Heseung Kim",
