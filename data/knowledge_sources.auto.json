@@ -2100,6 +2100,20 @@
     "relates_to": []
   },
   {
+    "id": "generative-ai-for-research-uct-course",
+    "title": "Generative AI for Research (UCT Course)",
+    "author": "Jonathan Shock",
+    "date": "2026-05-01",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Jonathan Shock.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/shock-genai-research-course/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "openai-codex-full-course-4-hours-build-ship",
     "title": "OpenAI Codex Full Course (4 Hours): Build & Ship",
     "author": "Aniket Panjwani",
@@ -2311,6 +2325,105 @@
     ],
     "summary": "Auto-synced source from the AI econ timeline by Kohler, Zollikofer, Einsiedler, Hoyle & Ash (ETH).",
     "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kohler-agentic-reproduction/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "mannheim-ai-code-clinic-session-1-video-1-doerrenberg-olbert",
+    "title": "Mannheim AI Code Clinic — Session 1, Video 1 (Doerrenberg & Olbert)",
+    "author": "Philipp Doerrenberg & Marcel Olbert",
+    "date": "2026-06-16",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Philipp Doerrenberg & Marcel Olbert.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/mannheim-clinic-session1-video1/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "mannheim-ai-code-clinic-session-1-video-2-olbert",
+    "title": "Mannheim AI Code Clinic — Session 1, Video 2 (Olbert)",
+    "author": "Marcel Olbert",
+    "date": "2026-06-16",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Marcel Olbert.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/mannheim-clinic-session1-video2/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "mannheim-ai-code-clinic-session-1-video-3-seidel",
+    "title": "Mannheim AI Code Clinic — Session 1, Video 3 (Seidel)",
+    "author": "Paul Seidel",
+    "date": "2026-06-16",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Seidel.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/mannheim-clinic-session1-video3/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "mannheim-ai-code-clinic-session-2-olbert-winter",
+    "title": "Mannheim AI Code Clinic — Session 2 (Olbert & Winter)",
+    "author": "Marcel Olbert & Richard Winter",
+    "date": "2026-06-17",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Marcel Olbert & Richard Winter.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/mannheim-clinic-session2/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "guide-to-codex-for-economists",
+    "title": "Guide to Codex for Economists",
+    "author": "Aniket Panjwani",
+    "date": "2026-06-20",
+    "type": "guide",
+    "tags": [
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Aniket Panjwani.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/panjwani-guide-codex-economists/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-for-academics-apsa-2026-spina",
+    "title": "Claude Code for Academics: APSA 2026 (Spina)",
+    "author": "Alessandro Spina",
+    "date": "2026-06-20",
+    "type": "thread",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Alessandro Spina.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/spina-apsa-2026/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "vibe-research-ii-my-three-days-with-fable-5",
+    "title": "Vibe Research II: My Three Days with Fable 5",
+    "author": "Vincent Grégoire",
+    "date": "2026-06-20",
+    "type": "paper",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Vincent Grégoire.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/vibe-research-2/",
     "origin": "auto",
     "relates_to": []
   }
