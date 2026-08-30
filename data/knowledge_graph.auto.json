@@ -1,9 +1,9 @@
 {
   "meta": {
     "source_url": "https://velikov-mihail.github.io/ai-econ-wiki/visualizations/source-timeline/",
-    "generated_at": "2026-08-23T06:48:59Z",
-    "total_sources": 172,
-    "auto_sources": 171,
+    "generated_at": "2026-08-30T11:38:36Z",
+    "total_sources": 187,
+    "auto_sources": 186,
     "manual_sources": 1,
     "mode": "manual_plus_auto_merge"
   },
@@ -2451,6 +2451,224 @@
       "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/vibe-research-2/",
       "origin": "auto",
       "relates_to": []
+    },
+    {
+      "id": "integration-and-collaboration-in-ai-research-work-substack-companion",
+      "title": "Integration and Collaboration in AI Research Work (Substack companion)",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-07-02",
+      "type": "paper",
+      "tags": [
+        "research"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/integration-collaboration-substack/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
+      "title": "Integration & Collaboration: Claude Code for Economists (Markus Academy 162-8)",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-07-03",
+      "type": "thread",
+      "tags": [
+        "economics",
+        "academia",
+        "coding-agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/integration-collaboration-markus-162-8/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "post-training-llms-aiesi-2026",
+      "title": "Post-Training LLMs (AIESI 2026)",
+      "author": "Kawin Ethayarajh",
+      "date": "2026-08-01",
+      "type": "thread",
+      "tags": [
+        "research"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Kawin Ethayarajh.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/aiesi-post-training/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "title": "ScientistOne: Towards Human-Level Autonomous Research via Chain-of-Evidence",
+      "author": "Google Cloud AI Research",
+      "date": "2026-08-01",
+      "type": "paper",
+      "tags": [
+        "agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Google Cloud AI Research.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/scientist-one/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "title": "AI for Economic Theorists & Mathematicians (Markus Academy 166 overview)",
+      "author": "Pietro Ortoleva & Fedor Sandomirskiy",
+      "date": "2026-08-03",
+      "type": "thread",
+      "tags": [
+        "economics",
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Pietro Ortoleva & Fedor Sandomirskiy.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/theory-miniseries-markus-166/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "can-ai-be-creative-markus-academy-166-2",
+      "title": "Can AI Be Creative? (Markus Academy 166-2)",
+      "author": "Fedor Sandomirskiy",
+      "date": "2026-08-04",
+      "type": "thread",
+      "tags": [
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Fedor Sandomirskiy.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-creativity-markus-166-2/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "title": "Core Uses of AI for Economic Theory (Markus Academy 166-1)",
+      "author": "Pietro Ortoleva",
+      "date": "2026-08-04",
+      "type": "thread",
+      "tags": [
+        "economics",
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Pietro Ortoleva.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/theory-core-uses-markus-166-1/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "prompts-and-agent-swarms-markus-academy-166-4",
+      "title": "Prompts and Agent Swarms (Markus Academy 166-4)",
+      "author": "Fedor Sandomirskiy",
+      "date": "2026-08-04",
+      "type": "thread",
+      "tags": [
+        "agents",
+        "prompting",
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Fedor Sandomirskiy.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/prompts-swarms-markus-166-4/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "which-model-to-use-for-theory-markus-academy-166-3",
+      "title": "Which Model to Use for Theory (Markus Academy 166-3)",
+      "author": "Pietro Ortoleva",
+      "date": "2026-08-04",
+      "type": "thread",
+      "tags": [
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Pietro Ortoleva.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/which-model-markus-166-3/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "title": "Economics with LLMs — Day 1: Foundations, Applications, and Agentic Tools",
+      "author": "Sophia Kazinnik",
+      "date": "2026-08-17",
+      "type": "tool",
+      "tags": [
+        "agents",
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Sophia Kazinnik.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day1/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "economics-with-llms-day-2-natural-language-understanding-and-measurement",
+      "title": "Economics with LLMs — Day 2: Natural Language Understanding and Measurement",
+      "author": "Sophia Kazinnik",
+      "date": "2026-08-18",
+      "type": "paper",
+      "tags": [
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Sophia Kazinnik.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day2/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "economics-with-llms-day-3-forecasting-prediction-and-survey-augmentation",
+      "title": "Economics with LLMs — Day 3: Forecasting, Prediction, and Survey Augmentation",
+      "author": "Sophia Kazinnik",
+      "date": "2026-08-19",
+      "type": "paper",
+      "tags": [
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Sophia Kazinnik.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day3/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "economics-with-llms-day-4-synthetic-agents-simulations-and-counterfactuals",
+      "title": "Economics with LLMs — Day 4: Synthetic Agents, Simulations, and Counterfactuals",
+      "author": "Sophia Kazinnik",
+      "date": "2026-08-20",
+      "type": "paper",
+      "tags": [
+        "agents",
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Sophia Kazinnik.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day4/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "ai-engineering-skills-map-building-and-deploying-ai-applications",
+      "title": "AI Engineering Skills Map: Building and Deploying AI Applications",
+      "author": "Andrew Ng",
+      "date": "2026-08-21",
+      "type": "tool",
+      "tags": [
+        "skills"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Andrew Ng.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/ai-engineering-skills-map/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "economics-with-llms-day-5-llms-as-economic-subjects",
+      "title": "Economics with LLMs — Day 5: LLMs as Economic Subjects",
+      "author": "Sophia Kazinnik",
+      "date": "2026-08-21",
+      "type": "paper",
+      "tags": [
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Sophia Kazinnik.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day5/",
+      "origin": "auto",
+      "relates_to": []
     }
   ],
   "links": [
@@ -3310,6 +3528,81 @@
       "relation": "timeline"
     },
     {
+      "source": "vibe-research-ii-my-three-days-with-fable-5",
+      "target": "integration-and-collaboration-in-ai-research-work-substack-companion",
+      "relation": "timeline"
+    },
+    {
+      "source": "integration-and-collaboration-in-ai-research-work-substack-companion",
+      "target": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
+      "relation": "timeline"
+    },
+    {
+      "source": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
+      "target": "post-training-llms-aiesi-2026",
+      "relation": "timeline"
+    },
+    {
+      "source": "post-training-llms-aiesi-2026",
+      "target": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "relation": "timeline"
+    },
+    {
+      "source": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "target": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "relation": "timeline"
+    },
+    {
+      "source": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "target": "can-ai-be-creative-markus-academy-166-2",
+      "relation": "timeline"
+    },
+    {
+      "source": "can-ai-be-creative-markus-academy-166-2",
+      "target": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "relation": "timeline"
+    },
+    {
+      "source": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "target": "prompts-and-agent-swarms-markus-academy-166-4",
+      "relation": "timeline"
+    },
+    {
+      "source": "prompts-and-agent-swarms-markus-academy-166-4",
+      "target": "which-model-to-use-for-theory-markus-academy-166-3",
+      "relation": "timeline"
+    },
+    {
+      "source": "which-model-to-use-for-theory-markus-academy-166-3",
+      "target": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "relation": "timeline"
+    },
+    {
+      "source": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "target": "economics-with-llms-day-2-natural-language-understanding-and-measurement",
+      "relation": "timeline"
+    },
+    {
+      "source": "economics-with-llms-day-2-natural-language-understanding-and-measurement",
+      "target": "economics-with-llms-day-3-forecasting-prediction-and-survey-augmentation",
+      "relation": "timeline"
+    },
+    {
+      "source": "economics-with-llms-day-3-forecasting-prediction-and-survey-augmentation",
+      "target": "economics-with-llms-day-4-synthetic-agents-simulations-and-counterfactuals",
+      "relation": "timeline"
+    },
+    {
+      "source": "economics-with-llms-day-4-synthetic-agents-simulations-and-counterfactuals",
+      "target": "ai-engineering-skills-map-building-and-deploying-ai-applications",
+      "relation": "timeline"
+    },
+    {
+      "source": "ai-engineering-skills-map-building-and-deploying-ai-applications",
+      "target": "economics-with-llms-day-5-llms-as-economic-subjects",
+      "relation": "timeline"
+    },
+    {
       "source": "applications-of-generative-ai-for-economic-research",
       "target": "llm-collaboration-and-reasoning",
       "relation": "same-author"
@@ -3490,6 +3783,11 @@
       "relation": "same-author"
     },
     {
+      "source": "writing-thinking-claude-code-for-economists-markus-academy-162-5",
+      "target": "integration-and-collaboration-in-ai-research-work-substack-companion",
+      "relation": "same-author"
+    },
+    {
       "source": "daaf-framework",
       "target": "why-no-one-can-agree-about-ai-progress-right-now",
       "relation": "same-author"
@@ -3552,6 +3850,21 @@
     {
       "source": "academic-research-skills-for-codex-ars-codex",
       "target": "academic-research-skills-for-claude-code-ars",
+      "relation": "same-author"
+    },
+    {
+      "source": "can-ai-be-creative-markus-academy-166-2",
+      "target": "prompts-and-agent-swarms-markus-academy-166-4",
+      "relation": "same-author"
+    },
+    {
+      "source": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "target": "which-model-to-use-for-theory-markus-academy-166-3",
+      "relation": "same-author"
+    },
+    {
+      "source": "economics-with-llms-day-4-synthetic-agents-simulations-and-counterfactuals",
+      "target": "economics-with-llms-day-5-llms-as-economic-subjects",
       "relation": "same-author"
     },
     {
@@ -3740,6 +4053,11 @@
       "relation": "shared-tag"
     },
     {
+      "source": "integration-and-collaboration-in-ai-research-work-substack-companion",
+      "target": "post-training-llms-aiesi-2026",
+      "relation": "shared-tag"
+    },
+    {
       "source": "applications-of-generative-ai-for-economic-research",
       "target": "ai-agents-generative-ai-for-economic-research",
       "relation": "shared-tag"
@@ -3790,6 +4108,26 @@
       "relation": "shared-tag"
     },
     {
+      "source": "guide-to-codex-for-economists",
+      "target": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
+      "target": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "target": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "core-uses-of-ai-for-economic-theory-markus-academy-166-1",
+      "target": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "relation": "shared-tag"
+    },
+    {
       "source": "ai-powered-finance-scholarship",
       "target": "automated-research-in-finance",
       "relation": "shared-tag"
@@ -3807,6 +4145,11 @@
     {
       "source": "part-11-deck-prompt",
       "target": "prompt-engineering",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "prompt-plan-review-revise",
+      "target": "prompts-and-agent-swarms-markus-academy-166-4",
       "relation": "shared-tag"
     },
     {
@@ -3867,6 +4210,26 @@
     {
       "source": "agentic-ai-bootcamp-session-2-research-workflows-teaching-applications",
       "target": "my580-agentic-ai-for-social-science-and-data-science-research",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "zeropaper-enhanced-ai-assisted-research-template-with-agentic-capabilities",
+      "target": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "target": "prompts-and-agent-swarms-markus-academy-166-4",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "prompts-and-agent-swarms-markus-academy-166-4",
+      "target": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "economics-with-llms-day-1-foundations-applications-and-agentic-tools",
+      "target": "economics-with-llms-day-4-synthetic-agents-simulations-and-counterfactuals",
       "relation": "shared-tag"
     },
     {
@@ -3952,6 +4315,11 @@
     {
       "source": "claude-code-102-for-academic-researchers",
       "target": "claude-code-for-academics-apsa-2026-spina",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "claude-code-for-academics-apsa-2026-spina",
+      "target": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
       "relation": "shared-tag"
     },
     {
@@ -4097,6 +4465,11 @@
     {
       "source": "claude-code-skills-for-academic-researchers",
       "target": "academic-research-skills-for-codex-ars-codex",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "academic-research-skills-for-claude-code-ars",
+      "target": "ai-engineering-skills-map-building-and-deploying-ai-applications",
       "relation": "shared-tag"
     }
   ]
