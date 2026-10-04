@@ -1,9 +1,9 @@
 {
   "meta": {
     "source_url": "https://velikov-mihail.github.io/ai-econ-wiki/visualizations/source-timeline/",
-    "generated_at": "2026-09-27T11:45:23Z",
-    "total_sources": 187,
-    "auto_sources": 186,
+    "generated_at": "2026-10-04T12:04:57Z",
+    "total_sources": 201,
+    "auto_sources": 200,
     "manual_sources": 1,
     "mode": "manual_plus_auto_merge"
   },
@@ -75,6 +75,20 @@
       ],
       "summary": "Auto-synced source from the AI econ timeline by Anton Korinek.",
       "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/llm-collaboration/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "prompt-library-wharton-generative-ai-labs",
+      "title": "Prompt Library (Wharton Generative AI Labs)",
+      "author": "Ethan Mollick & Lilach Mollick",
+      "date": "2025-03-19",
+      "type": "thread",
+      "tags": [
+        "prompting"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick & Lilach Mollick.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/wharton-prompt-library/",
       "origin": "auto",
       "relates_to": []
     },
@@ -2354,6 +2368,128 @@
       "relates_to": []
     },
     {
+      "id": "claude-code-103-for-academic-researchers",
+      "title": "Claude Code 103 for Academic Researchers",
+      "author": "Mushtaq Bilal",
+      "date": "2026-05-20",
+      "type": "paper",
+      "tags": [
+        "academia",
+        "coding-agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-103-bilal/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+      "title": "A Beginner's Guide to Claude Code for (Non-Technical) Academics",
+      "author": "Mushtaq Bilal",
+      "date": "2026-05-22",
+      "type": "guide",
+      "tags": [
+        "academia",
+        "coding-agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/bilal-beginners-guide/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "permissions-sandboxes-and-autonomous-agents",
+      "title": "Permissions, Sandboxes, and Autonomous Agents",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-05-23",
+      "type": "thread",
+      "tags": [
+        "agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/permissions-sandboxes-substack/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "skills-specifying-how-an-agent-should-think",
+      "title": "Skills: Specifying How an Agent Should Think",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-05-23",
+      "type": "tool",
+      "tags": [
+        "agents",
+        "skills"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/skills-specifying-thinking/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "claude-code-104-building-your-ai-powered-research-management-system",
+      "title": "Claude Code 104: Building Your AI-Powered Research Management System",
+      "author": "Mushtaq Bilal",
+      "date": "2026-05-25",
+      "type": "paper",
+      "tags": [
+        "coding-agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-104-bilal/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "title": "Permissions & OpenClaw: Claude Code for Economists (Markus Academy 162-7)",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-05-25",
+      "type": "thread",
+      "tags": [
+        "economics",
+        "academia",
+        "coding-agents"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/permissions-openclaw-markus-162-7/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "skills-claude-code-for-economists-markus-academy-162-6",
+      "title": "Skills: Claude Code for Economists (Markus Academy 162-6)",
+      "author": "Paul Goldsmith-Pinkham",
+      "date": "2026-05-25",
+      "type": "tool",
+      "tags": [
+        "economics",
+        "academia",
+        "coding-agents",
+        "skills"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/skills-markus-162-6/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "theorist-toolbox-claude-code-skills-for-economic-theory",
+      "title": "Theorist Toolbox: Claude Code Skills for Economic Theory",
+      "author": "Moran Koren",
+      "date": "2026-06-01",
+      "type": "tool",
+      "tags": [
+        "economics",
+        "coding-agents",
+        "skills"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Moran Koren.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/koren-theorist-toolbox/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
       "id": "mannheim-ai-code-clinic-session-1-video-1-doerrenberg-olbert",
       "title": "Mannheim AI Code Clinic — Session 1, Video 1 (Doerrenberg & Olbert)",
       "author": "Philipp Doerrenberg & Marcel Olbert",
@@ -2507,6 +2643,21 @@
       ],
       "summary": "Auto-synced source from the AI econ timeline by Google Cloud AI Research.",
       "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/scientist-one/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "verifying-llm-output-for-academic-economists",
+      "title": "Verifying LLM Output — for Academic Economists",
+      "author": "Claes Bäckman",
+      "date": "2026-08-01",
+      "type": "thread",
+      "tags": [
+        "economics",
+        "academia"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Claes Bäckman.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/verifying-llm-output/",
       "origin": "auto",
       "relates_to": []
     },
@@ -2669,6 +2820,64 @@
       "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/kazinnik-cemfi-day5/",
       "origin": "auto",
       "relates_to": []
+    },
+    {
+      "id": "ai-guide-for-economists-working-with-ai-a-philosophy",
+      "title": "AI Guide for Economists: Working with AI — A Philosophy",
+      "author": "Adrien Matray",
+      "date": "2026-09-01",
+      "type": "guide",
+      "tags": [
+        "economics"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Adrien Matray.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/matray-ai-guide/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "barrios-skills-ai-workflows-for-academic-research",
+      "title": "Barrios Skills — AI Workflows for Academic Research",
+      "author": "John Manuel Barrios",
+      "date": "2026-09-01",
+      "type": "tool",
+      "tags": [
+        "workflow",
+        "academia",
+        "skills"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by John Manuel Barrios.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/barrios-skills/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "beyond-the-stochastic-beamer-parrot",
+      "title": "Beyond the Stochastic Beamer Parrot",
+      "author": "Claes Bäckman",
+      "date": "2026-09-29",
+      "type": "thread",
+      "tags": [
+        "research"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Claes Bäckman.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/beamer-parrot/",
+      "origin": "auto",
+      "relates_to": []
+    },
+    {
+      "id": "introducing-living-science",
+      "title": "Introducing Living Science",
+      "author": "Chenhao Tan",
+      "date": "2026-09-29",
+      "type": "thread",
+      "tags": [
+        "research"
+      ],
+      "summary": "Auto-synced source from the AI econ timeline by Chenhao Tan.",
+      "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/living-science/",
+      "origin": "auto",
+      "relates_to": []
     }
   ],
   "links": [
@@ -2694,6 +2903,11 @@
     },
     {
       "source": "llm-collaboration-and-reasoning",
+      "target": "prompt-library-wharton-generative-ai-labs",
+      "relation": "timeline"
+    },
+    {
+      "source": "prompt-library-wharton-generative-ai-labs",
       "target": "prompts-to-paper-hedging-the-ai-singularity",
       "relation": "timeline"
     },
@@ -3494,6 +3708,46 @@
     },
     {
       "source": "codex-102-for-academic-researchers",
+      "target": "claude-code-103-for-academic-researchers",
+      "relation": "timeline"
+    },
+    {
+      "source": "claude-code-103-for-academic-researchers",
+      "target": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+      "relation": "timeline"
+    },
+    {
+      "source": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+      "target": "permissions-sandboxes-and-autonomous-agents",
+      "relation": "timeline"
+    },
+    {
+      "source": "permissions-sandboxes-and-autonomous-agents",
+      "target": "skills-specifying-how-an-agent-should-think",
+      "relation": "timeline"
+    },
+    {
+      "source": "skills-specifying-how-an-agent-should-think",
+      "target": "claude-code-104-building-your-ai-powered-research-management-system",
+      "relation": "timeline"
+    },
+    {
+      "source": "claude-code-104-building-your-ai-powered-research-management-system",
+      "target": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "relation": "timeline"
+    },
+    {
+      "source": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "target": "skills-claude-code-for-economists-markus-academy-162-6",
+      "relation": "timeline"
+    },
+    {
+      "source": "skills-claude-code-for-economists-markus-academy-162-6",
+      "target": "theorist-toolbox-claude-code-skills-for-economic-theory",
+      "relation": "timeline"
+    },
+    {
+      "source": "theorist-toolbox-claude-code-skills-for-economic-theory",
       "target": "mannheim-ai-code-clinic-session-1-video-1-doerrenberg-olbert",
       "relation": "timeline"
     },
@@ -3549,6 +3803,11 @@
     },
     {
       "source": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
+      "target": "verifying-llm-output-for-academic-economists",
+      "relation": "timeline"
+    },
+    {
+      "source": "verifying-llm-output-for-academic-economists",
       "target": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
       "relation": "timeline"
     },
@@ -3600,6 +3859,26 @@
     {
       "source": "ai-engineering-skills-map-building-and-deploying-ai-applications",
       "target": "economics-with-llms-day-5-llms-as-economic-subjects",
+      "relation": "timeline"
+    },
+    {
+      "source": "economics-with-llms-day-5-llms-as-economic-subjects",
+      "target": "ai-guide-for-economists-working-with-ai-a-philosophy",
+      "relation": "timeline"
+    },
+    {
+      "source": "ai-guide-for-economists-working-with-ai-a-philosophy",
+      "target": "barrios-skills-ai-workflows-for-academic-research",
+      "relation": "timeline"
+    },
+    {
+      "source": "barrios-skills-ai-workflows-for-academic-research",
+      "target": "beyond-the-stochastic-beamer-parrot",
+      "relation": "timeline"
+    },
+    {
+      "source": "beyond-the-stochastic-beamer-parrot",
+      "target": "introducing-living-science",
       "relation": "timeline"
     },
     {
@@ -3784,6 +4063,16 @@
     },
     {
       "source": "writing-thinking-claude-code-for-economists-markus-academy-162-5",
+      "target": "permissions-sandboxes-and-autonomous-agents",
+      "relation": "same-author"
+    },
+    {
+      "source": "skills-specifying-how-an-agent-should-think",
+      "target": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "relation": "same-author"
+    },
+    {
+      "source": "skills-claude-code-for-economists-markus-academy-162-6",
       "target": "integration-and-collaboration-in-ai-research-work-substack-companion",
       "relation": "same-author"
     },
@@ -3838,6 +4127,16 @@
       "relation": "same-author"
     },
     {
+      "source": "claude-code-in-vs-code-for-academic-economists",
+      "target": "verifying-llm-output-for-academic-economists",
+      "relation": "same-author"
+    },
+    {
+      "source": "verifying-llm-output-for-academic-economists",
+      "target": "beyond-the-stochastic-beamer-parrot",
+      "relation": "same-author"
+    },
+    {
       "source": "ai-for-business-economic-research-from-chatbots-to-agents",
       "target": "edhec-master-class-using-ai-for-research",
       "relation": "same-author"
@@ -3850,6 +4149,11 @@
     {
       "source": "academic-research-skills-for-codex-ars-codex",
       "target": "academic-research-skills-for-claude-code-ars",
+      "relation": "same-author"
+    },
+    {
+      "source": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+      "target": "claude-code-104-building-your-ai-powered-research-management-system",
       "relation": "same-author"
     },
     {
@@ -4058,6 +4362,11 @@
       "relation": "shared-tag"
     },
     {
+      "source": "post-training-llms-aiesi-2026",
+      "target": "beyond-the-stochastic-beamer-parrot",
+      "relation": "shared-tag"
+    },
+    {
       "source": "applications-of-generative-ai-for-economic-research",
       "target": "ai-agents-generative-ai-for-economic-research",
       "relation": "shared-tag"
@@ -4104,6 +4413,11 @@
     },
     {
       "source": "writing-thinking-claude-code-for-economists-markus-academy-162-5",
+      "target": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "theorist-toolbox-claude-code-skills-for-economic-theory",
       "target": "guide-to-codex-for-economists",
       "relation": "shared-tag"
     },
@@ -4114,7 +4428,7 @@
     },
     {
       "source": "integration-collaboration-claude-code-for-economists-markus-academy-162-8",
-      "target": "ai-for-economic-theorists-mathematicians-markus-academy-166-overview",
+      "target": "verifying-llm-output-for-academic-economists",
       "relation": "shared-tag"
     },
     {
@@ -4214,6 +4528,11 @@
     },
     {
       "source": "zeropaper-enhanced-ai-assisted-research-template-with-agentic-capabilities",
+      "target": "permissions-sandboxes-and-autonomous-agents",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "skills-specifying-how-an-agent-should-think",
       "target": "scientistone-towards-human-level-autonomous-research-via-chain-of-evidence",
       "relation": "shared-tag"
     },
@@ -4314,6 +4633,11 @@
     },
     {
       "source": "claude-code-102-for-academic-researchers",
+      "target": "claude-code-103-for-academic-researchers",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "theorist-toolbox-claude-code-skills-for-economic-theory",
       "target": "claude-code-for-academics-apsa-2026-spina",
       "relation": "shared-tag"
     },
@@ -4383,8 +4707,18 @@
       "relation": "shared-tag"
     },
     {
-      "source": "codex-102-for-academic-researchers",
+      "source": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+      "target": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "skills-claude-code-for-economists-markus-academy-162-6",
       "target": "claude-code-for-academics-apsa-2026-spina",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "which-model-to-use-for-theory-markus-academy-166-3",
+      "target": "barrios-skills-ai-workflows-for-academic-research",
       "relation": "shared-tag"
     },
     {
@@ -4415,6 +4749,11 @@
     {
       "source": "langchain-note-by-harrison-chase",
       "target": "zeropaper-gallery-papers-produced-by-an-autonomous-research-pipeline",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "agentic-ai-bootcamp-session-2-research-workflows-teaching-applications",
+      "target": "barrios-skills-ai-workflows-for-academic-research",
       "relation": "shared-tag"
     },
     {
@@ -4469,7 +4808,22 @@
     },
     {
       "source": "academic-research-skills-for-claude-code-ars",
+      "target": "skills-specifying-how-an-agent-should-think",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "skills-specifying-how-an-agent-should-think",
+      "target": "skills-claude-code-for-economists-markus-academy-162-6",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "theorist-toolbox-claude-code-skills-for-economic-theory",
       "target": "ai-engineering-skills-map-building-and-deploying-ai-applications",
+      "relation": "shared-tag"
+    },
+    {
+      "source": "ai-engineering-skills-map-building-and-deploying-ai-applications",
+      "target": "barrios-skills-ai-workflows-for-academic-research",
       "relation": "shared-tag"
     }
   ]

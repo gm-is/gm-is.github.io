@@ -70,6 +70,20 @@
     "relates_to": []
   },
   {
+    "id": "prompt-library-wharton-generative-ai-labs",
+    "title": "Prompt Library (Wharton Generative AI Labs)",
+    "author": "Ethan Mollick & Lilach Mollick",
+    "date": "2025-03-19",
+    "type": "thread",
+    "tags": [
+      "prompting"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Ethan Mollick & Lilach Mollick.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/wharton-prompt-library/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "prompts-to-paper-hedging-the-ai-singularity",
     "title": "Prompts-to-Paper: Hedging the AI Singularity",
     "author": "Andrew Y. Chen",
@@ -2202,6 +2216,112 @@
     "relates_to": []
   },
   {
+    "id": "claude-code-103-for-academic-researchers",
+    "title": "Claude Code 103 for Academic Researchers",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-20",
+    "type": "paper",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-103-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "a-beginner-s-guide-to-claude-code-for-non-technical-academics",
+    "title": "A Beginner's Guide to Claude Code for (Non-Technical) Academics",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-22",
+    "type": "guide",
+    "tags": [
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/bilal-beginners-guide/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "permissions-sandboxes-and-autonomous-agents",
+    "title": "Permissions, Sandboxes, and Autonomous Agents",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-05-23",
+    "type": "thread",
+    "tags": [
+      "agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/permissions-sandboxes-substack/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "skills-specifying-how-an-agent-should-think",
+    "title": "Skills: Specifying How an Agent Should Think",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-05-23",
+    "type": "tool",
+    "tags": [
+      "agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/skills-specifying-thinking/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "claude-code-104-building-your-ai-powered-research-management-system",
+    "title": "Claude Code 104: Building Your AI-Powered Research Management System",
+    "author": "Mushtaq Bilal",
+    "date": "2026-05-25",
+    "type": "paper",
+    "tags": [
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Mushtaq Bilal.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/claude-code-104-bilal/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "skills-claude-code-for-economists-markus-academy-162-6",
+    "title": "Skills: Claude Code for Economists (Markus Academy 162-6)",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-05-25",
+    "type": "tool",
+    "tags": [
+      "economics",
+      "academia",
+      "coding-agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/skills-markus-162-6/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "permissions-openclaw-claude-code-for-economists-markus-academy-162-7",
+    "title": "Permissions & OpenClaw: Claude Code for Economists (Markus Academy 162-7)",
+    "author": "Paul Goldsmith-Pinkham",
+    "date": "2026-05-25",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "academia",
+      "coding-agents"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Paul Goldsmith-Pinkham.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/permissions-openclaw-markus-162-7/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "academic-research-skills-for-codex-ars-codex",
     "title": "Academic Research Skills for Codex (ARS-Codex)",
     "author": "Edward Cheng-I Wu",
@@ -2428,6 +2548,22 @@
     "relates_to": []
   },
   {
+    "id": "theorist-toolbox-claude-code-skills-for-economic-theory",
+    "title": "Theorist Toolbox: Claude Code Skills for Economic Theory",
+    "author": "Moran Koren",
+    "date": "2026-06-01",
+    "type": "tool",
+    "tags": [
+      "economics",
+      "coding-agents",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Moran Koren.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/koren-theorist-toolbox/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
     "id": "integration-and-collaboration-in-ai-research-work-substack-companion",
     "title": "Integration and Collaboration in AI Research Work (Substack companion)",
     "author": "Paul Goldsmith-Pinkham",
@@ -2642,6 +2778,79 @@
     ],
     "summary": "Auto-synced source from the AI econ timeline by Google Cloud AI Research.",
     "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/scientist-one/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "verifying-llm-output-for-academic-economists",
+    "title": "Verifying LLM Output — for Academic Economists",
+    "author": "Claes Bäckman",
+    "date": "2026-08-01",
+    "type": "thread",
+    "tags": [
+      "economics",
+      "academia"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Claes Bäckman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/verifying-llm-output/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "beyond-the-stochastic-beamer-parrot",
+    "title": "Beyond the Stochastic Beamer Parrot",
+    "author": "Claes Bäckman",
+    "date": "2026-09-29",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Claes Bäckman.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/beamer-parrot/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "introducing-living-science",
+    "title": "Introducing Living Science",
+    "author": "Chenhao Tan",
+    "date": "2026-09-29",
+    "type": "thread",
+    "tags": [
+      "research"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Chenhao Tan.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/living-science/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "barrios-skills-ai-workflows-for-academic-research",
+    "title": "Barrios Skills — AI Workflows for Academic Research",
+    "author": "John Manuel Barrios",
+    "date": "2026-09-01",
+    "type": "tool",
+    "tags": [
+      "workflow",
+      "academia",
+      "skills"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by John Manuel Barrios.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/barrios-skills/",
+    "origin": "auto",
+    "relates_to": []
+  },
+  {
+    "id": "ai-guide-for-economists-working-with-ai-a-philosophy",
+    "title": "AI Guide for Economists: Working with AI — A Philosophy",
+    "author": "Adrien Matray",
+    "date": "2026-09-01",
+    "type": "guide",
+    "tags": [
+      "economics"
+    ],
+    "summary": "Auto-synced source from the AI econ timeline by Adrien Matray.",
+    "url": "https://velikov-mihail.github.io/ai-econ-wiki/summaries/matray-ai-guide/",
     "origin": "auto",
     "relates_to": []
   }
